@@ -6,7 +6,6 @@ class SongsService {
     return _getSongsFromAssets();
   }
 
-
   Future<List<SongModel>> getSongsFromCache() async {
     // TODO: Not yet implemented
     return _getSongsFromAssets();

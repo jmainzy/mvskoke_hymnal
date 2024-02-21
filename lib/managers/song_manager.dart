@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_launcher_icons/config/config.dart';
 import 'package:mvskoke_hymnal/services/config_service.dart';
 import 'package:mvskoke_hymnal/services/songs_service.dart';
 
@@ -28,6 +29,10 @@ class SongManager {
     return sl<ConfigService>().showEnglishLyrics;
   }
 
+  void setShowEnglishLyrics(bool value) {
+    sl<ConfigService>().setShowEnglishLyrics(value);
+  }
+
   Future<void> getSongs({bool forced = false}) async {
     log('get songs !!!!!!!! $forced');
     _songs = await _songsService.getSongs(forced: forced);
@@ -41,8 +46,7 @@ class SongManager {
     _sortSongs();
   }
 
-  _sortSongs() {
-  }
+  _sortSongs() {}
 
   SongModel? getSongById(String id) {
     return _songs.where((element) => element.id == id).firstOrNull;

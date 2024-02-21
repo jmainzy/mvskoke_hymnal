@@ -8,15 +8,16 @@ class ConfigService {
   bool shouldUpdateSong = false;
   late SharedPreferences prefs;
 
-  bool get showEnglishLyrics => prefs.getBool(
-    'showEnglishLyrics',
-  ) ?? false;
+  bool get showEnglishLyrics =>
+      prefs.getBool(
+        'showEnglishLyrics',
+      ) ??
+      false;
 
   Future<void> setShowEnglishLyrics(bool value) =>
       prefs.setBool('showEnglishLyrics', value);
 
   Future<void> initConfig() async {
-
     prefs = await SharedPreferences.getInstance();
     // String time = prefs.getString('songLastUpdated') ?? '';
     // if (time.isEmpty) {
