@@ -22,89 +22,86 @@ class LyricsRenderer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final musStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
-      fontWeight: FontWeight.bold,
-      fontSize: 16.0,
-    );
+          fontWeight: FontWeight.bold,
+          fontSize: 16.0,
+        );
     final enStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
-      fontWeight: FontWeight.normal,
-      fontStyle: FontStyle.italic,
-      fontSize: 16.0,
-    );
+          fontWeight: FontWeight.normal,
+          fontStyle: FontStyle.italic,
+          fontSize: 16.0,
+        );
 
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints viewportConstraints) {
       return SingleChildScrollView(
-          child:  ConstrainedBox(
-    constraints: BoxConstraints(
-    minHeight: viewportConstraints.maxHeight,
-      minWidth: viewportConstraints.maxWidth,
-    ),
-    child: Column(
-    mainAxisSize: MainAxisSize.max,
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-          Padding(
-              padding: const EdgeInsets.fromLTRB(
-                  Dimens.marginLarge, Dimens.marginLarge,Dimens.marginLarge, Dimens.marginShort),
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.headlineLarge,
-                textAlign: TextAlign.start,
-              )),
-          Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: Dimens.marginLarge ),
-              child: Text(
-                subtitle,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall!
-                    .copyWith(color: Colors.grey),
-                textAlign: TextAlign.start,
-              )),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: getLyrics(musStyle, enStyle),
-          ),
-          footer!=null ? footer! : Container(),
-        ])));});
+          child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: viewportConstraints.maxHeight,
+                minWidth: viewportConstraints.maxWidth,
+              ),
+              child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                            Dimens.marginLarge,
+                            Dimens.marginLarge,
+                            Dimens.marginLarge,
+                            Dimens.marginShort),
+                        child: Text(
+                          title,
+                          style: Theme.of(context).textTheme.headlineLarge,
+                          textAlign: TextAlign.start,
+                        )),
+                    showEnglish
+                        ? Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: Dimens.marginLarge),
+                            child: Text(
+                              subtitle,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall!
+                                  .copyWith(color: Colors.grey),
+                              textAlign: TextAlign.start,
+                            ))
+                        : Container(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: getLyrics(musStyle, enStyle),
+                    ),
+                    footer != null ? footer! : Container(),
+                  ])));
+    });
   }
 
   List<Widget> getLyrics(
-      TextStyle musStyle,
-      TextStyle enStyle,
-      ) {
-
+    TextStyle musStyle,
+    TextStyle enStyle,
+  ) {
     List<Widget> textLines = [];
 
-
-    if (showEnglish) {
-      int i = 0;
-      for (String line in musLyrics) {
+    int i = 0;
+    for (String line in musLyrics) {
+      textLines.add(Padding(
+          padding: const EdgeInsets.fromLTRB(
+              Dimens.marginLarge, Dimens.marginShort, Dimens.marginLarge, 0),
+          child: Text(
+            line,
+            style: musStyle,
+          )));
+      if (showEnglish) {
         textLines.add(Padding(
-            padding: EdgeInsets.fromLTRB(
-                Dimens.marginLarge, Dimens.marginShort, Dimens.marginLarge, 0),
-            child: Text(
-              line,
-              style: musStyle,
-            )));
-        textLines.add(Padding(
-            padding: EdgeInsets.fromLTRB(
+            padding: const EdgeInsets.fromLTRB(
                 Dimens.marginLarge, Dimens.marginShort, Dimens.marginLarge, 0),
             child: Text(
               enLyrics[i],
               style: enStyle,
             )));
-        i += 1;
       }
-    } else {
-      textLines = musLyrics
-          .map((e) => Text(
-        e,
-        style: musStyle,
-      ))
-          .toList();
+      i += 1;
     }
     return textLines;
   }

@@ -70,7 +70,6 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
 
   @override
   Widget build(BuildContext context) {
-
     if (loading) {
       return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
@@ -120,23 +119,19 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
           subtitle: currentSong!.titles[1],
           musLyrics: currentSong!.mus_lyrics,
           enLyrics: currentSong!.en_lyrics,
-          showEnglish: true,
-          footer: const Padding(padding: EdgeInsets.all(Dimens.marginLarge),
-    child: Text("L.M. Prayer Hymn"))
-      ),
+          showEnglish: showEnglish,
+          footer: const Padding(
+              padding: EdgeInsets.all(Dimens.marginLarge),
+              child: Text("L.M. Prayer Hymn"))),
       bottomNavigationBar: BottomActionBar(
-        scrollSpeed: scrollSpeed,
-        scrollEnabled: scrollEnabled,
-        onEnableAutoScroll: (enabled) {
+        onToggleEnglish: (value) {
+          sl<SongManager>().setShowEnglishLyrics(value);
           setState(() {
-            scrollEnabled = enabled;
+            showEnglish = value;
           });
         },
-        onChangeAutoScroll: (speed) {
-          scrollSpeed = speed;
-          setState(() {});
-        },
         song: currentSong!,
+        showEnglish: showEnglish,
       ),
     );
   }
