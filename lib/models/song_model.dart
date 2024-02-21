@@ -26,8 +26,8 @@ String songModelsToString(List<SongModel>? index) {
 class SongModel {
   final String id;
   final List<dynamic> titles;
-  final String? mus_lyrics;
-  final String? en_lyrics;
+  final List<dynamic> mus_lyrics;
+  final List<dynamic> en_lyrics;
   final Timestamp? lastUpdate;
   final String? songNumber;
   final String? audioUrl;
@@ -35,8 +35,8 @@ class SongModel {
   SongModel({
     required this.id,
     required this.titles,
-    this.mus_lyrics,
-    this.en_lyrics,
+    required this.mus_lyrics,
+    required this.en_lyrics,
     required this.lastUpdate,
     this.songNumber,
     this.audioUrl,
@@ -64,8 +64,8 @@ class SongModel {
     return SongModel(
       id: map['id'],
       titles: map['titles'],
-      mus_lyrics: map['mus_lyrics'] ?? '',
-      en_lyrics: map['en_lyrics'] ?? '',
+      mus_lyrics: map['mus_lyrics'],
+      en_lyrics: map['en_lyrics'],
       lastUpdate: lastUpdate,
       songNumber: map['song_number'],
       audioUrl: map['audioUrl'],
