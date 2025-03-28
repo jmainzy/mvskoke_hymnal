@@ -33,8 +33,6 @@ class MyApp extends StatelessWidget {
 
 const lightTheme = ColorScheme.light(
   primary: Colors.green,
-  background: Color(0xfff9f9f9),
   surface: Colors.white,
-  onBackground: Colors.black87,
   onSurface: Colors.black87,
 );

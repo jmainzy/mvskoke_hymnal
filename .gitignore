@@ -45,3 +45,6 @@ app.*.map.json
 linux
 macos
 windows
+android/app/.cxx
+
+settings.json

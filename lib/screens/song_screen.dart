@@ -72,7 +72,7 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
   Widget build(BuildContext context) {
     if (loading) {
       return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         body: const Center(
           child: CircularProgressIndicator(),
         ),
@@ -81,7 +81,7 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
 
     if (currentSong == null) {
       return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -101,7 +101,7 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
     }
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
           // title:Text.rich(

@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/config/config.dart';
 import 'package:mvskoke_hymnal/services/config_service.dart';
 import 'package:mvskoke_hymnal/services/songs_service.dart';
 
