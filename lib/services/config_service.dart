@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/timestamp.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

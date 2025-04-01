@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:mvskoke_hymnal/models/enums.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/utilities/extensions.dart';

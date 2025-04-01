@@ -19,7 +19,8 @@ class SongTile extends StatelessWidget {
       onTap: () {
         context.push('/songs/${song.id}');
       },
-      contentPadding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
+      contentPadding:
+          const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
       tileColor: Theme.of(context).colorScheme.surface,
       title: Text(
         song.titles[0],
@@ -32,7 +33,7 @@ class SongTile extends StatelessWidget {
       trailing: SizedBox(
         width: 40,
         child: Text(
-          song.songNumber ?? '',
+          song.id,
           softWrap: true,
           textAlign: TextAlign.right,
           style: Theme.of(context).textTheme.bodySmall,

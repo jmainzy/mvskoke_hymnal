@@ -26,19 +26,17 @@ String songModelsToString(List<SongModel>? index) {
 class SongModel {
   final String id;
   final List<dynamic> titles;
-  final List<dynamic> mus_lyrics;
-  final List<dynamic> en_lyrics;
+  final List<dynamic> lyrics;
+  final List<dynamic> lyricsEn;
   final Timestamp? lastUpdate;
-  final String? songNumber;
   final String? audioUrl;
 
   SongModel({
     required this.id,
     required this.titles,
-    required this.mus_lyrics,
-    required this.en_lyrics,
+    required this.lyrics,
+    required this.lyricsEn,
     required this.lastUpdate,
-    this.songNumber,
     this.audioUrl,
   });
 
@@ -50,10 +48,9 @@ class SongModel {
     return {
       'id': id,
       'titles': titles,
-      'mus_lyrics': mus_lyrics,
-      'en_lyrics': en_lyrics,
+      'lyrics': lyrics,
+      'lyrics_en': lyricsEn,
       'lastUpdate': lastUpdate.toString(),
-      'song_number': songNumber,
       'audioUrl': audioUrl,
     };
   }
@@ -64,10 +61,9 @@ class SongModel {
     return SongModel(
       id: map['id'],
       titles: map['titles'],
-      mus_lyrics: map['mus_lyrics'],
-      en_lyrics: map['en_lyrics'],
+      lyrics: map['lyrics'],
+      lyricsEn: map['lyrics_en'],
       lastUpdate: lastUpdate,
-      songNumber: map['song_number'],
       audioUrl: map['audioUrl'],
     );
   }

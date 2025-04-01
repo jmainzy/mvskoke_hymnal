@@ -63,7 +63,7 @@ class SongManager {
 
       if (isANumber != null) {
         final filteredSearchBySongNumber = filteredResult.value.where(
-          (SongModel song) => song.songNumber == isANumber,
+          (SongModel song) => song.id == isANumber,
         );
 
         filteredResult.value = filteredSearchBySongNumber.toList();

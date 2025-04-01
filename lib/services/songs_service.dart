@@ -15,7 +15,7 @@ class SongsService {
     print('Fetching song from assets');
 
     final songs = songModelsFromString(
-      await rootBundle.loadString('backend/songs.json'),
+      await rootBundle.loadString('assets/songs.json'),
     );
     final songsFromAssets = [...songs];
 

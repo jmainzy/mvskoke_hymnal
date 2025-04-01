@@ -117,8 +117,8 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
       body: LyricsRenderer(
           title: currentSong!.titles[0],
           subtitle: currentSong!.titles[1],
-          musLyrics: currentSong!.mus_lyrics,
-          enLyrics: currentSong!.en_lyrics,
+          musLyrics: currentSong!.lyrics,
+          enLyrics: currentSong!.lyricsEn,
           showEnglish: showEnglish,
           footer: const Padding(
               padding: EdgeInsets.all(Dimens.marginLarge),
