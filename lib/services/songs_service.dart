@@ -1,32 +1,14 @@
-import 'package:flutter/services.dart';
+import 'package:song_manager/services/songs_service.dart';
+import 'package:mvskoke_hymnal/models/media_item.dart';
+import 'package:mvskoke_hymnal/models/song_details.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
 
-class SongsService {
-  Future<List<SongModel>> getSongs({bool forced = false}) async {
-    return _getSongsFromAssets();
-  }
-
-  Future<List<SongModel>> getSongsFromCache() async {
-    // TODO: Not yet implemented
-    return _getSongsFromAssets();
-  }
-
-  Future<List<SongModel>> _getSongsFromAssets() async {
-    print('Fetching song from assets');
-
-    final songs = songModelsFromString(
-      await rootBundle.loadString('assets/songs.json'),
-    );
-    final songsFromAssets = [...songs];
-
-    _saveSongsToLocal(songsFromAssets);
-    return songsFromAssets;
-  }
-
-  Future<void> _saveSongsToLocal(List<SongModel> songs) async {
-    // print('Saving song to local');
-    // final store = sl<StoreService>().box;
-    // final songsString = songModelsToString(songs);
-    // await store.put('songs', songsString);
-  }
+/// Custom SongService class with our custom models
+class MusSongService extends SongsService<SongModel, SongDetails, MediaItem> {
+  MusSongService({required super.storeService, required super.webService})
+      : super(
+          metadataSerializer: MetadataSerializer(),
+          detailsSerializer: DetailsSerializer(),
+          mediaSerializer: MediaSerializer(),
+        );
 }

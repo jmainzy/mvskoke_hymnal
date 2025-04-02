@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/song_model.dart';
+import 'package:mvskoke_hymnal/models/song_model.dart';
 
 class SongSubtitle extends StatelessWidget {
   final SongModel song;
@@ -21,24 +21,17 @@ class SongSubtitle extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              song.titles[1],
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 14,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            // if (song.hasVideo && isHorizontal)
-            //   const Padding(
-            //     padding: EdgeInsets.only(left: 4),
-            //     child: Icon(
-            //       Icons.videocam_outlined,
-            //       color: Colors.grey,
-            //       size: 20,
-            //     ),
-            //   ),
+            song.subtitle != null
+                ? Text(
+                    song.subtitle!,
+                    style: const TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                : Container(),
             if (song.hasAudio && isHorizontal)
               const Padding(
                 padding: EdgeInsets.only(left: 4),
@@ -52,15 +45,6 @@ class SongSubtitle extends StatelessWidget {
         ),
         Row(
           children: [
-            // if (song.hasVideo && !isHorizontal)
-            //   const Padding(
-            //     padding: EdgeInsets.only(right: 4),
-            //     child: Icon(
-            //       Icons.videocam_outlined,
-            //       color: Colors.grey,
-            //       size: 20,
-            //     ),
-            //   ),
             if (song.hasAudio && !isHorizontal)
               const Icon(
                 Icons.music_note,
