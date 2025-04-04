@@ -13,13 +13,13 @@ class SongModel extends SongMetadataBase {
   final Timestamp? lastUpdate;
   final String? audioUrl;
   final String? note;
-  final Map<String, String> lyrics;
+  final Map<String, String> lyricsMap;
 
   SongModel({
     required super.id,
     required super.songNumber,
     required this.titles,
-    required this.lyrics,
+    required this.lyricsMap,
     required this.lastUpdate,
     this.audioUrl,
     this.note,
@@ -28,6 +28,9 @@ class SongModel extends SongMetadataBase {
   bool get hasAudio {
     return audioUrl != null && audioUrl!.isNotEmpty;
   }
+
+  String? get lyrics => lyricsMap['mus'];
+  String? get lyricsEn => lyricsMap['en'];
 
   String get title {
     const langugage = 'mus'; // default language
@@ -78,7 +81,7 @@ class MetadataSerializer extends Serializer<SongModel> {
     return SongModel(
       id: map['id'],
       titles: titles,
-      lyrics: lyrics,
+      lyricsMap: lyrics,
       lastUpdate: lastUpdate,
       songNumber: map['id'].toString().padLeft(3, '0'),
       audioUrl: map['audioUrl'],
@@ -91,7 +94,7 @@ class MetadataSerializer extends Serializer<SongModel> {
     return {
       'id': metadata.id,
       'titles': metadata.titles,
-      'lyrics': metadata.lyrics,
+      'lyrics': metadata.lyricsMap,
       'lastUpdate': metadata.lastUpdate.toString(),
       'song_number': metadata.songNumber,
       'audioUrl': metadata.audioUrl,

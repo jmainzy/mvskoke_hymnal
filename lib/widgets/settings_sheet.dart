@@ -5,15 +5,9 @@ import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 
 class SettingsSheet extends StatefulWidget {
-  final int transposeIncrement;
-  final Function(Direction direction)? onChangeTranspose;
-  final Function(bool showChords)? onToggleChords;
   final Function(double fontSize)? onChangeFontSize;
 
   const SettingsSheet({
-    required this.transposeIncrement,
-    required this.onChangeTranspose,
-    required this.onToggleChords,
     required this.onChangeFontSize,
     super.key,
   });
@@ -30,17 +24,10 @@ class SettingsSheetState extends State<SettingsSheet> {
         padding: const EdgeInsets.all(Dimens.marginLarge),
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            maxHeight: MediaQuery.of(context).size.height,
+            maxHeight: MediaQuery.of(context).size.height / 4,
           ),
           child: Column(
             children: [
-              TransposeWidget(
-                transposeIncrement: widget.transposeIncrement,
-                onChangeTranspose: widget.onChangeTranspose,
-              ),
-              const SizedBox(height: Dimens.marginLarge),
-              ToggleChordsWidget(onToggle: widget.onToggleChords),
-              const SizedBox(height: Dimens.marginLarge),
               TextSizeWidget(onChangeFontSize: widget.onChangeFontSize),
               const SizedBox(height: Dimens.marginShort),
             ],

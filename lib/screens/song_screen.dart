@@ -35,6 +35,7 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
   int transposeIncrement = 0;
   double scrollSpeed = 10;
   bool scrollEnabled = false;
+  bool showEnglish = true;
 
   SongModel? currentSong;
   List<MediaItem>? mediaItems;
@@ -114,8 +115,6 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
       );
     }
 
-    final lyrics = getLyrics(currentSong!);
-    List<String> additionalLyrics = [];
     int buffer = (Dimens.marginLarge * 2 * fontSize / 16).toInt();
 
     return Scaffold(
@@ -138,18 +137,22 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
               ),
         ),
         surfaceTintColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () => showSettings(context),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: const Icon(Icons.settings),
+        //     onPressed: () => showSettings(context),
+        //   ),
+        // ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Dimens.marginLarge),
         child: LyricsRenderer(
-          lyrics: lyrics,
-          additionalLyrics: additionalLyrics,
+          lyrics: currentSong!.lyrics?.trim() ??
+              currentSong!.lyricsEn?.trim() ??
+              'Error getting lyrics',
+          additionalLyrics: showEnglish && currentSong!.lyricsEn?.trim() != null
+              ? [currentSong!.lyricsEn!.trim()]
+              : null,
           textStyle: Theme.of(
             context,
           ).textTheme.bodyLarge!.copyWith(fontSize: fontSize),
@@ -182,24 +185,13 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
         ),
       ),
       bottomNavigationBar: BottomActionBar(
+        showSettings: () => showSettings(context),
         // onToggleEnglish: (enabled) =>  sl<MusSongManager>().setShowEnglishLyrics(value);
         onToggleEnglish: (enabled) {},
         song: currentSong!,
         showEnglish: true,
       ),
     );
-  }
-
-  void _onChangeTranspose(Direction direction) {
-    transposeIncrement += direction == Direction.up ? 1 : -1;
-    setState(() {});
-  }
-
-  String getLyrics(SongModel song) {
-    if (currentSong?.lyrics.isEmpty ?? true) {
-      return 'Error getting lyrics';
-    }
-    return currentSong?.lyrics.values.first ?? '';
   }
 
   void showSettings(BuildContext context) {
@@ -211,13 +203,6 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
             minHeight: MediaQuery.of(context).size.height * 0.2,
           ),
           child: SettingsSheet(
-            transposeIncrement: transposeIncrement,
-            onChangeTranspose: _onChangeTranspose,
-            onToggleChords: (value) {
-              setState(() {
-                showChords = value;
-              });
-            },
             onChangeFontSize: (value) => setState(() {
               setState(() {
                 fontSize = value;

@@ -9,11 +9,13 @@ import 'package:mvskoke_hymnal/widgets/audio_player.dart';
 
 class BottomActionBar extends StatefulWidget {
   final Function(bool enabled) onToggleEnglish;
+  final Function() showSettings;
   final SongModel song;
   final bool showEnglish;
 
   const BottomActionBar({
     required this.onToggleEnglish,
+    required this.showSettings,
     required this.song,
     required this.showEnglish,
     Key? key,
@@ -72,11 +74,14 @@ class _BottomActionBarState extends State<BottomActionBar> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                      onPressed: _playAudio,
-                      icon: Icon(
-                        Icons.play_circle,
-                        color: Theme.of(context).colorScheme.onSurface,
-                      )),
+                      onPressed: widget.showSettings,
+                      icon: Icon(Icons.format_size)),
+                  // IconButton(
+                  //     onPressed: _playAudio,
+                  //     icon: Icon(
+                  //       Icons.play_circle,
+                  //       color: Theme.of(context).colorScheme.onSurface,
+                  //     )),
                   TextButton(
                       onPressed: () =>
                           {widget.onToggleEnglish(!widget.showEnglish)},
