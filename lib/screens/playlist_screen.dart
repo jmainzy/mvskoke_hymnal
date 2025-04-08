@@ -3,6 +3,8 @@ import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/managers/playlist_manager.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
+import 'package:mvskoke_hymnal/widgets/playlist/new_playlist_sheet.dart';
+import 'package:mvskoke_hymnal/widgets/playlist/playlist_list.dart';
 
 Logger log = Logger();
 
@@ -30,11 +32,12 @@ class _PlaylistScreenState extends State<PlaylistScreen> with GetItStateMixin {
       ),
       body: Stack(
         children: [
-          const SingleChildScrollView(
+          SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20),
+                PlaylistsList(playlists: playlists),
+                const SizedBox(height: 20),
                 // const Text(
                 //   'Playlists shared with you',
                 //   style: TextStyle(
@@ -43,7 +46,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> with GetItStateMixin {
                 //   ),
                 // ),
                 // PlaylistsList(playlists: shareAcceptedPlaylists),
-                SizedBox(height: 20),
+                // SizedBox(height: 20),
               ],
             ),
           ),
@@ -65,7 +68,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> with GetItStateMixin {
     showModalBottomSheet(
       context: context,
       builder: (context) {
-        return Container();
+        return const NewPlaylistBottomsheet();
       },
     );
   }

@@ -5,6 +5,7 @@ import 'package:flutter_guitar_tabs/flutter_guitar_tabs.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
+import 'package:mvskoke_hymnal/widgets/playlist/add_to_playlist_sheet.dart';
 import 'package:mvskoke_hymnal/widgets/settings_sheet.dart';
 import 'package:mvskoke_hymnal/widgets/song_footer.dart';
 import 'package:mvskoke_hymnal/widgets/song_header.dart';
@@ -16,7 +17,7 @@ import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/utilities/utils.dart';
 import 'package:mvskoke_hymnal/widgets/bottom_action_bar.dart';
 
-Logger logger = Logger();
+Logger log = Logger();
 
 class SongScreen extends StatefulWidget with GetItStatefulWidgetMixin {
   final String songId;
@@ -88,7 +89,10 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
     showModalBottomSheet(
       context: context,
       builder: (context) {
-        return Container();
+        return AddToPlaylistSheet(
+          songId: songId,
+          transposeIncrement: transposeIncrement,
+        );
       },
     );
   }

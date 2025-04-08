@@ -8,6 +8,8 @@ import 'package:mvskoke_hymnal/models/playlist.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
+import 'package:mvskoke_hymnal/widgets/playlist/confirm_bottom_sheet.dart';
+import 'package:mvskoke_hymnal/widgets/playlist/playlist_options_sheet.dart';
 
 Logger log = Logger();
 
@@ -27,7 +29,11 @@ class PlaylistDetails extends StatelessWidget with GetItMixin {
             ? [
                 IconButton(
                   icon: const Icon(Icons.more_vert),
-                  onPressed: () => {},
+                  onPressed: () => openPlaylistOptions(
+                    context,
+                    playlist,
+                    fromPlaylistScreen: true,
+                  ),
                 ),
               ]
             : [],
@@ -43,6 +49,22 @@ class PlaylistDetails extends StatelessWidget with GetItMixin {
           }
         }(),
       ),
+    );
+  }
+
+  Future<void> openPlaylistOptions(
+    BuildContext context,
+    Playlist playlist, {
+    required bool fromPlaylistScreen,
+  }) async {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return PlaylistOptionsBottomSheet(
+          playlist: playlist,
+          fromPlaylistScreen: fromPlaylistScreen,
+        );
+      },
     );
   }
 }
@@ -148,8 +170,24 @@ class PlaylistBody extends StatelessWidget {
             trailing: IconButton(
               icon: const Icon(Icons.delete, color: Colors.red),
               onPressed: () {
-                log.i('Removing song ${song.id} from playlist ${playlist.id}');
-                // sl<PlaylistManager>().managePlaylist(playlist);
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => ConfirmBottomSheet(
+                    title: 'Remove Song',
+                    description:
+                        'Are you sure you want to remove \'${song.title}\' from the playlist?',
+                    confirmText: 'Remove',
+                    cancelText: 'Cancel',
+                    onConfirm: () => {
+                      sl<PlaylistManager>().removeSong(
+                        playlist.id,
+                        playlistSong,
+                      ),
+                    },
+                    onCancel: () => {Navigator.of(context).pop()},
+                    isDistruptive: true,
+                  ),
+                );
               },
             ),
           );
