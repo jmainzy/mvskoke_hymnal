@@ -9,7 +9,6 @@ import 'package:mvskoke_hymnal/widgets/settings_sheet.dart';
 import 'package:mvskoke_hymnal/widgets/song_footer.dart';
 import 'package:mvskoke_hymnal/widgets/song_header.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
-import 'package:mvskoke_hymnal/models/enums.dart';
 import 'package:mvskoke_hymnal/models/media_item.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
@@ -35,7 +34,8 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
   int transposeIncrement = 0;
   double scrollSpeed = 10;
   bool scrollEnabled = false;
-  bool showEnglish = true;
+  late Future<void> _loadingFuture;
+  late bool showEnglish;
 
   SongModel? currentSong;
   List<MediaItem>? mediaItems;
@@ -49,7 +49,7 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
   @override
   void initState() {
     super.initState();
-    initialize();
+    _loadingFuture = initialize();
     _scrollController = ScrollController();
     log.i('init state song screen');
 
@@ -70,6 +70,7 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
     final songManager = sl<MusSongManager>();
     currentSong = songManager.getSongById(widget.songId);
     mediaItems = await songManager.getMediaItems(widget.songId);
+    showEnglish = sl<MusStoreService>().get<bool>('show_english') ?? true;
     logger.i('media items for song ${widget.songId}: $mediaItems');
 
     if (currentSong == null) return;
@@ -118,80 +119,112 @@ class SongScreenState extends State<SongScreen> with GetItStateMixin {
     int buffer = (Dimens.marginLarge * 2 * fontSize / 16).toInt();
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        title: Text.rich(
-          textAlign: TextAlign.start,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          TextSpan(
-            text: currentSong?.titles.values.first,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        resizeToAvoidBottomInset: true,
+        appBar: AppBar(
+          title: Text.rich(
+            textAlign: TextAlign.start,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            TextSpan(
+              text: currentSong?.titles.values.first,
+            ),
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  height: 2,
+                  color: Theme.of(context).colorScheme.onSurface.withAlpha(
+                        (min((max(scrollPosition - 3, 0) / 10).toInt() * 255,
+                            255)),
+                      ),
+                ),
           ),
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                height: 2,
-                color: Theme.of(context).colorScheme.onSurface.withAlpha(
-                      (min((max(scrollPosition - 3, 0) / 10).toInt() * 255,
-                          255)),
-                    ),
-              ),
+          surfaceTintColor: Theme.of(context).colorScheme.primary,
+          // actions: [
+          //   IconButton(
+          //     icon: const Icon(Icons.settings),
+          //     onPressed: () => showSettings(context),
+          //   ),
+          // ],
         ),
-        surfaceTintColor: Theme.of(context).colorScheme.primary,
-        // actions: [
-        //   IconButton(
-        //     icon: const Icon(Icons.settings),
-        //     onPressed: () => showSettings(context),
-        //   ),
-        // ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: Dimens.marginLarge),
-        child: LyricsRenderer(
-          lyrics: currentSong!.lyrics?.trim() ??
-              currentSong!.lyricsEn?.trim() ??
-              'Error getting lyrics',
-          additionalLyrics: showEnglish && currentSong!.lyricsEn?.trim() != null
-              ? [currentSong!.lyricsEn!.trim()]
-              : null,
-          textStyle: Theme.of(
-            context,
-          ).textTheme.bodyLarge!.copyWith(fontSize: fontSize),
-          additionalTextStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                fontSize: (fontSize * 0.8).toDouble(),
-                color: Colors.black54,
-              ),
-          chordStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                fontSize: (fontSize * 0.75).toDouble(),
-                color: Theme.of(context).colorScheme.primary,
-              ),
-          onTapChord: _showChordImage,
-          scrollSpeed: scrollEnabled ? scrollSpeed.toInt() : 0,
-          showChord: showChords,
-          transposeIncrement: transposeIncrement,
-          widgetPadding: buffer,
-          horizontalAlignment: CrossAxisAlignment.start,
-          scrollController: _scrollController,
-          lineHeight: 8.0,
-          trailingWidget: (currentSong != null)
-              ? SongFooter(
-                  metadata: currentSong!,
-                )
-              : Container(),
-          leadingWidget: SongHeader(
-            currentSong: currentSong,
-            addToPlaylist: (songId) => showPlaylistSheet(songId),
-          ),
-          breakingCharacters: const [' ', '་'],
-        ),
-      ),
-      bottomNavigationBar: BottomActionBar(
-        showSettings: () => showSettings(context),
-        // onToggleEnglish: (enabled) =>  sl<MusSongManager>().setShowEnglishLyrics(value);
-        onToggleEnglish: (enabled) {},
-        song: currentSong!,
-        showEnglish: true,
-      ),
-    );
+        body: FutureBuilder(
+            future: _loadingFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return const Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Error loading song',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                );
+              } else {
+                return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: Dimens.marginLarge),
+                    child: LyricsRenderer(
+                      lyrics: currentSong!.lyrics?.trim() ??
+                          currentSong!.lyricsEn?.trim() ??
+                          'Error getting lyrics',
+                      additionalLyrics:
+                          showEnglish && currentSong!.lyricsEn?.trim() != null
+                              ? [currentSong!.lyricsEn!.trim()]
+                              : null,
+                      textStyle: Theme.of(
+                        context,
+                      ).textTheme.bodyLarge!.copyWith(fontSize: fontSize),
+                      headerStyle:
+                          Theme.of(context).textTheme.labelSmall!.copyWith(
+                                fontSize: (fontSize * 0.6).toDouble(),
+                                height: fontSize / 20 * 0.1,
+                                color: Colors.black54,
+                              ),
+                      additionalTextStyle:
+                          Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                fontSize: (fontSize * 0.8).toDouble(),
+                                color: Colors.black54,
+                              ),
+                      chordStyle:
+                          Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                fontSize: (fontSize * 0.75).toDouble(),
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                      onTapChord: _showChordImage,
+                      scrollSpeed: scrollEnabled ? scrollSpeed.toInt() : 0,
+                      showChord: showChords,
+                      transposeIncrement: transposeIncrement,
+                      widgetPadding: buffer,
+                      horizontalAlignment: CrossAxisAlignment.start,
+                      scrollController: _scrollController,
+                      lineHeight: 8.0,
+                      trailingWidget: (currentSong != null)
+                          ? SongFooter(
+                              metadata: currentSong!,
+                            )
+                          : Container(),
+                      leadingWidget: SongHeader(
+                        currentSong: currentSong,
+                        addToPlaylist: (songId) => showPlaylistSheet(songId),
+                      ),
+                      breakingCharacters: const [' ', '་'],
+                    ));
+              }
+            }),
+        bottomNavigationBar: BottomActionBar(
+          showSettings: () => showSettings(context),
+          onToggleEnglish: (enabled) {
+            setState(() {
+              showEnglish = enabled;
+            });
+            sl<MusStoreService>().put('show_english', enabled);
+          },
+          song: currentSong!,
+        ));
   }
 
   void showSettings(BuildContext context) {

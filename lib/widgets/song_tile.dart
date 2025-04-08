@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
+import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/widgets/song_subtitle.dart';
 
 class SongTile extends StatelessWidget {
@@ -17,23 +18,28 @@ class SongTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => onTap(song.id),
-      contentPadding:
-          const EdgeInsets.symmetric(vertical: 2.0, horizontal: 16.0),
-      tileColor: Theme.of(context).colorScheme.surface,
-      title: Text(
-        song.title,
-        style: Theme.of(context).textTheme.titleLarge,
-      ),
-      subtitle: SongSubtitle(
-        song: song,
-        artist: subtitle,
-      ),
-      leading: Text(
-        song.id,
-        textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.bodyMedium,
-      ),
-    );
+        onTap: () => onTap(song.id),
+        contentPadding: const EdgeInsets.symmetric(
+            vertical: 2.0, horizontal: Dimens.marginLarge),
+        tileColor: Theme.of(context).colorScheme.surface,
+        title: Text(
+          song.title,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        subtitle: SongSubtitle(
+          song: song,
+          artist: subtitle,
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.only(top: 6, left: Dimens.marginShort),
+          child: Align(
+              alignment: Alignment.topCenter,
+              widthFactor: 0.3,
+              child: Text(
+                song.id,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelLarge,
+              )),
+        ));
   }
 }

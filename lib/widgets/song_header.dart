@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
+import 'package:mvskoke_hymnal/services/service_locator.dart';
+import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 
 class SongHeader extends StatelessWidget {
@@ -14,6 +16,11 @@ class SongHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double fontScale = sl<MusStoreService>().fontSize / 18;
+    TextStyle labelStyle = Theme.of(context).textTheme.displayMedium!.copyWith(
+        color: Colors.black54,
+        fontSize:
+            Theme.of(context).textTheme.labelMedium!.fontSize! * fontScale);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: Dimens.marginLarge),
       child: Column(
@@ -26,7 +33,11 @@ class SongHeader extends StatelessWidget {
               Flexible(
                 child: Text(
                   currentSong?.titles.values.first,
-                  style: Theme.of(context).textTheme.titleLarge!,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize:
+                            Theme.of(context).textTheme.titleLarge!.fontSize! *
+                                fontScale,
+                      ),
                 ),
               ),
               const SizedBox(width: Dimens.marginShort),
@@ -35,19 +46,16 @@ class SongHeader extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                currentSong?.songNumber ?? '',
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: Colors.grey,
-                      fontFamily: 'Noto',
-                    ),
-              ),
+              Flexible(
+                  child: Text(currentSong?.subtitle ?? '',
+                      softWrap: true, style: labelStyle)),
               IconButton(
                 onPressed: () => addToPlaylist(currentSong!.id),
                 icon: const Icon(Icons.playlist_add),
               ),
             ],
           ),
+          Text('Hymn ${currentSong?.id}', style: labelStyle),
           const SizedBox(height: Dimens.marginShort),
           const Divider(),
         ],

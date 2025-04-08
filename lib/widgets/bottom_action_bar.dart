@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
+import 'package:mvskoke_hymnal/services/service_locator.dart';
+import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/utilities/extensions.dart';
 import 'package:mvskoke_hymnal/widgets/audio_player.dart';
@@ -11,26 +13,26 @@ class BottomActionBar extends StatefulWidget {
   final Function(bool enabled) onToggleEnglish;
   final Function() showSettings;
   final SongModel song;
-  final bool showEnglish;
 
   const BottomActionBar({
     required this.onToggleEnglish,
     required this.showSettings,
     required this.song,
-    required this.showEnglish,
     Key? key,
   }) : super(key: key);
 
   @override
-  _BottomActionBarState createState() => _BottomActionBarState();
+  BottomActionBarState createState() => BottomActionBarState();
 }
 
-class _BottomActionBarState extends State<BottomActionBar> {
+class BottomActionBarState extends State<BottomActionBar> {
   Logger logger = Logger();
   bool _isPlayingAudio = false;
+  bool showEnglish = true;
 
   @override
   Widget build(BuildContext context) {
+    showEnglish = sl<MusStoreService>().get<bool>('show_english') ?? true;
     return SizedBox(
         height: height,
         child: Column(
@@ -75,7 +77,7 @@ class _BottomActionBarState extends State<BottomActionBar> {
                 children: [
                   IconButton(
                       onPressed: widget.showSettings,
-                      icon: Icon(Icons.format_size)),
+                      icon: const Icon(Icons.format_size)),
                   // IconButton(
                   //     onPressed: _playAudio,
                   //     icon: Icon(
@@ -83,10 +85,9 @@ class _BottomActionBarState extends State<BottomActionBar> {
                   //       color: Theme.of(context).colorScheme.onSurface,
                   //     )),
                   TextButton(
-                      onPressed: () =>
-                          {widget.onToggleEnglish(!widget.showEnglish)},
+                      onPressed: () => {widget.onToggleEnglish(!showEnglish)},
                       child: Text(
-                        widget.showEnglish ? "Hide English" : "Show English",
+                        showEnglish ? "Hide English" : "Show English",
                         style: Theme.of(context)
                             .textTheme
                             .labelMedium!
@@ -123,7 +124,7 @@ class _BottomActionBarState extends State<BottomActionBar> {
 
   BoxDecoration get decoration {
     return BoxDecoration(
-      color: Colors.grey.shade800.withOpacity(0.9),
+      color: Colors.grey.shade800.withAlpha(90),
       borderRadius: BorderRadius.circular(10),
     );
   }

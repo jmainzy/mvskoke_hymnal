@@ -25,7 +25,7 @@ class SongSubtitle extends StatelessWidget {
                 ? Text(
                     song.subtitle!,
                     style: const TextStyle(
-                      color: Colors.grey,
+                      color: Colors.black54,
                       fontSize: 14,
                     ),
                     maxLines: 1,

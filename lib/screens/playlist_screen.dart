@@ -30,11 +30,11 @@ class _PlaylistScreenState extends State<PlaylistScreen> with GetItStateMixin {
       ),
       body: Stack(
         children: [
-          SingleChildScrollView(
+          const SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 // const Text(
                 //   'Playlists shared with you',
                 //   style: TextStyle(
@@ -43,7 +43,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> with GetItStateMixin {
                 //   ),
                 // ),
                 // PlaylistsList(playlists: shareAcceptedPlaylists),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
               ],
             ),
           ),
@@ -83,12 +83,11 @@ class _PlaylistScreenState extends State<PlaylistScreen> with GetItStateMixin {
     final playlistOrNull = manager.getCachedPlaylistByShortId(widget.shortId!);
     if (playlistOrNull != null) {
       if (!mounted) return;
-      // showAwesomeSnackbar(
-      //   context,
-      //   title: 'Playlist Exists',
-      //   message: 'You already have ${playlistOrNull.name}',
-      //   contentType: ContentType.warning,
-      // );
+      final snackBar = SnackBar(
+        content: Text('You already have ${playlistOrNull.name}'),
+        backgroundColor: Colors.orange,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
       return;
     }
 
@@ -101,12 +100,11 @@ class _PlaylistScreenState extends State<PlaylistScreen> with GetItStateMixin {
       // playlist = await manager.getRemotePlaylistByShortId(widget.shortId!);
     } catch (e) {
       if (!mounted) return;
-      // showAwesomeSnackbar(
-      //   context,
-      //   title: 'Playlist Not Found',
-      //   message: 'The playlist you are trying to access could not be found.',
-      //   contentType: ContentType.failure,
-      // );
+      const snackBar = SnackBar(
+        content: Text('Playlist Not Found'),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
       _fetchingSharedPlaylist = false;
       setState(() {});
       return;

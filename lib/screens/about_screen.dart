@@ -40,18 +40,18 @@ class AboutScreenState extends State<AboutScreen> {
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: Padding(
-        padding: const EdgeInsets.all(Dimens.marginLarge),
+      body: const Padding(
+        padding: EdgeInsets.all(Dimens.marginLarge),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const BodyText(
+              BodyText(
                 'This is a Hymnal in the Mvskoke language',
                 lineHeight: 2,
               ),
-              const HeaderText('Contact'),
-              const BodyText("nativeware.solutions@gmail.com")
+              HeaderText('Contact'),
+              BodyText("nativeware.solutions@gmail.com")
             ],
           ),
         ),
