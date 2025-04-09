@@ -33,8 +33,9 @@ class BottomActionBarState extends State<BottomActionBar> {
   @override
   Widget build(BuildContext context) {
     showEnglish = sl<MusStoreService>().get<bool>('show_english') ?? true;
+    double bottomPadding = MediaQuery.of(context).padding.bottom;
     return SizedBox(
-        height: height,
+        height: height + bottomPadding,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

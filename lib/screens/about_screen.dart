@@ -36,8 +36,6 @@ class AboutScreenState extends State<AboutScreen> {
       key: scaffoldKey,
       appBar: AppBar(
         title: const Text('About'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: const Padding(
@@ -46,23 +44,39 @@ class AboutScreenState extends State<AboutScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              HeaderText(
+                'Mvskoke Nak-cokv Esyvhiketv',
+              ),
               BodyText(
-                'This is a Hymnal in the Mvskoke language',
+                'Paraphrase Translation',
                 lineHeight: 2,
               ),
+              BodyText(
+                '''
+Published by
+Wiyo Publishing Company
+11520 N. Harrison, Shawnee Ok. 74804
+Copyright © 2012 Wiyo Publishing Company
+All rights reserved''',
+                lineHeight: 1.5,
+              ),
+              Image(
+                  image: AssetImage('assets/images/wiyo_publishing.jpg'),
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover),
               HeaderText('Contact'),
-              BodyText("nativeware.solutions@gmail.com")
+              BodyText("Developed by Nativeware Solutions"),
+              BodyText("For support or feedback, contact:"),
+              Link(
+                text: "nativeware.solutions@gmail.com",
+                url: "mailto:nativeware.solutions@gmail.com",
+              )
             ],
           ),
         ),
       ),
     );
-  }
-
-  void _launchUrl(String url) async {
-    if (!await launchUrl(Uri.parse(url))) {
-      logger.e('Could not launch $url');
-    }
   }
 
   // void _share(String url) {
@@ -105,6 +119,34 @@ class BodyText extends StatelessWidget {
             ).textTheme.bodyMedium!.copyWith(height: lineHeight)
           : Theme.of(context).textTheme.bodyMedium,
     );
+  }
+}
+
+class Link extends StatelessWidget {
+  final String text;
+  final String? url;
+
+  const Link({required this.text, this.url, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      child: Text(text,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: Theme.of(context).colorScheme.primary)),
+      onTap: () {
+        final Uri uri = Uri.parse(url ?? text);
+        _launchUrl(uri.toString());
+      },
+    );
+  }
+
+  void _launchUrl(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      logger.e('Could not launch $url');
+    }
   }
 }
 

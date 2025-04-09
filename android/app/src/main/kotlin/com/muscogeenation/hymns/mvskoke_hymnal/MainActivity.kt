@@ -1,4 +1,4 @@
-package com.muscogeenation.hymns.mvskoke_hymnal
+package org.muscogeenation.hymnal
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/screens/about_screen.dart';
+import 'package:mvskoke_hymnal/screens/glossary_screen.dart';
 import 'package:mvskoke_hymnal/screens/home_screen.dart';
+import 'package:mvskoke_hymnal/screens/more_screen.dart';
 import 'package:mvskoke_hymnal/screens/playlist_details.dart';
 import 'package:mvskoke_hymnal/screens/playlist_screen.dart';
 import 'package:mvskoke_hymnal/screens/song_screen.dart';
@@ -23,7 +25,7 @@ class NavigationHelper {
   static final GlobalKey<NavigatorState> playlistTabNavigatorKey =
       GlobalKey<NavigatorState>();
 
-  static final GlobalKey<NavigatorState> aboutTabNavigatorKey =
+  static final GlobalKey<NavigatorState> moreTabNavigatorKey =
       GlobalKey<NavigatorState>();
 
   BuildContext get context =>
@@ -37,7 +39,9 @@ class NavigationHelper {
   static const String homePath = '/';
   static const String playlistPath = '/playlist';
   static const String songsPath = '/songs';
-  static const String aboutPath = '/about';
+  static const String aboutPath = 'about';
+  static const String morePath = '/more';
+  static const String glossaryPath = 'glossary';
 
   static NavigationHelper get instance => _instance;
   factory NavigationHelper() {
@@ -146,17 +150,36 @@ class NavigationHelper {
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: aboutTabNavigatorKey,
+            navigatorKey: moreTabNavigatorKey,
             routes: [
               GoRoute(
-                path: aboutPath,
-                pageBuilder: (context, state) {
-                  return MaterialPage(
-                    child: const AboutScreen(),
-                    key: state.pageKey,
-                  );
-                },
-              ),
+                  path: morePath,
+                  pageBuilder: (context, state) {
+                    return MaterialPage(
+                      child: const MoreScreen(),
+                      key: state.pageKey,
+                    );
+                  },
+                  routes: [
+                    GoRoute(
+                      path: aboutPath,
+                      pageBuilder: (context, state) {
+                        return MaterialPage(
+                          child: const AboutScreen(),
+                          key: state.pageKey,
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      path: glossaryPath,
+                      pageBuilder: (context, state) {
+                        return MaterialPage(
+                          child: const GlossaryScreen(),
+                          key: state.pageKey,
+                        );
+                      },
+                    ),
+                  ]),
             ],
           ),
         ],

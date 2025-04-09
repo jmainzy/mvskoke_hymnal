@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:logger/logger.dart';
+import 'package:mvskoke_hymnal/managers/glossary_manager.dart';
 import 'package:mvskoke_hymnal/managers/playlist_manager.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
 import 'package:mvskoke_hymnal/models/language_config.dart';
@@ -33,4 +34,5 @@ Future<void> setupServiceLocator({required Box box}) async {
     MusSongManager(songsService: songService, languageConfig: LanguageConfig()),
   );
   sl.registerSingleton<PlaylistManager>(PlaylistManager());
+  sl.registerSingletonAsync(() => GlossaryManager().init());
 }
