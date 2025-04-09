@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/managers/playlist_manager.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/widgets/playlist/new_playlist_sheet.dart';
 import 'package:mvskoke_hymnal/widgets/playlist/playlist_list.dart';
+import 'package:watch_it/watch_it.dart' hide sl;
 
 Logger log = Logger();
 
-class PlaylistScreen extends StatefulWidget with GetItStatefulWidgetMixin {
+class PlaylistScreen extends WatchingStatefulWidget {
   final String? shortId;
   PlaylistScreen({super.key, this.shortId});
 
@@ -16,12 +16,12 @@ class PlaylistScreen extends StatefulWidget with GetItStatefulWidgetMixin {
   State<PlaylistScreen> createState() => _PlaylistScreenState();
 }
 
-class _PlaylistScreenState extends State<PlaylistScreen> with GetItStateMixin {
+class _PlaylistScreenState extends State<PlaylistScreen> {
   bool _fetchingSharedPlaylist = false;
 
   @override
   Widget build(BuildContext context) {
-    final playlists = watchX((PlaylistManager p) => p.playlists);
+    final playlists = watchValue((PlaylistManager p) => p.playlists);
     log.i('playlists: $playlists');
 
     return Scaffold(

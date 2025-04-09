@@ -1,14 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
+import 'package:mvskoke_hymnal/models/enums.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
+import 'package:mvskoke_hymnal/screens/about_screen.dart';
 import 'package:mvskoke_hymnal/services/config_service.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/widgets/song_tile.dart';
+import 'package:path/path.dart';
+import 'package:watch_it/watch_it.dart' hide sl;
 
 Logger log = Logger();
 
@@ -113,14 +116,14 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 }
 
-class HomeContent extends StatefulWidget with GetItStatefulWidgetMixin {
-  HomeContent({super.key});
+class HomeContent extends WatchingStatefulWidget {
+  const HomeContent({super.key});
 
   @override
   HomeContentState createState() => HomeContentState();
 }
 
-class HomeContentState extends State<HomeContent> with GetItStateMixin {
+class HomeContentState extends State<HomeContent> {
   HomeContentState();
 
   final songService = sl<MusSongManager>();
@@ -145,9 +148,8 @@ class HomeContentState extends State<HomeContent> with GetItStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final List<SongModel> filteredSongs = watchX(
-      (MusSongManager m) => m.filteredResult,
-    );
+    final List<SongModel> songs =
+        watchValue((MusSongManager songManager) => songManager.sortedSongs);
 
     return Column(
       children: [
@@ -155,35 +157,37 @@ class HomeContentState extends State<HomeContent> with GetItStateMixin {
           searchController: controller,
           builder: (BuildContext context, SearchController controller) {
             return Padding(
-              padding: const EdgeInsets.all(Dimens.marginShort),
-              child: SearchBar(
-                controller: controller,
-                padding: const WidgetStatePropertyAll<EdgeInsets>(
-                  EdgeInsets.symmetric(horizontal: 16.0),
-                ),
-                onTap: () {
-                  controller.openView();
-                },
-                onChanged: (_) {
-                  controller.openView();
-                },
-                leading: const Icon(Icons.search),
-                trailing: controller.text.isNotEmpty
-                    ? [
-                        IconButton(
-                          icon: const Icon(Icons.clear),
-                          onPressed: () {
-                            controller.text = '';
-                            search('');
-                          },
-                        ),
-                      ]
-                    : [],
-                backgroundColor: WidgetStateProperty.all(
-                  Theme.of(context).colorScheme.surface,
-                ),
-              ),
-            );
+                padding: const EdgeInsets.all(Dimens.marginShort),
+                child: Column(children: [
+                  SearchBar(
+                    controller: controller,
+                    padding: const WidgetStatePropertyAll<EdgeInsets>(
+                      EdgeInsets.symmetric(horizontal: 16.0),
+                    ),
+                    onTap: () {
+                      controller.openView();
+                    },
+                    onChanged: (_) {
+                      controller.openView();
+                    },
+                    leading: const Icon(Icons.search),
+                    trailing: controller.text.isNotEmpty
+                        ? [
+                            IconButton(
+                              icon: const Icon(Icons.clear),
+                              onPressed: () {
+                                controller.text = '';
+                                search('');
+                              },
+                            ),
+                          ]
+                        : [],
+                    backgroundColor: WidgetStateProperty.all(
+                      Theme.of(context).colorScheme.surface,
+                    ),
+                  ),
+                  const FilterBar()
+                ]));
           },
           viewPadding: const EdgeInsets.all(Dimens.marginShort),
           viewBarPadding: const EdgeInsets.all(Dimens.marginShort),
@@ -212,11 +216,11 @@ class HomeContentState extends State<HomeContent> with GetItStateMixin {
           },
         ),
         Flexible(
-          child: filteredSongs.isNotEmpty
+          child: songs.isNotEmpty
               ? ListView.builder(
-                  itemCount: filteredSongs.length,
+                  itemCount: songs.length,
                   itemBuilder: (context, index) {
-                    SongModel song = filteredSongs[index];
+                    SongModel song = songs[index];
                     return InkWell(
                       child: SongTile(
                         song: song,
@@ -252,5 +256,76 @@ class HomeContentState extends State<HomeContent> with GetItStateMixin {
         ),
       ],
     );
+  }
+}
+
+class FilterBar extends StatelessWidget {
+  const FilterBar({
+    super.key,
+  });
+
+  setSorting(SortType type) {
+    sl<MusSongManager>().setSortType(type);
+  }
+
+  showBottomSheet(BuildContext context) {
+    final currentSortType =
+        sl<MusSongManager>().sortType.value; // Get the current sort type
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.all(Dimens.marginShort),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: const Text('Sort by Song Number'),
+                onTap: () {
+                  setSorting(SortType.songNumber);
+                  Navigator.pop(context);
+                },
+                trailing: currentSortType == SortType.songNumber
+                    ? const Icon(Icons.check)
+                    : null,
+              ),
+              ListTile(
+                title: const Text('Sort by English Title'),
+                onTap: () {
+                  setSorting(SortType.englishTitle);
+                  Navigator.pop(context);
+                },
+                trailing: currentSortType == SortType.englishTitle
+                    ? const Icon(Icons.check)
+                    : null,
+              ),
+              ListTile(
+                title: const Text('Sort by Mvskoke Title'),
+                onTap: () {
+                  setSorting(SortType.mvskokeTitle);
+                  Navigator.pop(context);
+                },
+                trailing: currentSortType == SortType.mvskokeTitle
+                    ? const Icon(Icons.check)
+                    : null,
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.only(top: Dimens.marginShort),
+        child: Row(children: [
+          Button(
+            icon: Icons.sort,
+            'Sorting',
+            onPressed: () => showBottomSheet(context),
+          ),
+        ]));
   }
 }

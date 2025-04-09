@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
-import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/managers/playlist_manager.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
@@ -10,16 +9,17 @@ import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/widgets/playlist/confirm_bottom_sheet.dart';
 import 'package:mvskoke_hymnal/widgets/playlist/playlist_options_sheet.dart';
+import 'package:watch_it/watch_it.dart' hide sl;
 
 Logger log = Logger();
 
-class PlaylistDetails extends StatelessWidget with GetItMixin {
+class PlaylistDetails extends StatelessWidget with WatchItMixin {
   final String playlistId;
   PlaylistDetails({super.key, required this.playlistId});
 
   @override
   Widget build(BuildContext context) {
-    final playlists = watchX((PlaylistManager p) => p.playlists);
+    final playlists = watchValue((PlaylistManager p) => p.playlists);
     final playlist = playlists.firstWhereOrNull((p) => p.id == playlistId);
 
     return Scaffold(

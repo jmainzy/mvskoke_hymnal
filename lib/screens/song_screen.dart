@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_chord/flutter_chord.dart';
 import 'package:flutter_guitar_tabs/flutter_guitar_tabs.dart';
-import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/widgets/playlist/add_to_playlist_sheet.dart';
@@ -16,10 +15,11 @@ import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/utilities/utils.dart';
 import 'package:mvskoke_hymnal/widgets/bottom_action_bar.dart';
+import 'package:watch_it/watch_it.dart' hide sl;
 
 Logger log = Logger();
 
-class SongScreen extends StatefulWidget with GetItStatefulWidgetMixin {
+class SongScreen extends WatchingStatefulWidget {
   final String songId;
   final String? playlistId;
 
@@ -29,7 +29,7 @@ class SongScreen extends StatefulWidget with GetItStatefulWidgetMixin {
   SongScreenState createState() => SongScreenState();
 }
 
-class SongScreenState extends State<SongScreen> with GetItStateMixin {
+class SongScreenState extends State<SongScreen> {
   bool showNepali = true;
 
   int transposeIncrement = 0;
