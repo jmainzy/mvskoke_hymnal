@@ -16,33 +16,39 @@ class SongSubtitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme.labelLarge!.copyWith(
+          color: Colors.black54,
+        );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            song.subtitle != null
-                ? Text(
+        song.subtitle != null &&
+                song.subtitle!.isNotEmpty &&
+                song.subtitle != song.title
+            ? Row(
+                children: [
+                  Text(
                     song.subtitle!,
-                    style: const TextStyle(
-                      color: Colors.black54,
-                      fontSize: 14,
-                    ),
+                    style: style,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                ],
+              )
+            : song.firstLine != null
+                ? Text(
+                    song.firstLine!,
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelLarge!
+                        .copyWith(fontStyle: FontStyle.italic)
+                        .copyWith(
+                          color: Colors.black54,
+                        ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   )
                 : Container(),
-            if (song.hasAudio && isHorizontal)
-              const Padding(
-                padding: EdgeInsets.only(left: 4),
-                child: Icon(
-                  Icons.music_note,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ),
-          ],
-        ),
         Row(
           children: [
             if (song.hasAudio && !isHorizontal)

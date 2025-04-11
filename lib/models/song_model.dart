@@ -29,13 +29,17 @@ class SongModel extends SongMetadataBase {
     return audioUrl != null && audioUrl!.isNotEmpty;
   }
 
-  String? get lyrics => lyricsMap['mus'];
+  String? get lyrics => lyricsMap['mus'] != null && lyricsMap['mus']!.isNotEmpty
+      ? lyricsMap['mus']
+      : null;
   String? get lyricsEn => lyricsMap['en'];
 
   String get title {
-    const langugage = 'mus'; // default language
-    if (titles[langugage] != null) {
-      return titles[langugage];
+    // returns the first non-null title
+    if (titles['mus'] != null && titles['mus']!.isNotEmpty) {
+      return titles['mus'];
+    } else if (titles['en'] != null && titles['en']!.isNotEmpty) {
+      return titles['en'];
     } else {
       return titles.isNotEmpty ? titles.values.first : '';
     }
@@ -44,6 +48,34 @@ class SongModel extends SongMetadataBase {
   String? get subtitle {
     // returns english or null
     return titles['en'];
+  }
+
+  String? get firstLine {
+    // returns the first line of the lyrics
+    final lyrics = lyricsMap['mus'] != null && lyricsMap['mus']!.isNotEmpty
+        ? lyricsMap['mus']
+        : lyricsMap['en'];
+    if (lyrics != null && lyrics.isNotEmpty) {
+      final lines = lyrics.trim().split('\n');
+      var firstLines = '';
+      var i = 0;
+      while (firstLines.length < 20 && lines.isNotEmpty) {
+        final line = lines[i];
+        if (line.isNotEmpty && !line.startsWith('{')) {
+          if (firstLines.isNotEmpty) {
+            firstLines += ' ';
+          }
+          firstLines += line.trim();
+        }
+        i++;
+      }
+      // trim trailing comma
+      if (firstLines.endsWith(',')) {
+        firstLines = firstLines.substring(0, firstLines.length - 1);
+      }
+      return '${firstLines.trim()}...';
+    }
+    return null;
   }
 
   @override

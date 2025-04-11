@@ -172,13 +172,14 @@ class SongScreenState extends State<SongScreen> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: Dimens.marginLarge),
                     child: LyricsRenderer(
-                      lyrics: currentSong!.lyrics?.trim() ??
-                          currentSong!.lyricsEn?.trim() ??
+                      lyrics: currentSong!.lyrics ??
+                          currentSong!.lyricsEn ??
                           'Error getting lyrics',
-                      additionalLyrics:
-                          showEnglish && currentSong!.lyricsEn?.trim() != null
-                              ? [currentSong!.lyricsEn!.trim()]
-                              : null,
+                      additionalLyrics: showEnglish &&
+                              currentSong!.lyricsEn?.trim() != null &&
+                              currentSong!.lyrics != null
+                          ? [currentSong!.lyricsEn!.trim()]
+                          : null,
                       textStyle: Theme.of(
                         context,
                       ).textTheme.bodyLarge!.copyWith(fontSize: fontSize),

@@ -32,7 +32,7 @@ class SongHeader extends StatelessWidget {
             children: [
               Flexible(
                 child: Text(
-                  currentSong?.titles.values.first,
+                  currentSong!.title,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontSize:
                             Theme.of(context).textTheme.titleLarge!.fontSize! *
@@ -47,8 +47,10 @@ class SongHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
-                  child: Text(currentSong?.subtitle ?? '',
-                      softWrap: true, style: labelStyle)),
+                  child: currentSong!.subtitle != currentSong!.title
+                      ? Text(currentSong?.subtitle ?? '',
+                          softWrap: true, style: labelStyle)
+                      : Container()),
               IconButton(
                 onPressed: () => addToPlaylist(currentSong!.id),
                 icon: const Icon(Icons.playlist_add),
