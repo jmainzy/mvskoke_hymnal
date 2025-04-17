@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mvskoke_hymnal/managers/song_manager.dart';
+import 'package:mvskoke_hymnal/models/enums.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/widgets/home/song_subtitle.dart';
+import 'package:watch_it/watch_it.dart';
 
 class SongTile extends StatelessWidget {
   final SongModel song;
@@ -17,13 +20,16 @@ class SongTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sortType = sl<MusSongManager>().sortType.value;
     return ListTile(
       onTap: () => onTap(song.id),
       contentPadding: const EdgeInsets.symmetric(
           vertical: 2.0, horizontal: Dimens.marginLarge),
       tileColor: Theme.of(context).colorScheme.surface,
       title: Text(
-        song.title,
+        sortType == SortType.englishTitle
+            ? song.titleEn ?? song.title
+            : song.title,
         style: Theme.of(context).textTheme.titleLarge,
       ),
       subtitle: SongSubtitle(

@@ -24,24 +24,31 @@ class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
   }
 
   _sort() {
-    // defaulst is sort songs by song number
+    // defaul is sort songs by song number
     var songs = List<SongModel>.from(filteredResult.value);
     if (sortType.value == SortType.englishTitle) {
-      songs.sort(
-          (a, b) => (a.subtitle ?? a.title).compareTo(b.subtitle ?? b.title));
+      songs.sort((a, b) => (a.titles['en'] != null && a.titles['en']!.isNotEmpty
+              ? a.titles['en']
+              : 'zzz')
+          .compareTo(b.titles['en'] != null && b.titles['en']!.isNotEmpty
+              ? b.titles['en']
+              : 'zzz'));
     } else if (sortType.value == SortType.mvskokeTitle) {
-      songs.sort((a, b) => (a.title).compareTo(b.title));
+      songs.sort((a, b) =>
+          (a.titles['mus'] != null && a.titles['mus']!.isNotEmpty
+                  ? a.titles['mus']
+                  : 'zzz')
+              .compareTo(b.titles['mus'] != null && b.titles['mus']!.isNotEmpty
+                  ? b.titles['mus']
+                  : 'zzz'));
     } else {
       songs.sort(
           (a, b) => (a.songNumber ?? a.id).compareTo(b.songNumber ?? b.id));
     }
-    log.i('songs are sorted');
     sortedSongs.value = songs;
-    // sortedSongs.notifyListeners();
   }
 
   setSortType(SortType type) {
-    log.i('Setting sort type to $type');
     sortType.value = type;
     _sort();
   }

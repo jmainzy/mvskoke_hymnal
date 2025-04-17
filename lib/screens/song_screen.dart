@@ -117,7 +117,7 @@ class SongScreenState extends State<SongScreen> {
       );
     }
 
-    int buffer = (Dimens.marginLarge * 2 * fontSize / 16).toInt();
+    int titleAlpha = min((max(scrollPosition - 3, 0) * 20).toInt(), 255);
 
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
@@ -128,14 +128,14 @@ class SongScreenState extends State<SongScreen> {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             TextSpan(
-              text: currentSong?.titles.values.first,
+              text: currentSong?.title,
             ),
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   height: 2,
-                  color: Theme.of(context).colorScheme.onSurface.withAlpha(
-                        (min((max(scrollPosition - 3, 0) / 10).toInt() * 255,
-                            255)),
-                      ),
+                  color: Theme.of(context)
+                      .colorScheme
+                      .onSurface
+                      .withAlpha(titleAlpha),
                 ),
           ),
           surfaceTintColor: Theme.of(context).colorScheme.primary,
@@ -178,6 +178,12 @@ class SongScreenState extends State<SongScreen> {
                           currentSong!.lyricsEn ??
                           'Error getting lyrics',
                       additionalLyrics: currentSong!.lyricsEn,
+                      scrollController: _scrollController,
+                      footer: const SizedBox(
+                        height: Dimens.marginLarge,
+
+                        /// TODO: add page numbers
+                      ),
                     ));
               }
             }),

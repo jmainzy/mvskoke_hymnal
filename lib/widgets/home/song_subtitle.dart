@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mvskoke_hymnal/managers/song_manager.dart';
+import 'package:mvskoke_hymnal/models/enums.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
+import 'package:mvskoke_hymnal/services/service_locator.dart';
 
 class SongSubtitle extends StatelessWidget {
   final SongModel song;
@@ -19,16 +22,25 @@ class SongSubtitle extends StatelessWidget {
     final style = Theme.of(context).textTheme.labelLarge!.copyWith(
           color: Colors.black54,
         );
+
+    // if we're sorting by English, don't show the English subtitle
+    final sortType = sl<MusSongManager>().sortType.value;
+    final title = sortType == SortType.englishTitle
+        ? song.titleEn ?? song.title
+        : song.title;
+    final subtitle = sortType == SortType.englishTitle
+        ? song.titles['mus'] != null && song.titles['mus']!.isNotEmpty
+            ? song.titles['mus']
+            : null
+        : song.titleEn;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        song.subtitle != null &&
-                song.subtitle!.isNotEmpty &&
-                song.subtitle != song.title
+        subtitle != null && subtitle.isNotEmpty && subtitle != title
             ? Row(
                 children: [
                   Text(
-                    song.subtitle!,
+                    subtitle,
                     style: style,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

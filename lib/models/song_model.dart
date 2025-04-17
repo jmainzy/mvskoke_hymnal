@@ -45,9 +45,11 @@ class SongModel extends SongMetadataBase {
     }
   }
 
-  String? get subtitle {
+  String? get titleEn {
     // returns english or null
-    return titles['en'];
+    return titles['en'] != null && titles['en']!.isNotEmpty
+        ? titles['en']
+        : null;
   }
 
   String? get firstLine {
@@ -72,6 +74,12 @@ class SongModel extends SongMetadataBase {
       // trim trailing comma
       if (firstLines.endsWith(',')) {
         firstLines = firstLines.substring(0, firstLines.length - 1);
+      }
+      // Trim headers
+      if (firstLines.startsWith('Chorus:')) {
+        firstLines = firstLines.substring(7);
+      } else if (firstLines.startsWith(RegExp(r'\d+'))) {
+        firstLines = firstLines.substring(2);
       }
       return '${firstLines.trim()}...';
     }

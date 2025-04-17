@@ -47,8 +47,8 @@ class SongHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
-                  child: currentSong!.subtitle != currentSong!.title
-                      ? Text(currentSong?.subtitle ?? '',
+                  child: currentSong!.titleEn != currentSong!.title
+                      ? Text(currentSong?.titleEn ?? '',
                           softWrap: true, style: labelStyle)
                       : Container()),
               IconButton(
