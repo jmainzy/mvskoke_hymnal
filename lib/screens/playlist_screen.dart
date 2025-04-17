@@ -10,7 +10,7 @@ Logger log = Logger();
 
 class PlaylistScreen extends WatchingStatefulWidget {
   final String? shortId;
-  PlaylistScreen({super.key, this.shortId});
+  const PlaylistScreen({super.key, this.shortId});
 
   @override
   State<PlaylistScreen> createState() => _PlaylistScreenState();

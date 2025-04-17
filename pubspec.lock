@@ -238,22 +238,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.1"
-  flutter_chord:
-    dependency: "direct main"
-    description:
-      path: "../../../Code/flutter_chord"
-      relative: true
-    source: path
-    version: "0.1.2"
-  flutter_guitar_tabs:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "73e983c877ebcaa10eb44bde864b0ac4fe45695f"
-      url: "https://github.com/joranmulderij/flutter_guitar_tabs.git"
-    source: git
-    version: "0.0.10"
   flutter_launcher_icons:
     dependency: "direct main"
     description:
@@ -1077,5 +1061,5 @@ packages:
     source: hosted
     version: "2.0.3"
 sdks:
-  dart: ">=3.7.0-323.2.beta <3.24.4"
+  dart: ">=3.7.0-323.2.beta <4.0.0"
   flutter: ">=3.27.0"

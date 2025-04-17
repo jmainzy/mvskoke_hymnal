@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:mvskoke_hymnal/models/enums.dart';
+import 'package:mvskoke_hymnal/services/service_locator.dart';
+import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 
 class LyricsRenderer extends StatelessWidget {
-  final List<dynamic> musLyrics;
-  final List<dynamic> enLyrics;
+  final String lyrics;
+  final String? additionalLyrics;
   final bool showEnglish;
-  final String title;
-  final String subtitle;
+  final Widget? header;
   final Widget? footer;
 
   const LyricsRenderer({
     super.key,
-    required this.title,
-    required this.subtitle,
     required this.showEnglish,
-    required this.musLyrics,
-    required this.enLyrics,
+    required this.lyrics,
+    required this.additionalLyrics,
+    this.header,
     this.footer,
   });
 
@@ -23,12 +24,12 @@ class LyricsRenderer extends StatelessWidget {
   Widget build(BuildContext context) {
     final musStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontWeight: FontWeight.bold,
-          fontSize: 16.0,
+          fontSize: sl<MusStoreService>().fontSize * 0.75,
         );
     final enStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontWeight: FontWeight.normal,
           fontStyle: FontStyle.italic,
-          fontSize: 16.0,
+          fontSize: sl<MusStoreService>().fontSize * 0.75,
         );
 
     return LayoutBuilder(
@@ -44,30 +45,7 @@ class LyricsRenderer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                        padding: const EdgeInsets.fromLTRB(
-                            Dimens.marginLarge,
-                            Dimens.marginLarge,
-                            Dimens.marginLarge,
-                            Dimens.marginShort),
-                        child: Text(
-                          title,
-                          style: Theme.of(context).textTheme.headlineLarge,
-                          textAlign: TextAlign.start,
-                        )),
-                    showEnglish
-                        ? Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: Dimens.marginLarge),
-                            child: Text(
-                              subtitle,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineSmall!
-                                  .copyWith(color: Colors.grey),
-                              textAlign: TextAlign.start,
-                            ))
-                        : Container(),
+                    header != null ? header! : Container(),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: getLyrics(musStyle, enStyle),
@@ -81,28 +59,76 @@ class LyricsRenderer extends StatelessWidget {
     TextStyle musStyle,
     TextStyle enStyle,
   ) {
-    List<Widget> textLines = [];
+    List<Line> lyrics = LyricsProcessor.processLyrics(this.lyrics);
+    List<Line>? additionalLyrics = LyricsProcessor.processLyrics(
+        this.additionalLyrics ?? '',
+        defaultType: LineType.extra);
+    List<Widget> lines = [];
 
     int i = 0;
-    for (String line in musLyrics) {
-      textLines.add(Padding(
+    for (Line line in lyrics) {
+      lines.add(Padding(
           padding: const EdgeInsets.fromLTRB(
               Dimens.marginLarge, Dimens.marginShort, Dimens.marginLarge, 0),
           child: Text(
-            line,
+            line.text,
             style: musStyle,
           )));
-      if (showEnglish) {
-        textLines.add(Padding(
-            padding: const EdgeInsets.fromLTRB(
-                Dimens.marginLarge, Dimens.marginShort, Dimens.marginLarge, 0),
-            child: Text(
-              enLyrics[i],
-              style: enStyle,
-            )));
+      if (showEnglish && i < additionalLyrics.length) {
+        if (additionalLyrics[i].lineType != LineType.header) {
+          lines.add(Padding(
+              padding: const EdgeInsets.fromLTRB(Dimens.marginLarge,
+                  Dimens.marginShort, Dimens.marginLarge, 0),
+              child: Text(
+                additionalLyrics[i].text,
+                style: enStyle,
+              )));
+        }
       }
       i += 1;
     }
-    return textLines;
+    return lines;
   }
+}
+
+class LyricsProcessor {
+  static List<Line> processLyrics(String lyrics,
+      {LineType defaultType = LineType.main}) {
+    final List<Line> lines = [];
+    // Process the lyrics to remove unwanted characters or format them
+    for (var line in lyrics.split('\n')) {
+      final lineType = _getLineType(line, defaultType);
+      if (lineType == LineType.metadata) {
+        // Skip metadata lines
+        continue;
+      } else if (lineType == LineType.header) {
+        // format header
+        line = line.replaceAll(
+            RegExp(r'{start_of_chorus}|{start_of_verse: |}'), '');
+      }
+      lines.add(Line(line, lineType));
+    }
+    return lines;
+  }
+
+  static LineType _getLineType(String line, LineType defaultType) {
+    if (line.contains("{start_of_chorus}")) {
+      return LineType.header;
+    } else if (line.contains("{end_of_chorus}") ||
+        line.contains("{end_of_verse}")) {
+      return LineType.metadata;
+    } else if (line.contains("{start_of_verse:")) {
+      return LineType.header;
+    } else if (line.contains("{comment:")) {
+      return LineType.comment;
+    }
+    return defaultType;
+  }
+}
+
+class Line {
+  final String text;
+  final LineType lineType;
+
+  Line(this.text, this.lineType);
 }

@@ -10,7 +10,6 @@ import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/widgets/home/song_tile.dart';
-import 'package:path/path.dart';
 import 'package:watch_it/watch_it.dart' hide sl;
 
 Logger log = Logger();
@@ -102,7 +101,7 @@ class HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               ),
             );
           } else {
-            return HomeContent();
+            return const HomeContent();
           }
         },
       ),
@@ -319,7 +318,7 @@ class FilterBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(top: Dimens.marginShort),
+        padding: const EdgeInsets.only(top: Dimens.marginShort),
         child: Row(children: [
           Button(
             icon: Icons.sort,

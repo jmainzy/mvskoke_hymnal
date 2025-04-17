@@ -93,7 +93,7 @@ class NavigationHelper {
                 pageBuilder: (context, state) {
                   return MaterialPage(
                     key: state.pageKey,
-                    child: PlaylistScreen(),
+                    child: const PlaylistScreen(),
                   );
                 },
                 routes: [
@@ -119,7 +119,7 @@ class NavigationHelper {
                           }
                           return MaterialPage(
                             key: state.pageKey,
-                            child: PlaylistScreen(
+                            child: const PlaylistScreen(
                                 // shortId: id,
                                 ),
                           );
