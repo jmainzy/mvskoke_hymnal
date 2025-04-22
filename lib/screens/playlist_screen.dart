@@ -26,7 +26,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Playlists'),
+        title: const Text('Collections'),
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
@@ -104,7 +104,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
     } catch (e) {
       if (!mounted) return;
       const snackBar = SnackBar(
-        content: Text('Playlist Not Found'),
+        content: Text('Collection not found'),
         backgroundColor: Colors.red,
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);

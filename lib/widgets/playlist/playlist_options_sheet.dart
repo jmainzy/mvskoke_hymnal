@@ -46,11 +46,11 @@ class _PlaylistOptionsBottomSheetState
                   initialValue: widget.playlist.name,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Playlist Name',
+                    labelText: 'Collection Name',
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return "Playlist's name is required";
+                      return "Collection's name is required";
                     }
                     return null;
                   },
@@ -90,7 +90,7 @@ class _PlaylistOptionsBottomSheetState
             // Builder(builder: (context) {
             //   return ListTile(
             //       leading: const Icon(Icons.share),
-            //       title: const Text('Share Playlist'),
+            //       title: const Text('Share Collection'),
             //       onTap: () {});
             // }),
             if (isOwn)
@@ -118,12 +118,12 @@ class _PlaylistOptionsBottomSheetState
               textColor: Colors.red,
               leading: const Icon(Icons.delete),
               // ignore: dead_code
-              title: Text(isOwn ? 'Delete Playlist' : 'Leave Playlist'),
+              title: Text(isOwn ? 'Delete Collection' : 'Leave Collection'),
               onTap: () {
                 showConfirmBottomSheet(
                   context,
                   // ignore: dead_code
-                  title: isOwn ? 'Delete Playlist' : 'Leave Playlist',
+                  title: isOwn ? 'Delete Collection' : 'Leave Collection',
                   description:
                       // ignore: dead_code
                       'Are you sure you want to ${isOwn ? 'delete' : 'leave'} \'${widget.playlist.name}\'?',

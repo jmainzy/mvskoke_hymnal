@@ -76,13 +76,13 @@ class NotFoundPlaylist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log.e('Playlist $playlistId not found');
+    log.e('Collection $playlistId not found');
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Icon(Icons.error, color: Colors.black54),
-          Text('Playlist $playlistId not found'),
+          Text('Collection $playlistId not found'),
         ],
       ),
     );
@@ -105,7 +105,7 @@ class EmptyPlaylist extends StatelessWidget {
             const Icon(Icons.music_note, color: Colors.grey),
             const SizedBox(height: Dimens.marginLarge),
             Text(
-              '${playlist.name} is empty!\nAdd songs to this playlist for them to appear here.',
+              '${playlist.name} is empty!\nAdd songs to this collection for them to appear here.',
               style: Theme.of(context).textTheme.bodyMedium,
               textAlign: TextAlign.center,
             ),
@@ -175,7 +175,7 @@ class PlaylistBody extends StatelessWidget {
                   builder: (context) => ConfirmBottomSheet(
                     title: 'Remove Song',
                     description:
-                        'Are you sure you want to remove \'${song.title}\' from the playlist?',
+                        'Are you sure you want to remove \'${song.title}\' from the collection?',
                     confirmText: 'Remove',
                     cancelText: 'Cancel',
                     onConfirm: () => {

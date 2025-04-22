@@ -32,14 +32,14 @@ class PlaylistManager {
       selectedPlaylistsSet,
     );
     for (final playlist in removedPlaylists) {
-      log.i('removing song from playlist: $playlist');
+      log.i('removing song from collection: $playlist');
       await removeSong(playlist, song);
     }
 
     // added playlists
     final addedPlaylists = selectedPlaylistsSet.difference(initialPlaylistsSet);
     for (final playlist in addedPlaylists) {
-      log.i('adding song to playlist: $playlist');
+      log.i('adding song to collection: $playlist');
       await addSong(playlist, song);
     }
   }

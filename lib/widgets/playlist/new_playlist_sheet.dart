@@ -27,17 +27,17 @@ class _NewPlaylistBottomsheetState extends State<NewPlaylistBottomsheet> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Add new playlist', style: TextStyle(fontSize: 20)),
+            const Text('Add new collection', style: TextStyle(fontSize: 20)),
             const SizedBox(height: 10),
             TextFormField(
               focusNode: focusNode,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Playlist Name',
+                labelText: 'Collection Name',
               ),
               validator: (value) {
                 if (value == null || value.trim().isEmpty) {
-                  return 'Playlist Name is required';
+                  return 'Collection Name is required';
                 }
                 return null;
               },

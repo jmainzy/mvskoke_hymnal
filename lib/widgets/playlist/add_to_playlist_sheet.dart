@@ -50,7 +50,7 @@ class _AddToPlaylistBottomSheetState extends State<AddToPlaylistSheet> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Add to Playlist',
+            'Add to Collection',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: Dimens.marginLarge),
@@ -97,7 +97,7 @@ class _AddToPlaylistBottomSheetState extends State<AddToPlaylistSheet> {
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          content: Text('Playlist updated'),
+                          content: Text('Collection updated'),
                           duration: Duration(seconds: 1),
                         ),
                       );
@@ -113,7 +113,7 @@ class _AddToPlaylistBottomSheetState extends State<AddToPlaylistSheet> {
             width: double.infinity,
             child: TextButton(
               onPressed: () => _addPlaylist(context),
-              child: const Text('Create new Playlist'),
+              child: const Text('Create new collection'),
             ),
           ),
         ],

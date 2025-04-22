@@ -249,7 +249,7 @@ class _NavigationPageState extends State<NavigationPage> {
             icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
-          NavigationDestination(icon: Icon(Icons.list), label: 'Playlists'),
+          NavigationDestination(icon: Icon(Icons.list), label: 'Collections'),
           NavigationDestination(icon: Icon(Icons.more_horiz), label: 'About'),
         ],
       ),
