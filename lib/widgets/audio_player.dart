@@ -6,7 +6,7 @@ enum AudioPlayerState { loading, playing, paused, completed }
 
 class AudioPlayerWidget extends StatefulWidget {
   final String audioUrl;
-  const AudioPlayerWidget({required this.audioUrl, Key? key}) : super(key: key);
+  const AudioPlayerWidget({required this.audioUrl, super.key});
 
   @override
   State<AudioPlayerWidget> createState() => _AudioPlayerWidgetState();

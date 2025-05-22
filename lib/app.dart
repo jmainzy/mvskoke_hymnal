@@ -27,11 +27,11 @@ class _MyAppState extends State<MyApp> {
 }
 
 final theme = ThemeData(
-  useMaterial3: true,
+    useMaterial3: true,
 
-  // Define the default brightness and colors.
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: const Color.fromARGB(255, 193, 153, 52),
-    brightness: Brightness.light,
-  ),
-);
+    // Define the default brightness and colors.
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: const Color.fromARGB(255, 193, 153, 52),
+      brightness: Brightness.light,
+    ),
+    textTheme: Typography.blackHelsinki);

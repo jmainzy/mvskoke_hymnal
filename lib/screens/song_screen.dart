@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/widgets/lyrics_renderer.dart';
 import 'package:mvskoke_hymnal/widgets/playlist/add_to_playlist_sheet.dart';
@@ -97,19 +98,19 @@ class SongScreenState extends State<SongScreen> {
   @override
   Widget build(BuildContext context) {
     if (currentSong == null) {
+      log.e('Didn\'t find song with id ${widget.songId}');
       return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surfaceContainerLowest,
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Song not found'),
+              const Center(child: Text('Song not found')),
               ElevatedButton(
                 onPressed: () async {
-                  await initialize();
-                  setState(() {});
+                  NavigationHelper.router.pop();
                 },
-                child: const Text('Retry'),
+                child: const Text('Go Back'),
               ),
             ],
           ),
@@ -117,7 +118,7 @@ class SongScreenState extends State<SongScreen> {
       );
     }
 
-    int titleAlpha = min((max(scrollPosition - 3, 0) * 20).toInt(), 255);
+    int titleAlpha = min((max(scrollPosition - 3, 0) * 50).toInt(), 255);
 
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,

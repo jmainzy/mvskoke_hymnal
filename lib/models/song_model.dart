@@ -10,6 +10,8 @@ Logger logger = Logger();
 /// Language-specific details are in SongDetails
 class SongModel extends SongMetadataBase {
   final Map<String, dynamic> titles;
+  final List<String> tags;
+  final List<String> related;
   final Timestamp? lastUpdate;
   final String? audioUrl;
   final String? note;
@@ -19,6 +21,8 @@ class SongModel extends SongMetadataBase {
     required super.id,
     required super.songNumber,
     required this.titles,
+    required this.tags,
+    required this.related,
     required this.lyricsMap,
     required this.lastUpdate,
     this.audioUrl,
@@ -121,6 +125,12 @@ class MetadataSerializer extends Serializer<SongModel> {
     return SongModel(
       id: map['id'],
       titles: titles,
+      tags: map['tags'] != null && map['tags'].isNotEmpty
+          ? List<String>.from(map['tags'].split(','))
+          : [],
+      related: map['related'] != null && map['related'].isNotEmpty
+          ? List<String>.from(map['related'].split(','))
+          : [],
       lyricsMap: lyrics,
       lastUpdate: lastUpdate,
       songNumber: map['id'].toString().padLeft(3, '0'),
@@ -134,6 +144,8 @@ class MetadataSerializer extends Serializer<SongModel> {
     return {
       'id': metadata.id,
       'titles': metadata.titles,
+      'tags': metadata.tags,
+      'related': metadata.related,
       'lyrics': metadata.lyricsMap,
       'lastUpdate': metadata.lastUpdate.toString(),
       'song_number': metadata.songNumber,

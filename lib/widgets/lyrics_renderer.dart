@@ -86,15 +86,18 @@ class LyricsRenderer extends StatelessWidget {
         lines.add(
             // Header row
             Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("${line.text}.", style: headerStyle),
-            Padding(
-                padding: EdgeInsets.only(
-                    left: leadingMargin - headerStyle.fontSize! + 2),
+            SizedBox(
+              width: leadingMargin - headerStyle.fontSize! + 2,
+            ),
+            Flexible(
                 child: Text(
-                  nextLine.text,
-                  style: musStyle,
-                )),
+              nextLine.text,
+              style: musStyle,
+            )),
           ],
         ));
         i += 1; // Skip the next line as it's part of the header

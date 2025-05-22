@@ -128,71 +128,68 @@ class PlaylistBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ReorderableListView.builder(
-        buildDefaultDragHandles: true,
-        itemCount: playlist.songs.length,
-        onReorder: (int oldIndex, int newIndex) {
-          if (oldIndex < newIndex) {
-            newIndex -= 1;
-          }
-          final songs = playlist.songs;
-          songs.insert(newIndex, songs.removeAt(oldIndex));
-          playlist.copyWith(songs: songs);
-          // sl<PlaylistManager>().managePlaylist(playlist);
-        },
-        itemBuilder: (context, index) {
-          final playlistSong = playlist.songs[index];
-          final song =
-              sl<MusSongManager>().songsNotifier.value.firstWhereOrNull(
-                    (e) => e.id == playlistSong.id,
-                  );
+    return ReorderableListView.builder(
+      buildDefaultDragHandles: true,
+      itemCount: playlist.songs.length,
+      onReorder: (int oldIndex, int newIndex) {
+        if (oldIndex < newIndex) {
+          newIndex -= 1;
+        }
+        final songs = playlist.songs;
+        songs.insert(newIndex, songs.removeAt(oldIndex));
+        playlist.copyWith(songs: songs);
+        // sl<PlaylistManager>().managePlaylist(playlist);
+      },
+      itemBuilder: (context, index) {
+        final playlistSong = playlist.songs[index];
+        final song = sl<MusSongManager>().songsNotifier.value.firstWhereOrNull(
+              (e) => e.id == playlistSong.id,
+            );
 
-          if (song == null) {
-            return SizedBox.shrink(key: Key('$index'));
-          }
+        if (song == null) {
+          return SizedBox.shrink(key: Key('$index'));
+        }
 
-          return ListTile(
-            key: Key('$index'),
-            onTap: () {
-              log.i('Navigating to song ${song.id}');
-              log.i(
-                'GoRouter routes available: ${NavigationHelper.router.routeInformationParser}',
-              );
-              NavigationHelper.router.go(
-                '${NavigationHelper.playlistPath}/${playlist.id}${NavigationHelper.songsPath}/${song.id}',
+        return ListTile(
+          key: Key('$index'),
+          onTap: () {
+            log.i('Navigating to song ${song.id}');
+            log.i(
+              'GoRouter routes available: ${NavigationHelper.router.routeInformationParser}',
+            );
+            NavigationHelper.router.go(
+              '${NavigationHelper.playlistPath}/${playlist.id}${NavigationHelper.songsPath}/${song.id}',
+            );
+          },
+          title: Text(song.title),
+          // subtitle: Text(
+          //   'Transpose: ${playlistSong.transpose}',
+          // ),
+          trailing: IconButton(
+            icon: const Icon(Icons.delete, color: Colors.red),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) => ConfirmBottomSheet(
+                  title: 'Remove Song',
+                  description:
+                      'Are you sure you want to remove \'${song.title}\' from the collection?',
+                  confirmText: 'Remove',
+                  cancelText: 'Cancel',
+                  onConfirm: () => {
+                    sl<PlaylistManager>().removeSong(
+                      playlist.id,
+                      playlistSong,
+                    ),
+                  },
+                  onCancel: () => {Navigator.of(context).pop()},
+                  isDistruptive: true,
+                ),
               );
             },
-            title: Text(song.title),
-            // subtitle: Text(
-            //   'Transpose: ${playlistSong.transpose}',
-            // ),
-            trailing: IconButton(
-              icon: const Icon(Icons.delete, color: Colors.red),
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => ConfirmBottomSheet(
-                    title: 'Remove Song',
-                    description:
-                        'Are you sure you want to remove \'${song.title}\' from the collection?',
-                    confirmText: 'Remove',
-                    cancelText: 'Cancel',
-                    onConfirm: () => {
-                      sl<PlaylistManager>().removeSong(
-                        playlist.id,
-                        playlistSong,
-                      ),
-                    },
-                    onCancel: () => {Navigator.of(context).pop()},
-                    isDistruptive: true,
-                  ),
-                );
-              },
-            ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

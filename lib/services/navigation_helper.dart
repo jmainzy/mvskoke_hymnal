@@ -80,6 +80,24 @@ class NavigationHelper {
                         child: SongScreen(songId: id),
                       );
                     },
+                    routes: [
+                      GoRoute(
+                        path: '$songsPath/:songId',
+                        parentNavigatorKey: rootNavigatorKey,
+                        pageBuilder: (context, state) {
+                          final id = state.pathParameters['songId'];
+                          if (id == null) {
+                            throw Exception('Invalid entity id');
+                          } else {
+                            log.i('navvy song id: $id');
+                          }
+                          return MaterialPage(
+                            key: state.pageKey,
+                            child: SongScreen(songId: id),
+                          );
+                        },
+                      )
+                    ],
                   ),
                 ],
               ),

@@ -18,8 +18,8 @@ class BottomActionBar extends StatefulWidget {
     required this.onToggleEnglish,
     required this.showSettings,
     required this.song,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   BottomActionBarState createState() => BottomActionBarState();
@@ -36,12 +36,11 @@ class BottomActionBarState extends State<BottomActionBar> {
     double bottomPadding = MediaQuery.of(context).padding.bottom;
     return SizedBox(
         height: height + bottomPadding,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            _isPlayingAudio ? _audioPlayer : Container(),
-            _closedMenu,
-          ],
+        child: Material(
+          elevation: 3,
+          child: Padding(
+              padding: EdgeInsets.only(bottom: bottomPadding),
+              child: _isPlayingAudio ? _audioPlayer : _closedMenu),
         ));
     // return
   }
@@ -66,37 +65,33 @@ class BottomActionBarState extends State<BottomActionBar> {
   }
 
   Widget get _closedMenu {
-    return SizedBox(
-        height: 60,
-        child: Material(
-            elevation: 3,
-            child: Ink(
-              padding: const EdgeInsets.symmetric(vertical: Dimens.marginShort),
-              color: Theme.of(context).colorScheme.surface,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  IconButton(
-                      onPressed: widget.showSettings,
-                      icon: const Icon(Icons.format_size)),
-                  // IconButton(
-                  //     onPressed: _playAudio,
-                  //     icon: Icon(
-                  //       Icons.play_circle,
-                  //       color: Theme.of(context).colorScheme.onSurface,
-                  //     )),
-                  TextButton(
-                      onPressed: () => {widget.onToggleEnglish(!showEnglish)},
-                      child: Text(
-                        showEnglish ? "Hide English" : "Show English",
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium!
-                            .copyWith(color: Colors.black),
-                      )),
-                ],
-              ),
-            )));
+    return Ink(
+      padding: const EdgeInsets.symmetric(vertical: Dimens.marginShort),
+      color: Theme.of(context).colorScheme.surface,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          IconButton(
+              onPressed: widget.showSettings,
+              icon: const Icon(Icons.format_size)),
+          // IconButton(
+          //     onPressed: _playAudio,
+          //     icon: Icon(
+          //       Icons.play_circle,
+          //       color: Theme.of(context).colorScheme.onSurface,
+          //     )),
+          TextButton(
+              onPressed: () => {widget.onToggleEnglish(!showEnglish)},
+              child: Text(
+                showEnglish ? "Hide English" : "Show English",
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium!
+                    .copyWith(color: Colors.black),
+              )),
+        ],
+      ),
+    );
   }
 
   Widget get _audioPlayer {
