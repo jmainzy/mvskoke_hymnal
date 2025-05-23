@@ -178,7 +178,9 @@ class SongScreenState extends State<SongScreen> {
                       lyrics: currentSong!.lyrics ??
                           currentSong!.lyricsEn ??
                           'Error getting lyrics',
-                      additionalLyrics: currentSong!.lyricsEn,
+                      additionalLyrics: currentSong!.lyrics != null
+                          ? currentSong!.lyricsEn
+                          : null,
                       scrollController: _scrollController,
                       footer: const SizedBox(
                         height: Dimens.marginLarge,

@@ -318,8 +318,8 @@
         "tags": "",
         "pages": "[]",
         "related": "",
-        "lyrics": "{start_of_chorus}\nThey are in heaven,\nThey are in heaven, heaven,\nThey are in heaven,\nThere in that heavenly city.\n{end_of_chorus}\n\n{start_of_verse: 1}\nErkenakvlke vpeyvnna,\nHvlwen vpokepes.\n(Repeat verse)\n{end_of_verse}\n\n{start_of_verse: Sing half chorus:}\nHvlwen vpokepes,\nHvlwe tvlofv min.\n{end_of_verse}\n\n{start_of_verse: 2}\nMekusapvlke, etc\n{end_of_verse}\n\n{start_of_verse: 3}\nPurvhvlke, etc\n{end_of_verse}\n\n{start_of_verse: 4}\nPuwantake, etc\n{end_of_verse}\n\n{start_of_verse: 5}\nHopuetake, etc\n{end_of_verse}\n\n{start_of_verse: 6}\nEmestvlke, etc\n{end_of_verse}\n\n{start_of_verse: 7}\nVkvsamvlke, etc\n{end_of_verse}\n\n{start_of_verse: 8}\nPunhessvlke, etc\n{end_of_verse}",
-        "lyrics_en": "{start_of_chorus}\nHvlwen vpokepes,\nHvlwen vpokepes, hvlwen,\nHvlwen vpokepes,\nHvlwe tvlofv min.\n{end_of_chorus}\n\n{start_of_verse: 1}\nThe ministers have gone on,\nThey are in heaven.\n(Repeat verse)\n{end_of_verse}\n\n{start_of_verse: Sing half chorus:}\nThey are in heaven,\nThere in that heavenly city.\n{end_of_verse}\n\n{start_of_verse: 2}\nChristians, etc.\n{end_of_verse}\n\n{start_of_verse: 3}\nOur elder brothers/sisters, etc.\n{end_of_verse}\n\n{start_of_verse: 4}\nOur sisters, etc.\n{end_of_verse}\n\n{start_of_verse: 5}\nChildren, etc.\n{end_of_verse}\n\n{start_of_verse: 6}\nHis people, etc.\n{end_of_verse}\n\n{start_of_verse: 7}\nBelievers, etc.\n{end_of_verse}\n\n{start_of_verse: 8}\nOur friends, etc.\n{end_of_verse}",
+        "lyrics": "{start_of_chorus}\nThey are in heaven,\nThey are in heaven, heaven,\nThey are in heaven,\nThere in that heavenly city.\n{end_of_chorus}\n\n{start_of_verse: 1}\nErkenakvlke vpeyvnna,\nHvlwen vpokepes.\n(Repeat verse)\n{end_of_verse}\n\n(Sing half chorus)\nHvlwen vpokepes,\nHvlwe tvlofv min.\n\n{start_of_verse: 2}\nMekusapvlke, etc\n{end_of_verse}\n\n{start_of_verse: 3}\nPurvhvlke, etc\n{end_of_verse}\n\n{start_of_verse: 4}\nPuwantake, etc\n{end_of_verse}\n\n{start_of_verse: 5}\nHopuetake, etc\n{end_of_verse}\n\n{start_of_verse: 6}\nEmestvlke, etc\n{end_of_verse}\n\n{start_of_verse: 7}\nVkvsamvlke, etc\n{end_of_verse}\n\n{start_of_verse: 8}\nPunhessvlke, etc\n{end_of_verse}",
+        "lyrics_en": "{start_of_chorus}\nHvlwen vpokepes,\nHvlwen vpokepes, hvlwen,\nHvlwen vpokepes,\nHvlwe tvlofv min.\n{end_of_chorus}\n\n{start_of_verse: 1}\nThe ministers have gone on,\nThey are in heaven.\n(Repeat verse)\n{end_of_verse}\n\n(Sing half chorus)\nThey are in heaven,\nThere in that heavenly city.\n\n{start_of_verse: 2}\nChristians, etc.\n{end_of_verse}\n\n{start_of_verse: 3}\nOur elder brothers/sisters, etc.\n{end_of_verse}\n\n{start_of_verse: 4}\nOur sisters, etc.\n{end_of_verse}\n\n{start_of_verse: 5}\nChildren, etc.\n{end_of_verse}\n\n{start_of_verse: 6}\nHis people, etc.\n{end_of_verse}\n\n{start_of_verse: 7}\nBelievers, etc.\n{end_of_verse}\n\n{start_of_verse: 8}\nOur friends, etc.\n{end_of_verse}",
         "note": "",
         "created_at": "2025-04-01 08:59:26.80246+00"
     },
@@ -1493,9 +1493,9 @@
         "title_en": "At the Cross",
         "tags": "",
         "pages": "",
-        "related": "",
-        "lyrics": "{start_of_verse: 1}\nA-las, and did my Sa-vior bleed,\nAnd did my Sov-\u2019reign die?\nWould He de-vote that sa-cred head,\nFor such a worm as I?\n{end_of_verse}\n\n{start_of_verse: 2}\nWas it for crimes that I had done,\nHe groaned up-on the tree?\nA-maz-ing pit-y, grace un-known,\nAnd love be-yond de-gree!\n{end_of_verse}\n\n{start_of_verse: 3}\nWell might the sun in dark-ness hide,\nAnd shut his glo-ries in,\nWhen Christ the might-y Mak-er died,\nFor man, the crea-ture\u2019s sin.\n{end_of_verse}\n\n{start_of_verse: 4}\nThus might I hide my blush-ing face,\nWhile Cal-v\u2019ry\u2019s cross ap-pears,\n251Dis-solve my heart in thank-ful-ness,\nAnd melt mine eyes to tears.\n{end_of_verse}\n\n{start_of_verse: 5}\nBut drops of grief can ne\u2019er re-pay,\nThe debt of love I owe,\nHere, Lord, I give my-self a-way,\n\u2019Tis all that I can do.\n{end_of_verse}\n\n{start_of_chorus}\nAt the cross, at the cross,\nWhere I first saw the light,\nAnd the bur-den of my heart,\nRolled a-way, rolled a-way,\nIt was there by faith, I received my sight,\nAnd now I am hap-py all the day!\n{end_of_chorus}",
-        "lyrics_en": "",
+        "related": "2",
+        "lyrics": "",
+        "lyrics_en": "{start_of_verse: 1}\nA-las, and did my Sa-vior bleed,\nAnd did my Sov-\u2019reign die?\nWould He de-vote that sa-cred head,\nFor such a worm as I?\n{end_of_verse}\n\n{start_of_verse: 2}\nWas it for crimes that I had done,\nHe groaned up-on the tree?\nA-maz-ing pit-y, grace un-known,\nAnd love be-yond de-gree!\n{end_of_verse}\n\n{start_of_verse: 3}\nWell might the sun in dark-ness hide,\nAnd shut his glo-ries in,\nWhen Christ the might-y Mak-er died,\nFor man, the crea-ture\u2019s sin.\n{end_of_verse}\n\n{start_of_verse: 4}\nThus might I hide my blush-ing face,\nWhile Cal-v\u2019ry\u2019s cross ap-pears,\n251Dis-solve my heart in thank-ful-ness,\nAnd melt mine eyes to tears.\n{end_of_verse}\n\n{start_of_verse: 5}\nBut drops of grief can ne\u2019er re-pay,\nThe debt of love I owe,\nHere, Lord, I give my-self a-way,\n\u2019Tis all that I can do.\n{end_of_verse}\n\n{start_of_chorus}\nAt the cross, at the cross,\nWhere I first saw the light,\nAnd the bur-den of my heart,\nRolled a-way, rolled a-way,\nIt was there by faith, I received my sight,\nAnd now I am hap-py all the day!\n{end_of_chorus}",
         "note": "",
         "created_at": ""
     },
@@ -1531,7 +1531,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. Tempted and tried,\nWe\u2019re oft made to won-der,\nWhy it should be thus,\nAll the day long,\nWhile there are oth-ers,\nLiv-ing a-bout us,\nNev-er mo-lested tho\u2019 in the wrong.\n\nChorus:\nFar-ther a-long we\u2019ll know,\nAll a-bout it,\nFar-ther a-long,\nWe\u2019ll un-der-stand why,\nCheer up, my broth-er,\nLive in the sun-shine,\nWe\u2019ll un-der-stand it all by and by.\n\n2. When death has come and,\nTak-en our loved ones,\nIt leaves our home so,\nLone-ly and drear,\nThen do we won-der,\n255Why oth-ers pros-per,\nLiv-ing so wick-ed year af-ter year.\n\n(Sing chorus)\n\n3. Faithful till death said,\nOur lov-ing Mas-ter,\nA few more days,\nTo la-bor and wait,\nToils of the road will,\nThen seems as noth-ing,\nAs we sweep thru the beau-ti-ful gate.\n\n(Sing chorus)\n\n4. When we see Je-sus,\nCom-ing in glo-ry,\nWhen He comes from,\nHis home in the sky,\nThen we shall meet Him,\nIn that bright man-sion,\nWe\u2019ll un-der-stand it all by and by.\n\n(Sing chorus)",
+        "lyrics_en": "{start_of_verse: 1}\nTempted and tried,\nWe\u2019re oft made to won-der,\nWhy it should be thus,\nAll the day long,\nWhile there are oth-ers,\nLiv-ing a-bout us,\nNev-er mo-lested tho\u2019 in the wrong.\n\n{start_of_chorus}\nFar-ther a-long we\u2019ll know,\nAll a-bout it,\nFar-ther a-long,\nWe\u2019ll un-der-stand why,\nCheer up, my broth-er,\nLive in the sun-shine,\nWe\u2019ll un-der-stand it all by and by.\n\n{start_of_verse: 2}\nWhen death has come and,\nTak-en our loved ones,\nIt leaves our home so,\nLone-ly and drear,\nThen do we won-der,\n255Why oth-ers pros-per,\nLiv-ing so wick-ed year af-ter year.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nFaithful till death said,\nOur lov-ing Mas-ter,\nA few more days,\nTo la-bor and wait,\nToils of the road will,\nThen seems as noth-ing,\nAs we sweep thru the beau-ti-ful gate.\n\n(Sing chorus)\n\n{start_of_verse: 4}\nWhen we see Je-sus,\nCom-ing in glo-ry,\nWhen He comes from,\nHis home in the sky,\nThen we shall meet Him,\nIn that bright man-sion,\nWe\u2019ll un-der-stand it all by and by.\n\n(Sing chorus)",
         "note": "",
         "created_at": ""
     },
@@ -1543,7 +1543,7 @@
         "pages": "Mvskoke Hymn page 1.",
         "related": "1",
         "lyrics": "",
-        "lyrics_en": "1. I\u2019m press-ing on the up-ward way,\nNew heights I\u2019m gain-ing ev-\u2019ry day,\nStill pray-ing as I on-ward bound,\n\u201cLord, plant my feet on high-er ground.\u201d\n\n(Sing chorus)\n\n2. My heart has no de-sire to stay where,\nDoubts a-rise and fears dis-may, Tho,\nSome may dwell where these a-bound,\nMy prayer, my aim is higher ground.\n\n(Sing chorus)\n\n3. I want to live a-bove the, World,\nThough Sa-tan\u2019s darts at me are, hurled.\nFor faith has caught the joy-ful sound,\nThe song of saints on high-er ground.\n\n(Sing chorus)\n\n4. I want to scale the ut-most height, and\nCatch a gleam of glo-ry bright, But still,\nI\u2019ll pray till heav\u2019n I\u2019ve found, \u201cLord,\nLead me on to high-er ground.\n\nChorus:\n\nLord, lift me up and let me stand, By faith,\nOn heaven\u2019s ta-ble-land, A high-er plane,\nThan I have found; Lord, plant my feet on\nHigh-er ground.",
+        "lyrics_en": "{start_of_verse: 1}\nI\u2019m press-ing on the up-ward way,\nNew heights I\u2019m gain-ing ev-\u2019ry day,\nStill pray-ing as I on-ward bound,\n\u201cLord, plant my feet on high-er ground.\u201d\n\n(Sing chorus)\n\n{start_of_verse: 2}\nMy heart has no de-sire to stay where,\nDoubts a-rise and fears dis-may, Tho,\nSome may dwell where these a-bound,\nMy prayer, my aim is higher ground.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nI want to live a-bove the, World,\nThough Sa-tan\u2019s darts at me are, hurled.\nFor faith has caught the joy-ful sound,\nThe song of saints on high-er ground.\n\n(Sing chorus)\n\n{start_of_verse: 4}\nI want to scale the ut-most height, and\nCatch a gleam of glo-ry bright, But still,\nI\u2019ll pray till heav\u2019n I\u2019ve found, \u201cLord,\nLead me on to high-er ground.\n\n{start_of_chorus}\nLord, lift me up and let me stand, By faith,\nOn heaven\u2019s ta-ble-land, A high-er plane,\nThan I have found; Lord, plant my feet on\nHigh-er ground.",
         "note": "",
         "created_at": ""
     },
@@ -1551,11 +1551,11 @@
         "id": "131",
         "title": "",
         "title_en": "How Great Thou Art",
-        "tags": "Mvskoke Hymn page 63.",
-        "pages": "",
+        "tags": "",
+        "pages": "Mvskoke Hymn page 63.",
         "related": "30",
         "lyrics": "",
-        "lyrics_en": "1. O Lord my God! When I,\nIn awe-some won-der,\nCon-sid-er all the worlds,\nThy hands have made,\nI see the stars,\nI hear the roaring thunder,\nThy pow\u2019r thro-out,\nthe u-ni-verse dis-played.\n\nChorus:\n\nThen sings my soul,\nMy Sav-ior God, to Thee,\nHow great Thou art,\nHow great Thou art!\n(Repeat)\n\n2. When thro\u2019 the woods,\nAnd for-est glades, I wan-der,\n259And hear the birds,\nSing sweet-ly in the trees;\nWhen I look down from loft-y\nMoun-tain gran-deur,\nAnd hear, The brook,\nAnd feel the gen-tle breeze.\n\n(Sing chorus)\n\n3. When Christ shall come,\nWith shout of ac-cla-ma-tion,\nAnd take me home,\nWhat joy shall fill my heart!\nThen I shall bow in hum-ble,\nAd-o-ra-tion, And there,\nPro-claim, my God,\nHow great Thou art!\n\n(Sing chorus)",
+        "lyrics_en": "{start_of_verse: 1}\nO Lord my God! When I,\nIn awe-some won-der,\nCon-sid-er all the worlds,\nThy hands have made,\nI see the stars,\nI hear the roaring thunder,\nThy pow\u2019r thro-out,\nthe u-ni-verse dis-played.\n\n{start_of_chorus}\nThen sings my soul,\nMy Sav-ior God, to Thee,\nHow great Thou art,\nHow great Thou art!\n(Repeat)\n\n{start_of_verse: 2}\nWhen thro\u2019 the woods,\nAnd for-est glades, I wan-der,\n259And hear the birds,\nSing sweet-ly in the trees;\nWhen I look down from loft-y\nMoun-tain gran-deur,\nAnd hear, The brook,\nAnd feel the gen-tle breeze.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nWhen Christ shall come,\nWith shout of ac-cla-ma-tion,\nAnd take me home,\nWhat joy shall fill my heart!\nThen I shall bow in hum-ble,\nAd-o-ra-tion, And there,\nPro-claim, my God,\nHow great Thou art!\n\n(Sing chorus)",
         "note": "",
         "created_at": ""
     },
@@ -1567,7 +1567,7 @@
         "pages": "Mvskoke Hymn page 229.",
         "related": "116",
         "lyrics": "",
-        "lyrics_en": "1. I have de-cid-ed to fol-low Je-sus,\nI have de-cid-ed to fol-low Je-sus,\nI have de-cid-ed to fol-low Je-sus,\nNo turning back, no turning back.\n\n2. Tho\u2019 none go with me, I still will fol-low,\nTho\u2019 none go with me, I still will fol-low,\nTho\u2019 none go with me, I still will fol-low,\nNo turning back, no turning back.\n\n3. My cross I\u2019ll car-ry, till I see Je-sus,\nMy cross I\u2019ll car-ry, till I see Je-sus,\nMy ceoss I\u2019ll car-ry, till I see Je-sus.\nNo turning back, no turning back.\n\n4. The world be-hind me, the cross be-fore me,\nThe world be-hind me, the cross be-fore me,\nThe world be-hind me, the cross be-fore me,\nNo turning back, no turning back.",
+        "lyrics_en": "{start_of_verse: 1}\nI have de-cid-ed to fol-low Je-sus,\nI have de-cid-ed to fol-low Je-sus,\nI have de-cid-ed to fol-low Je-sus,\nNo turning back, no turning back.\n\n{start_of_verse: 2}\nTho\u2019 none go with me, I still will fol-low,\nTho\u2019 none go with me, I still will fol-low,\nTho\u2019 none go with me, I still will fol-low,\nNo turning back, no turning back.\n\n{start_of_verse: 3}\nMy cross I\u2019ll car-ry, till I see Je-sus,\nMy cross I\u2019ll car-ry, till I see Je-sus,\nMy ceoss I\u2019ll car-ry, till I see Je-sus.\nNo turning back, no turning back.\n\n{start_of_verse: 4}\nThe world be-hind me, the cross be-fore me,\nThe world be-hind me, the cross be-fore me,\nThe world be-hind me, the cross be-fore me,\nNo turning back, no turning back.",
         "note": "",
         "created_at": ""
     },
@@ -1579,7 +1579,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. Some glad morn-ing when this life is o\u2019er,\nI\u2019ll ------------ (fly a-way) ------------ fly a-way,\nTo a home on God\u2019s ce-les-tial shore,\nI\u2019ll ------------ (fly a-way) ----------- fly a-way.\n\n(Sing chorus)\n\n2. When the shad-ows of this life have grown,\nI\u2019ll ------------ (fly a-way) ------------ fly a-way,\nLike a bird from pris-on bars has flown,\nI\u2019ll ------------ (fly a-way) ------------ fly a-way.\n\n(Sing chorus)\n\n3. Just a few more wea-ry days and then,\nI\u2019ll ------------- (fly a-way) ----------- fly a-way,\nTo a land where joys shall nev-er end,\nI\u2019ll ------------ (fly a-way) ----------- fly a-way.\n\nChorus:\nI\u2019ll ------------ (fly a-way) ----------- fly a-way,\nO glory, I\u2019ll ------ fly a-way ----- When I die,\nHal-le-lu-jah,------------------------ by and by,\nI\u2019ll ------------ (fly a-way) ----------- fly a-way.",
+        "lyrics_en": "{start_of_verse: 1}\nSome glad morn-ing when this life is o\u2019er,\nI\u2019ll ------------ (fly a-way) ------------ fly a-way,\nTo a home on God\u2019s ce-les-tial shore,\nI\u2019ll ------------ (fly a-way) ----------- fly a-way.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nWhen the shad-ows of this life have grown,\nI\u2019ll ------------ (fly a-way) ------------ fly a-way,\nLike a bird from pris-on bars has flown,\nI\u2019ll ------------ (fly a-way) ------------ fly a-way.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nJust a few more wea-ry days and then,\nI\u2019ll ------------- (fly a-way) ----------- fly a-way,\nTo a land where joys shall nev-er end,\nI\u2019ll ------------ (fly a-way) ----------- fly a-way.\n\n{start_of_chorus}\nI\u2019ll ------------ (fly a-way) ----------- fly a-way,\nO glory, I\u2019ll ------ fly a-way ----- When I die,\nHal-le-lu-jah,------------------------ by and by,\nI\u2019ll \u2014\u2014\u2014\u2014\u2014\u2014 (fly a-way) ----------- fly a-way.",
         "note": "",
         "created_at": ""
     },
@@ -1591,7 +1591,7 @@
         "pages": "Mvskoke Hymn page 11.",
         "related": "6",
         "lyrics": "",
-        "lyrics_en": "1. When pangs of death seized on,\nMy soul un-to the Lord I cried,\nTill Je-sus came and made me,\nWhole, I would not be denied.\n\n(Sing chorus)\n\n2. As Ja-cob in the days of old,\nI wres-tled with the Lord,\nAnd in-stant, with a cour-age bold,\nI stood up-on His word.\n\n(Sing chorus)\n\n3. Old Sa-tan said my Lord was gone,\nAnd would not hear my prayer. But,\nPraise the Lord! The work is done,\nAnd Christ the Lord is here.\n\nChorus:\nI would not be de-nied,\nI would not be de-nied,\nTill Je-sus came and made me,",
+        "lyrics_en": "{start_of_verse: 1}\nWhen pangs of death seized on,\nMy soul un-to the Lord I cried,\nTill Je-sus came and made me,\nWhole, I would not be denied.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nAs Ja-cob in the days of old,\nI wres-tled with the Lord,\nAnd in-stant, with a cour-age bold,\nI stood up-on His word.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nOld Sa-tan said my Lord was gone,\nAnd would not hear my prayer. But,\nPraise the Lord! The work is done,\nAnd Christ the Lord is here.\n\n{start_of_chorus}\nI would not be de-nied,\nI would not be de-nied,\nTill Je-sus came and made me,",
         "note": "",
         "created_at": ""
     },
@@ -1603,7 +1603,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. I am weak but Thou art strong,\nJe-sus, keep me from all wrong,\nI\u2019ll be sat-is-fied as long, as I walk,\nLet me walk close to Thee.\n\n(Sing chorus)\n\n2. Thro\u2019 this world of toil and snares,\nIf I fal-ter, Lord, who cares?\nWho with me my bur-den shares?\nNone but Thee, dear Lord, none but Thee,\n\n(Sing chorus)\n\n3. When my fee-ble life is o\u2019er,\nTime for me will be no more,\nGuide me gen-tly, safe-ly o\u2019er,\nTo Thy king-dom shore, to Thy shore.\n\nChorus:\nJust a clos-er walk with Thee,\nGrant it, Je-sus, is my plea,\nDai-ly walk-ing close to Thee,\nLet it be, dear Lord, let it be.",
+        "lyrics_en": "{start_of_verse: 1}\nI am weak but Thou art strong,\nJe-sus, keep me from all wrong,\nI\u2019ll be sat-is-fied as long, as I walk,\nLet me walk close to Thee.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nThro\u2019 this world of toil and snares,\nIf I fal-ter, Lord, who cares?\nWho with me my bur-den shares?\nNone but Thee, dear Lord, none but Thee,\n\n(Sing chorus)\n\n{start_of_verse: 3}\nWhen my fee-ble life is o\u2019er,\nTime for me will be no more,\nGuide me gen-tly, safe-ly o\u2019er,\nTo Thy king-dom shore, to Thy shore.\n\n{start_of_chorus}\nJust a clos-er walk with Thee,\nGrant it, Je-sus, is my plea,\nDai-ly walk-ing close to Thee,\nLet it be, dear Lord, let it be.",
         "note": "",
         "created_at": ""
     },
@@ -1615,7 +1615,7 @@
         "pages": "Mvskoke Hymn page 39.",
         "related": "18",
         "lyrics": "",
-        "lyrics_en": "1. Je-sus loves me! This I know,\nFor the Bi-ble tells me so,\nLit-tle ones to Him be-long,\nThey are weak, but He is strong.\n\n(Sing chorus)\n\n2. Je-sus loves me! He who died,\nHeav-en\u2019s gates to o-pen wide!\nHe will wash a-way my sin,\nLet His lit-tle child come in.\n\n(Sing chorus)\n\n3. Je-sus loves me! Loves me still,\nTho\u2019 I\u2019m ver-y weak and ill,\nFrom His shin-ing throne on high,\nComes to watch me where I lie.\n\n(Sing chorus)\n\n4. Jesus loves me! He will stay,\nClose be-side me all the way,\nIf I love Him, when I die,\nHe will take me home on high.\n\nChorus:\nYes, Je-sus loves me,\nYes, Je-sus loves me,\nYes, Je-sus loves me,\nThe Bi-ble tells me so.",
+        "lyrics_en": "{start_of_verse: 1}\nJe-sus loves me! This I know,\nFor the Bi-ble tells me so,\nLit-tle ones to Him be-long,\nThey are weak, but He is strong.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nJe-sus loves me! He who died,\nHeav-en\u2019s gates to o-pen wide!\nHe will wash a-way my sin,\nLet His lit-tle child come in.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nJe-sus loves me! Loves me still,\nTho\u2019 I\u2019m ver-y weak and ill,\nFrom His shin-ing throne on high,\nComes to watch me where I lie.\n\n(Sing chorus)\n\n{start_of_verse: 4}\nJesus loves me! He will stay,\nClose be-side me all the way,\nIf I love Him, when I die,\nHe will take me home on high.\n\n{start_of_chorus}\nYes, Je-sus loves me,\nYes, Je-sus loves me,\nYes, Je-sus loves me,\nThe Bi-ble tells me so.",
         "note": "",
         "created_at": ""
     },
@@ -1627,7 +1627,7 @@
         "pages": "Mvskoke Hymn page 225.",
         "related": "114",
         "lyrics": "",
-        "lyrics_en": "1. I\u2019ve a home pre-pared where the saints a-bide,\nJust o-ver in the glo-ry-land,\nAnd I long to be by my Sav-ior\u2019s side,\nJust o-ver in the glo-ry-land.\n\n(Sing chorus)\n\n2. I am on my way to those man-sions fair,\nJust o-ver in the glo-ry-land,\nThere to sing God\u2019s praise, and His glo-ry share,\nJust o-ver in the glo-ry-land.\n\n(Sing chorus)\n\n3. What a joy-ful tho\u2019t, that my Lord I\u2019ll see,\nJust o-ver in the glo-ry-land,\nAnd with kin-dred saved, there for-ev-er be,\nJust o-ver in the glo-ry-land.\n\n(Sing chorus)\n\n4. With the blood-washed throng I will shout and sing,\nJust o-ver in the glo-ry-land,\nGlad ho-san-nas to Christ, the Lord and King,\nJust o-ver in the glo-ry-land.\n\nChorus:\nJust o-ver in the glo-ry-land, I\u2019ll join the,\nHap-py an-gel band, Just o-ver in the glo-ry-land,\nJust o-ver in the glo-ry-land, There with the,\nMight-y host I\u2019ll stand, Just o-ver in the glo-ry-land.",
+        "lyrics_en": "{start_of_verse: 1}\nI\u2019ve a home pre-pared where the saints a-bide,\nJust o-ver in the glo-ry-land,\nAnd I long to be by my Sav-ior\u2019s side,\nJust o-ver in the glo-ry-land.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nI am on my way to those man-sions fair,\nJust o-ver in the glo-ry-land,\nThere to sing God\u2019s praise, and His glo-ry share,\nJust o-ver in the glo-ry-land.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nWhat a joy-ful tho\u2019t, that my Lord I\u2019ll see,\nJust o-ver in the glo-ry-land,\nAnd with kin-dred saved, there for-ev-er be,\nJust o-ver in the glo-ry-land.\n\n(Sing chorus)\n\n{start_of_verse: 4}\nWith the blood-washed throng I will shout and sing,\nJust o-ver in the glo-ry-land,\nGlad ho-san-nas to Christ, the Lord and King,\nJust o-ver in the glo-ry-land.\n\n{start_of_chorus}\nJust o-ver in the glo-ry-land, I\u2019ll join the,\nHap-py an-gel band, Just o-ver in the glo-ry-land,\nJust o-ver in the glo-ry-land, There with the,\nMight-y host I\u2019ll stand, Just o-ver in the glo-ry-land.",
         "note": "",
         "created_at": ""
     },
@@ -1639,7 +1639,7 @@
         "pages": "Mvskoke Hymn page 33.",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. Just as I am, with-out one plea,\nBut that Thy blood was shed for me,\nAnd that Thou bidd\u2019st me come to Thee,\nO Lamb of God, I come! I come!\n\n2. Just as I am, and wait-ing not,\nTo rid my soul of one dark blot, To Thee,\nWhose blood can cleanse each spot,\nO Lamb of God, I come! I come!\n\n3. Just as I am, tho\u2019 tossed a-bout,\nWith man-y a con-flict, many a doubt,\nFight-ings with-in, and fears with-out,\nO Lamb of God, I come! I come!\n\n4. Just as I am, Poor, wretch-ed, blind,\nSight, rich-es, heal-ing of the mind,\nYea, all I need in Thee to find,\nO Lamb of God, I come! I come!\n\n5. Just as I am, Thy wilt re-ceive,\nWilt wel-come, par-don, cleanse, re-lieve,\nBecause Thy prom-ise I be-lieve.\nO Lamb of God, I come! I come!",
+        "lyrics_en": "{start_of_verse: 1}\nJust as I am, with-out one plea,\nBut that Thy blood was shed for me,\nAnd that Thou bidd\u2019st me come to Thee,\nO Lamb of God, I come! I come!\n\n{start_of_verse: 2}\nJust as I am, and wait-ing not,\nTo rid my soul of one dark blot, To Thee,\nWhose blood can cleanse each spot,\nO Lamb of God, I come! I come!\n\n{start_of_verse: 3}\nJust as I am, tho\u2019 tossed a-bout,\nWith man-y a con-flict, many a doubt,\nFight-ings with-in, and fears with-out,\nO Lamb of God, I come! I come!\n\n{start_of_verse: 4}\nJust as I am, Poor, wretch-ed, blind,\nSight, rich-es, heal-ing of the mind,\nYea, all I need in Thee to find,\nO Lamb of God, I come! I come!\n\n{start_of_verse: 5}\nJust as I am, Thy wilt re-ceive,\nWilt wel-come, par-don, cleanse, re-lieve,\nBecause Thy prom-ise I be-lieve.\nO Lamb of God, I come! I come!",
         "note": "",
         "created_at": ""
     },
@@ -1651,7 +1651,7 @@
         "pages": "Mvskoke Hymn page 237.",
         "related": "120",
         "lyrics": "",
-        "lyrics_en": "1. Must Je-sus bear the cross a-lone,\nAnd all the world go free?\nNo, there\u2019s a cross for every-one,\nAnd there\u2019s a cross for me.\n\n2. How hap-py are the saints a-bove,\nWho once went sor-rowing here!\nBut now they taste un-min-gled love,\nAnd joy with-out a tear.\n\n3. The con-se-crat-ed cross I\u2019ll bear,\nTill death shall set me free,\nAnd then go home my crown to wear,\nFor there\u2019s a crown for me.\n\n4. O pre-cious cross! O glo-rious crown!\nO res-ur-rec-tion day!\nYe an-gels from the stars come down,\nAnd bear my soul away.",
+        "lyrics_en": "{start_of_verse: 1}\nMust Je-sus bear the cross a-lone,\nAnd all the world go free?\nNo, there\u2019s a cross for every-one,\nAnd there\u2019s a cross for me.\n\n{start_of_verse: 2}\nHow hap-py are the saints a-bove,\nWho once went sor-rowing here!\nBut now they taste un-min-gled love,\nAnd joy with-out a tear.\n\n{start_of_verse: 3}\nThe con-se-crat-ed cross I\u2019ll bear,\nTill death shall set me free,\nAnd then go home my crown to wear,\nFor there\u2019s a crown for me.\n\n{start_of_verse: 4}\nO pre-cious cross! O glo-rious crown!\nO res-ur-rec-tion day!\nYe an-gels from the stars come down,\nAnd bear my soul away.",
         "note": "",
         "created_at": ""
     },
@@ -1659,11 +1659,11 @@
         "id": "140",
         "title": "",
         "title_en": "Near the Cross",
-        "tags": "Mvskoke Hymn page 181.",
-        "pages": "",
+        "tags": "",
+        "pages": "Mvskoke Hymn page 181.",
         "related": "18",
         "lyrics": "",
-        "lyrics_en": "1. Je-sus, keep me near the cross,\nThere a pre-cious foun-tain,\nFree to all a heal-ing stream,\nFlows from Cal-v\u2019ry\u2019s moun-tain.\n\n(Sing chorus)\n\n2. Near the cross, a trem-bling soul,\nLove and mer-cy found me,\nThere the Bright and Morning Star,\nSheds its beams a-round me.\n\n(Sing chorus)\n\n3. Near the cross! O Lamb of God,\nBring its scenes be-fore me,\nHelp me walk from day to day,\nWith its shad-ows o\u2019er me.\n\n(Sing chorus)\n\n4. Near the cross I\u2019ll watch and wait,\nHop-ing, trust-ing ev-er,\nTill I reach the gold-en strand,\nJust be-yond the riv-er.\n\nChorus:\nIn the cross, in the cross,\nBe my glo-ry ev-er. Till,\nMy rap-tured soul shall find,\nRest be-yond the riv-er.",
+        "lyrics_en": "{start_of_verse: 1}\nJe-sus, keep me near the cross,\nThere a pre-cious foun-tain,\nFree to all a heal-ing stream,\nFlows from Cal-v\u2019ry\u2019s moun-tain.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nNear the cross, a trem-bling soul,\nLove and mer-cy found me,\nThere the Bright and Morning Star,\nSheds its beams a-round me.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nNear the cross! O Lamb of God,\nBring its scenes be-fore me,\nHelp me walk from day to day,\nWith its shad-ows o\u2019er me.\n\n(Sing chorus)\n\n{start_of_verse: 4}\nNear the cross I\u2019ll watch and wait,\nHop-ing, trust-ing ev-er,\nTill I reach the gold-en strand,\nJust be-yond the riv-er.\n\n{start_of_chorus}\nIn the cross, in the cross,\nBe my glo-ry ev-er. Till,\nMy rap-tured soul shall find,\nRest be-yond the riv-er.",
         "note": "",
         "created_at": ""
     },
@@ -1675,7 +1675,7 @@
         "pages": "",
         "related": "13",
         "lyrics": "",
-        "lyrics_en": "1. Pass me not, O gen-tle Sa-vior,\nHear my hum-ble cry,\nWhile on others Thou art calling,\nDo not pass me by.\n\n(Sing chorus)\n\n2. Let me at Thy throne of mer-cy,\nFind a sweet re-lief,\nKneel-ing there in deep con-\nTri-tion, Help my un-be-lief,\n\n(Sing chorus)\n\n3. Thou the spring of all my com-fort,\nMore than life to me,\nWhom have I on earth be-side thee?\nWhom in heaven but thee?\n\nChorus:\nSav-ior, Sav-ior, Hear my humble cry,\nWhile on oth-ers Thou art call-ing.\nDo not pass me by.",
+        "lyrics_en": "{start_of_verse: 1}\nPass me not, O gen-tle Sa-vior,\nHear my hum-ble cry,\nWhile on others Thou art calling,\nDo not pass me by.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nLet me at Thy throne of mer-cy,\nFind a sweet re-lief,\nKneel-ing there in deep con-\nTri-tion, Help my un-be-lief,\n\n(Sing chorus)\n\n{start_of_verse: 3}\nThou the spring of all my com-fort,\nMore than life to me,\nWhom have I on earth be-side thee?\nWhom in heaven but thee?\n\n{start_of_chorus}\nSav-ior, Sav-ior, Hear my humble cry,\nWhile on oth-ers Thou art call-ing.\nDo not pass me by.",
         "note": "",
         "created_at": ""
     },
@@ -1687,7 +1687,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. Pre-cious memories, un-seen angels,\nSent from somewhere to my soul,\nHow they lin-ger, ev-er near me,\nAnd the sa-cred past un-fold.\n\n(Sing chorus)\n\n2. Pre-cious fa-ther, lov-ing moth-er,\nFly a-cross the lone-ly years,\nAnd old home scenes of my childhood,\nIn fond mem-o-ry ap-pear.\n\n(Sing chorus)\n\n3. In the still-ness of the midnight,\nEch-oes from the past I hear,\nOld time sing-ing, glad-ness bringing,\nFrom that love-ly land some-where.\n\n(Sing chorus)\n\n4. As I trav-el on life\u2019s pathway,\nKnow not what the years may hold,\nAs I pon-der, hope grows fond-er,\nPre-cious mem\u2019ries flood my soul.\n\nChorus:\nPre-cious memories, how they lin-ger,\nHow they ever flood my soul,\nIn the still-ness of the midnight,\nPre-cious, sa-cred scenes un-fold.",
+        "lyrics_en": "{start_of_verse: 1}\nPre-cious memories, un-seen angels,\nSent from somewhere to my soul,\nHow they lin-ger, ev-er near me,\nAnd the sa-cred past un-fold.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nPre-cious fa-ther, lov-ing moth-er,\nFly a-cross the lone-ly years,\nAnd old home scenes of my childhood,\nIn fond mem-o-ry ap-pear.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nIn the still-ness of the midnight,\nEch-oes from the past I hear,\nOld time sing-ing, glad-ness bringing,\nFrom that love-ly land some-where.\n\n(Sing chorus)\n\n{start_of_verse: 4}\nAs I trav-el on life\u2019s pathway,\nKnow not what the years may hold,\nAs I pon-der, hope grows fond-er,\nPre-cious mem\u2019ries flood my soul.\n\n{start_of_chorus}\nPre-cious memories, how they lin-ger,\nHow they ever flood my soul,\nIn the still-ness of the midnight,\nPre-cious, sa-cred scenes un-fold.",
         "note": "",
         "created_at": ""
     },
@@ -1699,7 +1699,7 @@
         "pages": "Mvskoke Hymn page 245.",
         "related": "123",
         "lyrics": "",
-        "lyrics_en": "We praise Thee, O God,\nFor the Son of Thy love,\nFor Je-sus who died,\nAnd is now gone above.\nWe praise Thee, O God,\nFor Thy Spir-it of light, Who\nHas shown us the, Sav-ior\nAnd scattered our night.\nAll glo-ry and praise to the,\nLamb that was slain, Who,\nHas borne all our, sins, and,\nHas cleansed ev-ery stain.\nRe-vive us a-gain, Fill each,\nHeart with Thy love, May,\nEach soul be re-kin-dled,\nWith fire from a-bove.\n\nChorus:\nHal-le-lu-jah! Thine the glo-ry.\nHal-le-lu-jah! A-men! Hal-le-lu-jah!\nThine the glo-ry, Re-vive us a-gain.",
+        "lyrics_en": "We praise Thee, O God,\nFor the Son of Thy love,\nFor Je-sus who died,\nAnd is now gone above.\nWe praise Thee, O God,\nFor Thy Spir-it of light, Who\nHas shown us the, Sav-ior\nAnd scattered our night.\nAll glo-ry and praise to the,\nLamb that was slain, Who,\nHas borne all our, sins, and,\nHas cleansed ev-ery stain.\nRe-vive us a-gain, Fill each,\nHeart with Thy love, May,\nEach soul be re-kin-dled,\nWith fire from a-bove.\n\n{start_of_chorus}\nHal-le-lu-jah! Thine the glo-ry.\nHal-le-lu-jah! A-men! Hal-le-lu-jah!\nThine the glo-ry, Re-vive us a-gain.",
         "note": "",
         "created_at": ""
     },
@@ -1711,7 +1711,7 @@
         "pages": "Mvskoke Hymn page 53.",
         "related": "25",
         "lyrics": "",
-        "lyrics_en": "1. Rock of A-ges, cleft for me,\nLet me hide my-self in Thee,\nLet the wa-ter and the blood, From\nThy wound-ed side which flowed,\nBe of sin the dou-ble cure, Save,\nFrom wrath and make me pure.\n\n2. Not the la-bors of my hands,\nCan ful-fill Thy law\u2019s de-mands,\nThese for sin could not a-tone,\nThou must save, and Thou a-lone,\nIn my hand no price I bring,\nSim-ply to Thy cross I cling.\n\n3. While I draw this fleet-ing breath,\nWhen mine eyes shall close in death,\nWhen I rise to worlds un-known,\nAnd be-hold Thee on Thy throne,\nRock of A-ges, cleft for me,\nLet me hide my-self in Thee.",
+        "lyrics_en": "{start_of_verse: 1}\nRock of A-ges, cleft for me,\nLet me hide my-self in Thee,\nLet the wa-ter and the blood, From\nThy wound-ed side which flowed,\nBe of sin the dou-ble cure, Save,\nFrom wrath and make me pure.\n\n{start_of_verse: 2}\nNot the la-bors of my hands,\nCan ful-fill Thy law\u2019s de-mands,\nThese for sin could not a-tone,\nThou must save, and Thou a-lone,\nIn my hand no price I bring,\nSim-ply to Thy cross I cling.\n\n{start_of_verse: 3}\nWhile I draw this fleet-ing breath,\nWhen mine eyes shall close in death,\nWhen I rise to worlds un-known,\nAnd be-hold Thee on Thy throne,\nRock of A-ges, cleft for me,\nLet me hide my-self in Thee.",
         "note": "",
         "created_at": ""
     },
@@ -1723,7 +1723,7 @@
         "pages": "Mvskoke Hymn Page 83.",
         "related": "41",
         "lyrics": "",
-        "lyrics_en": "1. There\u2019s a land that is fair-er than day,\nAnd by faith we can see it a-far,\nFor the Fa-ther waits o-ver the way,\nTo pre-pare us a dwelling place there.\n\nChorus:\n\nIn the sweet by and by,\nWe shall meet on that beau-ti-ful shore,\nIn the sweet by and by,\nWe shall meet on that beau-ti-ful shore.\n\n2. We shall sing on that beau-ti-ful shore,\nThe me-lo-di-ous songs of the blest,\nAnd our spir-its shall sor-row no more,\nNot a sigh for the bless-ing of rest.\n\n(Sing chorus)\n\n3. To our boun-ti-ful Father a-bove,\nWe will of-fer our trib-ute of praise,\nFor the glo-ri-ous gift of His love,\nAnd the bless-ings that hal-low our days.\n\n(Sing chorus)",
+        "lyrics_en": "{start_of_verse: 1}\nThere\u2019s a land that is fair-er than day,\nAnd by faith we can see it a-far,\nFor the Fa-ther waits o-ver the way,\nTo pre-pare us a dwelling place there.\n\n{start_of_chorus}\nIn the sweet by and by,\nWe shall meet on that beau-ti-ful shore,\nIn the sweet by and by,\nWe shall meet on that beau-ti-ful shore.\n\n{start_of_verse: 2}\nWe shall sing on that beau-ti-ful shore,\nThe me-lo-di-ous songs of the blest,\nAnd our spir-its shall sor-row no more,\nNot a sigh for the bless-ing of rest.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nTo our boun-ti-ful Father a-bove,\nWe will of-fer our trib-ute of praise,\nFor the glo-ri-ous gift of His love,\nAnd the bless-ings that hal-low our days.\n\n(Sing chorus)",
         "note": "",
         "created_at": ""
     },
@@ -1735,7 +1735,7 @@
         "pages": "Mvskoke Hymn page 227.",
         "related": "115",
         "lyrics": "",
-        "lyrics_en": "1. Take the name of Je-sus with you,\nChild of sor-row and of woe,\nIt will joy and com-fort give you,\nTake it then wher-e\u2019re you go.\n\n(Sing chorus)\n\n2. Take the name of Je-sus ev-er,\nAs a shield from ev-\u2018ry snare,\nWhen temp-ta-tions round you gather,\nBreathe that ho-ly name in pray\u2019r.\n\n(Sing chorus)\n\n3. At the name of Je-sus bow-ing,\nFall-ing pros-trate at His feet,\nKing of kings in heav\u2019n we\u2019ll crown Him,\nWhen our jour-ney is com-plete.\n\nChorus:\nPre-cious name, O how sweet!\nHope of earth and joy of heav\u2019n.\nPre-cious name, O how sweet!\nHope of earth and joy of heav\u2019n.",
+        "lyrics_en": "{start_of_verse: 1}\nTake the name of Je-sus with you,\nChild of sor-row and of woe,\nIt will joy and com-fort give you,\nTake it then wher-e\u2019re you go.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nTake the name of Je-sus ev-er,\nAs a shield from ev-\u2018ry snare,\nWhen temp-ta-tions round you gather,\nBreathe that ho-ly name in pray\u2019r.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nAt the name of Je-sus bow-ing,\nFall-ing pros-trate at His feet,\nKing of kings in heav\u2019n we\u2019ll crown Him,\nWhen our jour-ney is com-plete.\n\n{start_of_chorus}\nPre-cious name, O how sweet!\nHope of earth and joy of heav\u2019n.\nPre-cious name, O how sweet!\nHope of earth and joy of heav\u2019n.",
         "note": "",
         "created_at": ""
     },
@@ -1747,7 +1747,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. Trouble and sorrow will be over,\nWhen I lay my burdens down.\n(Repeat verse)\n\n(Sing chorus)\n\n2. I\u2019ll be walking with my Jesus,\nWhen I lay my burdens down.\n(Repeat verse)\n\n(Sing chorus)\n\n3. No more crying, No more dying,\nWhen I lay my burdens down.\n(Repeat verse)\n\n(Sing chorus)\n\n4. I\u2019ll be singing Hallelujah,\nWhen I lay my burdens down.\n(Repeat verse)\n\n(Sing chorus)\n\n5. I\u2019ll be crossing river of Jordan,\nWhen I lay my burdens down.\n(Repeat verse)\n\nChorus:\nGlory, glory, hallelujah,\nWhen I lay my burdens down.\n(Repeat verse)",
+        "lyrics_en": "{start_of_verse: 1}\nTrouble and sorrow will be over,\nWhen I lay my burdens down.\n(Repeat verse)\n\n(Sing chorus)\n\n{start_of_verse: 2}\nI\u2019ll be walking with my Jesus,\nWhen I lay my burdens down.\n(Repeat verse)\n\n(Sing chorus)\n\n{start_of_verse: 3}\nNo more crying, No more dying,\nWhen I lay my burdens down.\n(Repeat verse)\n\n(Sing chorus)\n\n{start_of_verse: 4}\nI\u2019ll be singing Hallelujah,\nWhen I lay my burdens down.\n(Repeat verse)\n\n(Sing chorus)\n\n{start_of_verse: 5}\nI\u2019ll be crossing river of Jordan,\nWhen I lay my burdens down.\n(Repeat verse)\n\n{start_of_chorus}\nGlory, glory, hallelujah,\nWhen I lay my burdens down.\n(Repeat verse)",
         "note": "",
         "created_at": ""
     },
@@ -1759,7 +1759,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. I heard an old, old sto-ry,\nHow a Sav-ior came from glo-ry,\nHow he gave his life on cal-va-ry,\nTo save a wretch like me,\nI heard a-bout his groan-ing,\nOf his pre-cious blood\u2019s a-ton-ing,\nThen I re-pent-ed of my sins,\nAnd won the vic-to-ry.\n\nChorus:\nO vic-to-ry in Je-sus, my Sav-ior,\nFor-ev-er, He sought me and,\nBo\u2019t me with his re-deem-ing blood,\nHe loved me ere I knew him,\nAnd all my love is due him,\nHe plunged me to vic-to-ry,\nBeneath the cleans-ing flood.\n\n2. I heard a-bout His heal-ing,\nOf His cleans-ing pow\u2019r, re-veal-ing,\nHow he made the lame to walk a-gain,\nAnd caused the blind to see,\nAnd then I cried \u201cdear Je-sus,\nCome and heal my bro-ken spir-it,\u201d\nAnd some-how Je-sus came and bro\u2019t,\nTo me the vic-to-ry.\n\n(Sing chorus)\n\n3. I heard a-bout a man-sion,\nHe has built for me glo-ry,\nAnd I heard a-bout the streets,\nOf gold be-yond the crys-tal sea,\nA-bout the an-gels sing-ing and,\nThe old re-demp-tion sto-ry,\nAnd some sweet day I\u2019ll sing up,\nThere the song of vic-to-ry.\n\n(Sing chorus)",
+        "lyrics_en": "{start_of_verse: 1}\nI heard an old, old sto-ry,\nHow a Sav-ior came from glo-ry,\nHow he gave his life on cal-va-ry,\nTo save a wretch like me,\nI heard a-bout his groan-ing,\nOf his pre-cious blood\u2019s a-ton-ing,\nThen I re-pent-ed of my sins,\nAnd won the vic-to-ry.\n\n{start_of_chorus}\nO vic-to-ry in Je-sus, my Sav-ior,\nFor-ev-er, He sought me and,\nBo\u2019t me with his re-deem-ing blood,\nHe loved me ere I knew him,\nAnd all my love is due him,\nHe plunged me to vic-to-ry,\nBeneath the cleans-ing flood.\n\n{start_of_verse: 2}\nI heard a-bout His heal-ing,\nOf His cleans-ing pow\u2019r, re-veal-ing,\nHow he made the lame to walk a-gain,\nAnd caused the blind to see,\nAnd then I cried \u201cdear Je-sus,\nCome and heal my bro-ken spir-it,\u201d\nAnd some-how Je-sus came and bro\u2019t,\nTo me the vic-to-ry.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nI heard a-bout a man-sion,\nHe has built for me glo-ry,\nAnd I heard a-bout the streets,\nOf gold be-yond the crys-tal sea,\nA-bout the an-gels sing-ing and,\nThe old re-demp-tion sto-ry,\nAnd some sweet day I\u2019ll sing up,\nThere the song of vic-to-ry.\n\n(Sing chorus)",
         "note": "",
         "created_at": ""
     },
@@ -1771,7 +1771,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. There is com-ing a day,\nWhen no heart-aches shall come,\nNo more clouds in the sky,\nNo more tears to dim the eye,\nAll is peace for-ev-er more,\nOn that hap-py gold-en shore,\nWhat a day glo-ri-ous day that will be.\n\nChorus:\nWhat a day that will be,\nWhen my Je-sus I shall see,\nAnd I look up-on his face,\nThe One who saved me by His grace,\nWhen he takes me by the hand,\nAnd leads me through the promised land,\nWhat a day glo-ri-ous day that will be.\n\n2. There\u2019ll be no sor-row there,\nNo more bur-dens to bear,\nNo more sick-ness, no pain,\nNo more part-ing o-ver there,\nAnd for-ev-er I will be,\nWith the One who died for me,\nWhat a day glo-ri-ous day that will be.",
+        "lyrics_en": "{start_of_verse: 1}\nThere is com-ing a day,\nWhen no heart-aches shall come,\nNo more clouds in the sky,\nNo more tears to dim the eye,\nAll is peace for-ev-er more,\nOn that hap-py gold-en shore,\nWhat a day glo-ri-ous day that will be.\n\n{start_of_chorus}\nWhat a day that will be,\nWhen my Je-sus I shall see,\nAnd I look up-on his face,\nThe One who saved me by His grace,\nWhen he takes me by the hand,\nAnd leads me through the promised land,\nWhat a day glo-ri-ous day that will be.\n\n{start_of_verse: 2}\nThere\u2019ll be no sor-row there,\nNo more bur-dens to bear,\nNo more sick-ness, no pain,\nNo more part-ing o-ver there,\nAnd for-ev-er I will be,\nWith the One who died for me,\nWhat a day glo-ri-ous day that will be.",
         "note": "",
         "created_at": ""
     },
@@ -1783,7 +1783,7 @@
         "pages": "Mvskoke Hymn page 23.",
         "related": "11",
         "lyrics": "",
-        "lyrics_en": "1. What a friend we have in Je-sus,\nAll our sins and griefs to bear!\nWhat a priv-i-lege to car-ry,\nEv-\u2018ry-thing to God in prayer!\nOh, what peace we of-ten for-feit,\nOh, what need-less pain we bear,\nAll be-cause we do not car-ry,\nEv-\u2019ry-thing to God in prayer!\n\n2. Have we tri-als and temp-ta-tions?\nIs there trou-ble an-y-where?\nWe should nev-er be dis-cour-aged,\nTake it to the Lord in prayer,\nCan we find a friend so faith-ful,\nWho will all our sor-rows share?\nJe-sus knows our ev-ry weak-ness,\nTake it to the Lord in prayer.\n\n3. Are we weak and heav-y lad-en,\nCum-bered with a load of care?\nPre-cious Sav-ior, still our ref-uge,\nTake it to the Lord in prayer,\nDo thy friends de-spise, for-sake thee?\nTake it to the Lord in prayer,\nIn his arms He\u2019ll take and shield thee,\nThou wilt find a so-lace there.",
+        "lyrics_en": "{start_of_verse: 1}\nWhat a friend we have in Je-sus,\nAll our sins and griefs to bear!\nWhat a priv-i-lege to car-ry,\nEv-\u2018ry-thing to God in prayer!\nOh, what peace we of-ten for-feit,\nOh, what need-less pain we bear,\nAll be-cause we do not car-ry,\nEv-\u2019ry-thing to God in prayer!\n\n{start_of_verse: 2}\nHave we tri-als and temp-ta-tions?\nIs there trou-ble an-y-where?\nWe should nev-er be dis-cour-aged,\nTake it to the Lord in prayer,\nCan we find a friend so faith-ful,\nWho will all our sor-rows share?\nJe-sus knows our ev-ry weak-ness,\nTake it to the Lord in prayer.\n\n{start_of_verse: 3}\nAre we weak and heav-y lad-en,\nCum-bered with a load of care?\nPre-cious Sav-ior, still our ref-uge,\nTake it to the Lord in prayer,\nDo thy friends de-spise, for-sake thee?\nTake it to the Lord in prayer,\nIn his arms He\u2019ll take and shield thee,\nThou wilt find a so-lace there.",
         "note": "",
         "created_at": ""
     },
@@ -1795,7 +1795,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. Tri-als dark on ev-\u2019ry hand,\nAnd we can-not un-der-stand,\nAll the ways that God would lead us,\nTo that bless-ed prom-ised land,\nBut He\u2019ll guide us with His eye,\nAnd we\u2019ll fol-low till we die, We will\nUn-der-stand it bet-ter by and by.\n\n(Sing chorus)\n\n2. Oft our cher-ished plans have failed,\nDis-ap-point-ments have pre-vailed,\nAnd we\u2019ve wan-dered in the dark-ness,\nHeav-y-heart-ed and a-lone,\nBut we\u2019re trust-ing in the Lord, and,\nAc-cord-ing to His Word, We will,\nUn-der-stand it bet-ter by and by.\n\n(Sing chorus)\n\n3. Temp-ta-tions, hid-den snares,\nOf-ten take us un-a-wares,\nAnd our hearts are made to bleed,\nFor some tho\u2019t-less word or deed,\nAnd we won-der why the test when,\nWe try to do our best, But we\u2019ll,\nUnderstand it bet-ter by and by.\n\nChorus:\nBy and by, when the morn-ing comes,\nWhen the saints of God are gath-ered,\nHome. We will tell the story,\nHow, we\u2019ve overcome. We will,\nun-der-stand it bet-ter by and by.",
+        "lyrics_en": "{start_of_verse: 1}\nTri-als dark on ev-\u2019ry hand,\nAnd we can-not un-der-stand,\nAll the ways that God would lead us,\nTo that bless-ed prom-ised land,\nBut He\u2019ll guide us with His eye,\nAnd we\u2019ll fol-low till we die, We will\nUn-der-stand it bet-ter by and by.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nOft our cher-ished plans have failed,\nDis-ap-point-ments have pre-vailed,\nAnd we\u2019ve wan-dered in the dark-ness,\nHeav-y-heart-ed and a-lone,\nBut we\u2019re trust-ing in the Lord, and,\nAc-cord-ing to His Word, We will,\nUn-der-stand it bet-ter by and by.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nTemp-ta-tions, hid-den snares,\nOf-ten take us un-a-wares,\nAnd our hearts are made to bleed,\nFor some tho\u2019t-less word or deed,\nAnd we won-der why the test when,\nWe try to do our best, But we\u2019ll,\nUnderstand it bet-ter by and by.\n\n{start_of_chorus}\nBy and by, when the morn-ing comes,\nWhen the saints of God are gath-ered,\nHome. We will tell the story,\nHow, we\u2019ve overcome. We will,\nun-der-stand it bet-ter by and by.",
         "note": "",
         "created_at": ""
     },
@@ -1807,7 +1807,7 @@
         "pages": "",
         "related": "",
         "lyrics": "",
-        "lyrics_en": "1. To Ca-naan\u2019s land I\u2019m on my way,\nWhere the soul (of man) nev-er dies,\nMy dark-est night will turn to-day,\nWhere the soul (of man) nev-er dies.\n\n(Sing chorus)\n\n2. A rose is bloom-ing there for me,\nWhere the soul (of man) nev-er dies,\nAnd I will spend e-ter-ni-ty,\nWhere the soul (of man) nev-er dies.\n\n(Sing chorus)\n\n3. A love-light beams a-cross the foam,\nWhere the soul (of man) nev-er dies,\nIt shines to light the shores of home,\nWhere the soul (of man) nev-er dies.\n\n(Sing chorus)\n\n4. My life will end in death-less sleep,\nWhere the soul (of man) never dies,\nAnd ev-er-last-ing joys I\u2019ll reap,\nWhere the soul (of man) nev-er dies.\n\n(Sing chorus)\n\n5. I\u2019m on my way to that fair land,\nWhere the soul (of man) nev-er dies,\nWhere there will be no part-ing hand,\nAnd the soul (of man) nev-er dies.\n\nChorus:\nNo sad fare-wells, no tear-dimmed eyes,\nWhere all is love, and the soul (of man),\nNever dies.",
+        "lyrics_en": "{start_of_verse: 1}\nTo Ca-naan\u2019s land I\u2019m on my way,\nWhere the soul (of man) nev-er dies,\nMy dark-est night will turn to-day,\nWhere the soul (of man) nev-er dies.\n\n(Sing chorus)\n\n{start_of_verse: 2}\nA rose is bloom-ing there for me,\nWhere the soul (of man) nev-er dies,\nAnd I will spend e-ter-ni-ty,\nWhere the soul (of man) nev-er dies.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nA love-light beams a-cross the foam,\nWhere the soul (of man) nev-er dies,\nIt shines to light the shores of home,\nWhere the soul (of man) nev-er dies.\n\n(Sing chorus)\n\n{start_of_verse: 4}\nMy life will end in death-less sleep,\nWhere the soul (of man) never dies,\nAnd ev-er-last-ing joys I\u2019ll reap,\nWhere the soul (of man) nev-er dies.\n\n(Sing chorus)\n\n{start_of_verse: 5}\nI\u2019m on my way to that fair land,\nWhere the soul (of man) nev-er dies,\nWhere there will be no part-ing hand,\nAnd the soul (of man) nev-er dies.\n\n{start_of_chorus}\nNo sad fare-wells, no tear-dimmed eyes,\nWhere all is love, and the soul (of man),\nNever dies.",
         "note": "",
         "created_at": ""
     },
@@ -1819,7 +1819,7 @@
         "pages": "Mvskoke Hymn page 25.",
         "related": "12",
         "lyrics": "",
-        "lyrics_en": "1. I am think-ing to-day of,\nThat beau-ti-ful land I shall,\nReach when the sun go-eth down,\nWhen thru won-der-ful grace by my,\nSav-ior I stand, Will there be,\nAn-y stars in my crown?\n\n(Sing chorus)\n\n2. In the strength of the Lord,\nLet me la-bor and pray, Let me\nWatch as a win-ner of souls;\nThat bright stars may be mine,\nIn the glo-ri-ous day, When His\nPraise like the sea-bil-lows roll.\n\n(Sing chorus)\n\n3. Oh, what joy will it be when,\nHis face I be-hold, Liv-ing,\nGems at His feet to lay down,\nIt would sweet-en my bliss in the,\nCit-y of gold, Should there be,\nAn-y stars in my crown.\n\nChorus:\nWill there be an-y stars, an-y stars,\nIn my crown. When at ev-\u2019ning,\nThe sun go-eth down? When I,\nWake with the blest, In the,\nMan-sions of rest, Will there,\nbe an-y stars in my crown?",
+        "lyrics_en": "{start_of_verse: 1}\nI am think-ing to-day of,\nThat beau-ti-ful land I shall,\nReach when the sun go-eth down,\nWhen thru won-der-ful grace by my,\nSav-ior I stand, Will there be,\nAn-y stars in my crown?\n\n(Sing chorus)\n\n{start_of_verse: 2}\nIn the strength of the Lord,\nLet me la-bor and pray, Let me\nWatch as a win-ner of souls;\nThat bright stars may be mine,\nIn the glo-ri-ous day, When His\nPraise like the sea-bil-lows roll.\n\n(Sing chorus)\n\n{start_of_verse: 3}\nOh, what joy will it be when,\nHis face I be-hold, Liv-ing,\nGems at His feet to lay down,\nIt would sweet-en my bliss in the,\nCit-y of gold, Should there be,\nAn-y stars in my crown.\n\n{start_of_chorus}\nWill there be an-y stars, an-y stars,\nIn my crown. When at ev-\u2019ning,\nThe sun go-eth down? When I,\nWake with the blest, In the,\nMan-sions of rest, Will there,\nbe an-y stars in my crown?",
         "note": "",
         "created_at": ""
     }

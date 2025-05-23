@@ -63,6 +63,16 @@ class SongHeader extends StatelessWidget {
               const SizedBox(width: Dimens.marginShort),
             ],
           ),
+          currentSong!.titleEn != null && currentSong!.titleMus != null
+              ? Text(
+                  currentSong!.titleEn!,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize:
+                            Theme.of(context).textTheme.titleSmall!.fontSize! *
+                                fontScale,
+                      ),
+                )
+              : Container(),
           tags != null
               ? Padding(
                   padding: const EdgeInsets.only(top: Dimens.marginShort),

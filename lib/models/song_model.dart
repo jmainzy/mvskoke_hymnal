@@ -56,6 +56,13 @@ class SongModel extends SongMetadataBase {
         : null;
   }
 
+  String? get titleMus {
+    // returns muscogee or null
+    return titles['mus'] != null && titles['mus']!.isNotEmpty
+        ? titles['mus']
+        : null;
+  }
+
   String? get firstLine {
     // returns the first line of the lyrics
     final lyrics = lyricsMap['mus'] != null && lyricsMap['mus']!.isNotEmpty
