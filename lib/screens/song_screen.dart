@@ -28,7 +28,6 @@ class SongScreen extends WatchingStatefulWidget {
 }
 
 class SongScreenState extends State<SongScreen> {
-  bool showNepali = true;
 
   int transposeIncrement = 0;
   double scrollSpeed = 10;
@@ -68,9 +67,7 @@ class SongScreenState extends State<SongScreen> {
   Future<void> initialize() async {
     final songManager = sl<MusSongManager>();
     currentSong = songManager.getSongById(widget.songId);
-    mediaItems = await songManager.getMediaItems(widget.songId);
     showEnglish = sl<MusStoreService>().get<bool>('show_english') ?? true;
-    logger.i('media items for song ${widget.songId}: $mediaItems');
 
     if (currentSong == null) return;
 

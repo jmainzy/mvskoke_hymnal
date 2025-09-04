@@ -130,7 +130,7 @@ class MetadataSerializer extends Serializer<SongModel> {
     }
 
     return SongModel(
-      id: map['id'],
+      id: map['id'].toString(),
       titles: titles,
       tags: map['tags'] != null && map['tags'].isNotEmpty
           ? List<String>.from(map['tags'].split(','))
