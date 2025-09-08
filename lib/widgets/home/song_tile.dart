@@ -39,7 +39,7 @@ class SongTile extends StatelessWidget {
       trailing: Padding(
           padding: const EdgeInsets.only(right: Dimens.marginShort),
           child: Text(
-            song.id,
+            song.songNumber,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.labelLarge!.copyWith(
                   color: Colors.black54,

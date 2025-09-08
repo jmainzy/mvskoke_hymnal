@@ -141,7 +141,7 @@ class ToggleChordsWidgetState extends State<ToggleChordsWidget> {
                 showChords = value;
               });
             },
-            activeColor: Theme.of(context).colorScheme.primary,
+            activeThumbColor: Theme.of(context).colorScheme.primary,
           ),
         ),
       ],

@@ -28,8 +28,6 @@ class SongScreen extends WatchingStatefulWidget {
 }
 
 class SongScreenState extends State<SongScreen> {
-  bool showNepali = true;
-
   int transposeIncrement = 0;
   double scrollSpeed = 10;
   bool scrollEnabled = false;
@@ -68,9 +66,7 @@ class SongScreenState extends State<SongScreen> {
   Future<void> initialize() async {
     final songManager = sl<MusSongManager>();
     currentSong = songManager.getSongById(widget.songId);
-    mediaItems = await songManager.getMediaItems(widget.songId);
     showEnglish = sl<MusStoreService>().get<bool>('show_english') ?? true;
-    logger.i('media items for song ${widget.songId}: $mediaItems');
 
     if (currentSong == null) return;
 
@@ -105,7 +101,8 @@ class SongScreenState extends State<SongScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Center(child: Text('Song not found')),
+              const Center(
+                child: Text('Song not found')),
               ElevatedButton(
                 onPressed: () async {
                   NavigationHelper.router.pop();
@@ -158,6 +155,7 @@ class SongScreenState extends State<SongScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
+                        key: Key('error-loading-song'),
                         'Error loading song',
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
