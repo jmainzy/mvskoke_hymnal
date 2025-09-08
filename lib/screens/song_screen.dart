@@ -28,7 +28,6 @@ class SongScreen extends WatchingStatefulWidget {
 }
 
 class SongScreenState extends State<SongScreen> {
-
   int transposeIncrement = 0;
   double scrollSpeed = 10;
   bool scrollEnabled = false;
@@ -102,7 +101,8 @@ class SongScreenState extends State<SongScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Center(child: Text('Song not found')),
+              const Center(
+                child: Text('Song not found')),
               ElevatedButton(
                 onPressed: () async {
                   NavigationHelper.router.pop();
@@ -155,6 +155,7 @@ class SongScreenState extends State<SongScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
+                        key: Key('error-loading-song'),
                         'Error loading song',
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),

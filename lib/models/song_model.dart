@@ -12,7 +12,6 @@ class SongModel extends SongMetadataBase {
   final Map<String, dynamic> titles;
   final List<String> tags;
   final List<String> related;
-  final Timestamp? lastUpdate;
   final String? audioUrl;
   final String? note;
   final Map<String, String> lyricsMap;
@@ -24,7 +23,6 @@ class SongModel extends SongMetadataBase {
     required this.tags,
     required this.related,
     required this.lyricsMap,
-    required this.lastUpdate,
     this.audioUrl,
     this.note,
   });
@@ -104,46 +102,78 @@ class SongModel extends SongMetadataBase {
 
   @override
   String toString() {
-    return 'SongModel(id: $id, titles: $titles, $lastUpdate)';
+    return 'SongModel(id: $id, titles: $titles)';
   }
 }
 
 class MetadataSerializer extends Serializer<SongModel> {
   @override
   SongModel fromMap(Map<String, dynamic> map) {
-    final lastUpdate = Utils.getFormattedDate(map['lastUpdate']);
-
     final titles = <String, String>{};
-    if (map['title'] != null) {
-      titles['mus'] = map['title'];
-    }
-    if (map['title_en'] != null) {
-      titles['en'] = map['title_en'];
-    }
-
     final lyrics = <String, String>{};
-    if (map["lyrics"] != null) {
-      lyrics['mus'] = map["lyrics"];
+    try {
+      // if there's a 'title_en' field, parse title columns
+      // This is how it's stored in the sqlite database
+      if (map.containsKey('title_en')) {
+        if (map['title'] != null) {
+          titles['mus'] = map['title'];
+        }
+        if (map['title_en'] != null) {
+          titles['en'] = map['title_en'];
+        }
+      } else if (map.containsKey('titles')) {
+        // if there's a 'titles' field, parse it as a map
+        // this is how it's stored in the local cache (box)
+        map['titles'].forEach((key, value) {
+          if (value != null && value.toString().isNotEmpty) {
+            titles[key] = value.toString();
+          }
+        });
+      }
+    } catch (e) {
+      logger.e('Error parsing titles from map: ${map['title']}\n$e');
     }
-    if (map["lyrics_en"] != null) {
-      lyrics['en'] = map['lyrics_en'];
+    try {
+      if (map.containsKey('lyrics_en')) {
+        // if there's a 'lyrics_en' field, parse it as a string
+        if (map["lyrics"] != null) {
+          lyrics['mus'] = map["lyrics"].toString();
+        }
+        if (map["lyrics_en"] != null) {
+          lyrics['en'] = map['lyrics_en'].toString();
+        }
+      } else if (map.containsKey('lyrics')) {
+        // parse as map
+        map['lyrics'].forEach((key, value) {
+          if (value != null && value.toString().isNotEmpty) {
+            lyrics[key] = value.toString();
+          }
+        });
+      }
+    } catch (e) {
+      logger.e('Error parsing lyrics from map: ${map['lyrics']}\n$e');
     }
 
-    return SongModel(
-      id: map['id'].toString(),
-      titles: titles,
-      tags: map['tags'] != null && map['tags'].isNotEmpty
-          ? List<String>.from(map['tags'].split(','))
-          : [],
-      related: map['related'] != null && map['related'].isNotEmpty
-          ? List<String>.from(map['related'].split(','))
-          : [],
-      lyricsMap: lyrics,
-      lastUpdate: lastUpdate,
-      songNumber: map['id'].toString().padLeft(3, '0'),
-      audioUrl: map['audioUrl'],
-      note: map['note'],
-    );
+    try {
+      return SongModel(
+        id: map['id'].toString(),
+        titles: titles,
+        tags: map['tags'] != null && map['tags'].isNotEmpty
+            ? List<String>.from(map['tags'].toString().split(','))
+            : [],
+        related: map['related'] != null && map['related'].isNotEmpty
+            ? List<String>.from(map['related'].toString().split(','))
+            : [],
+        lyricsMap: lyrics,
+        songNumber: map['id'].toString().padLeft(3, '0'),
+        audioUrl: map['audioUrl'],
+        note: map['note'],
+      );
+    } catch (e) {
+      logger.e(
+          'Error deserializing song id=${map['id']} title=${titles['mus']}: $e');
+      rethrow;
+    }
   }
 
   @override
@@ -154,10 +184,21 @@ class MetadataSerializer extends Serializer<SongModel> {
       'tags': metadata.tags,
       'related': metadata.related,
       'lyrics': metadata.lyricsMap,
-      'lastUpdate': metadata.lastUpdate.toString(),
       'song_number': metadata.songNumber,
       'audioUrl': metadata.audioUrl,
       'note': metadata.note,
     };
+  }
+
+  /// prints a map in a readable format for debugging
+  /// Do not use in production, as it may print large values
+  String printMap(Map<String, dynamic> map) {
+    final buffer = StringBuffer();
+    map.forEach((key, value) {
+      buffer.writeln(
+          '$key: ${value.toString().substring(0, value.toString().length > 50 ? 50 : value.toString().length)}');
+      buffer.writeln('valueType: ${value.runtimeType}');
+    });
+    return buffer.toString();
   }
 }

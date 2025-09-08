@@ -13,7 +13,6 @@ Logger log = Logger();
 
 class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
   final sortedSongs = ValueNotifier<List<SongModel>>([]);
-
   final sortType = ValueNotifier<SortType>(SortType.songNumber);
 
   MusSongManager({required super.songsService, required super.languageConfig}) {
@@ -42,8 +41,7 @@ class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
                   ? b.titles['mus']
                   : 'zzz'));
     } else {
-      songs.sort(
-          (a, b) => (a.songNumber ?? a.id).compareTo(b.songNumber ?? b.id));
+      songs.sort((a, b) => (a.songNumber).compareTo(b.songNumber));
     }
     sortedSongs.value = songs;
   }

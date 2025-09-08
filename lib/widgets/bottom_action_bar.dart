@@ -2,9 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:mvskoke_hymnal/managers/audio_manager.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
 import 'package:mvskoke_hymnal/models/media_item.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
+import 'package:mvskoke_hymnal/notifiers/play_button_notifier.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
@@ -57,10 +59,9 @@ class BottomActionBarState extends State<BottomActionBar> {
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             _isPlayingAudio
                 ? AudioPlayerWidget(
-                    mediaItem: mediaItems.isNotEmpty ? mediaItems.first : null,
+                    mediaItems: mediaItems,
                     songId: widget.song.id,
                     onClose: _closeAudio,
-                    openAudioSelector: _openAudioSelector,
                   )
                 : Container(),
             _bottomBar
@@ -95,33 +96,35 @@ class BottomActionBarState extends State<BottomActionBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          IconButton(
-              onPressed: widget.showSettings,
-              icon: const Icon(Icons.format_size)),
-          IconButton(
-              onPressed: _playAudio,
-              icon: Icon(
-                Icons.play_circle,
-                color: Theme.of(context).colorScheme.onSurface,
-              )),
-          TextButton(
-              onPressed: () => {widget.onToggleEnglish(!showEnglish)},
-              child: Text(
-                showEnglish ? "Hide English" : "Show English",
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
-                    .copyWith(color: Colors.black),
-              )),
+          SizedBox(
+            width: 100,
+            child: IconButton(
+                onPressed: widget.showSettings,
+                icon: const Icon(Icons.format_size)),
+          ),
+          _isPlayingAudio
+              ? PlayButton()
+              : IconButton(
+                  onPressed: mediaItems.isEmpty ? null : _playAudio,
+                  disabledColor: Colors.grey,
+                  icon: Icon(
+                    Icons.play_arrow,
+                  )),
+          SizedBox(
+              width: 100,
+              child: TextButton(
+                  onPressed: () => {widget.onToggleEnglish(!showEnglish)},
+                  child: Text(
+                    showEnglish ? "Hide English" : "Show English",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelMedium!
+                        .copyWith(color: Colors.black),
+                  ))),
         ],
       ),
     );
-  }
-
-  VoidCallback get _openAudioSelector {
-    return () {
-      // Show audio selection dialog
-    };
   }
 
   BoxDecoration get decoration {
@@ -132,13 +135,48 @@ class BottomActionBarState extends State<BottomActionBar> {
   }
 
   void _playAudio() {
-    _isPlayingAudio = true;
-    logger.i("open audio");
-    setState(() {});
+    setState(() {
+      _isPlayingAudio = true;
+    });
   }
 
   void _closeAudio() {
-    _isPlayingAudio = false;
-    setState(() {});
+    setState(() {
+      _isPlayingAudio = false;
+    });
+  }
+}
+
+class PlayButton extends StatelessWidget {
+  const PlayButton({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final pageManager = sl<AudioManager>();
+    return ValueListenableBuilder<ButtonState>(
+      valueListenable: pageManager.playButtonNotifier,
+      builder: (_, value, __) {
+        switch (value) {
+          case ButtonState.playingLoading:
+          case ButtonState.pausedLoading:
+            return Container(
+              margin: const EdgeInsets.all(8.0),
+              width: 32.0,
+              height: 32.0,
+              child: const CircularProgressIndicator(),
+            );
+          case ButtonState.completed:
+          case ButtonState.paused:
+            return IconButton(
+              icon: const Icon(Icons.play_arrow),
+              onPressed: pageManager.play,
+            );
+          case ButtonState.playing:
+            return IconButton(
+              icon: const Icon(Icons.pause),
+              onPressed: pageManager.pause,
+            );
+        }
+      },
+    );
   }
 }

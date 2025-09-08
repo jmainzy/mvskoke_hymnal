@@ -70,4 +70,25 @@ class WebService extends WebServiceBase {
     MediaSerializer serializer = MediaSerializer();
     return mediaMaps.map((map) => serializer.fromMap(map)).toList();
   }
+
+  @override
+  Uri getAudioUrl(String filename) {
+    return Uri.parse('$baseUrl/$filename');
+  }
+
+  @override
+  Future<DateTime?> getLastModified() async {
+    try {
+      final response = await http.head(Uri.parse('$baseUrl/songs.db'));
+      if (response.statusCode == 200) {
+        String? lastModified = response.headers['Last-Modified'];
+        if (lastModified != null) {
+          return HttpDate.parse(lastModified);
+        }
+      }
+    } catch (e) {
+      logger.e('Error fetching last modified date: $e');
+    }
+    return null;
+  }
 }
