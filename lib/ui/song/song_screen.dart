@@ -101,8 +101,7 @@ class SongScreenState extends State<SongScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Center(
-                child: Text('Song not found')),
+              const Center(child: Text('Song not found')),
               ElevatedButton(
                 onPressed: () async {
                   NavigationHelper.router.pop();
@@ -115,34 +114,46 @@ class SongScreenState extends State<SongScreen> {
       );
     }
 
-    int titleAlpha = min((max(scrollPosition - 3, 0) * 50).toInt(), 255);
+    double getTitleOpacity(double scrollPosition) {
+      const double fadeStart = 5;
+      const double fadeEnd = 15;
+
+      if (scrollPosition <= fadeStart) {
+        return 0.0;
+      } else if (scrollPosition >= fadeEnd) {
+        return 1.0;
+      } else {
+        return (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
+      }
+    }
 
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
-          title: Text.rich(
-            textAlign: TextAlign.start,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            TextSpan(
-              text: currentSong?.title,
-            ),
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  height: 2,
-                  color: Theme.of(context)
-                      .colorScheme
-                      .onSurface
-                      .withAlpha(titleAlpha),
+          title: Opacity(
+              opacity: getTitleOpacity(scrollPosition),
+              child: Text.rich(
+                textAlign: TextAlign.start,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                TextSpan(
+                  text: currentSong?.title,
                 ),
-          ),
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      height: 2,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
+              )),
           surfaceTintColor: Theme.of(context).colorScheme.primary,
-          // actions: [
-          //   IconButton(
-          //     icon: const Icon(Icons.settings),
-          //     onPressed: () => showSettings(context),
-          //   ),
-          // ],
+          actions: [
+            IconButton(
+                onPressed: () => showSettings(context),
+                icon: Icon(Icons.format_size)),
+            IconButton(
+                icon: const Icon(Icons.playlist_add),
+                onPressed: () => showPlaylistSheet(widget.songId)),
+          ],
         ),
         body: FutureBuilder(
             future: _loadingFuture,
@@ -189,7 +200,6 @@ class SongScreenState extends State<SongScreen> {
               }
             }),
         bottomNavigationBar: BottomActionBar(
-          showSettings: () => showSettings(context),
           onToggleEnglish: (enabled) {
             setState(() {
               showEnglish = enabled;

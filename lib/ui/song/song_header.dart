@@ -108,16 +108,16 @@ class SongHeader extends StatelessWidget {
                   },
                 )
               : Container(),
+          const SizedBox(
+            height: Dimens.marginShort,
+          ),
           Row(children: [
-            Expanded(child: Text('Hymn ${currentSong?.id}', style: labelStyle)),
-            IconButton(
-              onPressed: () => addToPlaylist(currentSong!.id),
-              icon: const Icon(
-                Icons.playlist_add,
-              ),
-            ),
+            Expanded(
+                child:
+                    Text('Hymn ${currentSong?.songNumber}', style: labelStyle)),
           ]),
           const SizedBox(height: Dimens.marginShort),
+          currentSong.note,
           const Divider(),
         ],
       ),

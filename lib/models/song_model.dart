@@ -34,6 +34,9 @@ class SongModel extends SongMetadataBase {
       : null;
   String? get lyricsEn => lyricsMap['en'];
 
+  bool get hasEnLyrics => lyricsEn != null && lyricsEn!.isNotEmpty;
+  bool get hasMusLyrics => lyrics != null && lyrics!.isNotEmpty;
+
   String get title {
     // returns the first non-null title
     if (titles['mus'] != null && titles['mus']!.isNotEmpty) {
