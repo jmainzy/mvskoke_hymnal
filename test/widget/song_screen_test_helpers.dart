@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
-import 'package:mvskoke_hymnal/screens/song_screen.dart';
+import 'package:mvskoke_hymnal/ui/song/song_screen.dart';
 
 // Test-only wrapper to expose lyrics as a Text widget for testing
 class SongScreenTestWrapper extends StatelessWidget {

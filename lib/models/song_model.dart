@@ -1,6 +1,4 @@
 import 'package:logger/logger.dart';
-import 'package:mvskoke_hymnal/utilities/timestamp.dart';
-import 'package:mvskoke_hymnal/utilities/utils.dart';
 import 'package:song_manager/models/song_metadata.dart';
 import 'package:song_manager/models/serializer.dart';
 
@@ -158,14 +156,10 @@ class MetadataSerializer extends Serializer<SongModel> {
       return SongModel(
         id: map['id'].toString(),
         titles: titles,
-        tags: map['tags'] != null && map['tags'].isNotEmpty
-            ? List<String>.from(map['tags'].toString().split(','))
-            : [],
-        related: map['related'] != null && map['related'].isNotEmpty
-            ? List<String>.from(map['related'].toString().split(','))
-            : [],
+        tags: _parseList(map, 'tags'),
+        related: _parseList(map, 'related'),
         lyricsMap: lyrics,
-        songNumber: map['id'].toString().padLeft(3, '0'),
+        songNumber: map['number'].toString(),
         audioUrl: map['audioUrl'],
         note: map['note'],
       );
@@ -176,6 +170,20 @@ class MetadataSerializer extends Serializer<SongModel> {
     }
   }
 
+  _parseList(Map<String, dynamic> map, String key) {
+    if (map.containsKey(key) && map[key] != null && map[key].isNotEmpty) {
+      if (map[key] is String) {
+        // strip [] if present
+        String listString = map[key];
+        listString = listString.replaceAll('[', '').replaceAll(']', '');
+        return List<String>.from(listString.split(','));
+      } else if (map[key] is List) {
+        return List<String>.from(map[key]);
+      }
+    }
+    return <String>[];
+  }
+
   @override
   Map<String, dynamic> toMap(SongModel metadata) {
     return {
@@ -184,7 +192,7 @@ class MetadataSerializer extends Serializer<SongModel> {
       'tags': metadata.tags,
       'related': metadata.related,
       'lyrics': metadata.lyricsMap,
-      'song_number': metadata.songNumber,
+      'number': metadata.songNumber,
       'audioUrl': metadata.audioUrl,
       'note': metadata.note,
     };

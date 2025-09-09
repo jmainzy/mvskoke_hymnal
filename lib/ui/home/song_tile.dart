@@ -3,7 +3,7 @@ import 'package:mvskoke_hymnal/managers/song_manager.dart';
 import 'package:mvskoke_hymnal/models/enums.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
-import 'package:mvskoke_hymnal/widgets/home/song_subtitle.dart';
+import 'package:mvskoke_hymnal/ui/home/song_subtitle.dart';
 import 'package:watch_it/watch_it.dart';
 
 class SongTile extends StatelessWidget {

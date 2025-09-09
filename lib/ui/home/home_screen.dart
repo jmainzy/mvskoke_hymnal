@@ -4,12 +4,12 @@ import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
 import 'package:mvskoke_hymnal/models/enums.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
-import 'package:mvskoke_hymnal/screens/about_screen.dart';
+import 'package:mvskoke_hymnal/ui/about_screen.dart';
 import 'package:mvskoke_hymnal/services/config_service.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
-import 'package:mvskoke_hymnal/widgets/home/song_tile.dart';
+import 'package:mvskoke_hymnal/ui/home/song_tile.dart';
 import 'package:watch_it/watch_it.dart' hide sl;
 
 Logger log = Logger();

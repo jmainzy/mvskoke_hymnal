@@ -4,7 +4,7 @@ import 'package:mvskoke_hymnal/managers/playlist_manager.dart';
 import 'package:mvskoke_hymnal/models/playlist.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
-import 'package:mvskoke_hymnal/widgets/playlist/new_playlist_sheet.dart';
+import 'package:mvskoke_hymnal/ui/playlist/new_playlist_sheet.dart';
 
 Logger log = Logger();
 

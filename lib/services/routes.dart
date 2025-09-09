@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mvskoke_hymnal/screens/song_screen.dart';
+import 'package:mvskoke_hymnal/ui/song/song_screen.dart';
 
-import '../screens/home_screen.dart';
+import '../ui/home/home_screen.dart';
 
 final routes = GoRouter(
   debugLogDiagnostics: true,

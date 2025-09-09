@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/managers/playlist_manager.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
-import 'package:mvskoke_hymnal/widgets/playlist/new_playlist_sheet.dart';
-import 'package:mvskoke_hymnal/widgets/playlist/playlist_list.dart';
+import 'package:mvskoke_hymnal/ui/playlist/new_playlist_sheet.dart';
+import 'package:mvskoke_hymnal/ui/playlist/playlist_list.dart';
 import 'package:watch_it/watch_it.dart' hide sl;
 
 Logger log = Logger();

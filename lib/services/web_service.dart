@@ -48,12 +48,18 @@ class WebService extends WebServiceBase {
     }
   }
 
-  Future<List<SongModel>> readSongsFromDatabase(String path) async {
+  static Future<List<SongModel>> readSongsFromDatabase(String path) async {
     final db = await openDatabase(path);
     final List<Map<String, dynamic>> songMaps = await db.query('songs');
-    logger.i('Found ${songMaps.length} songs in database at $path');
     MetadataSerializer serializer = MetadataSerializer();
     return songMaps.map((map) => serializer.fromMap(map)).toList();
+  }
+
+  static Future<List<MediaItem>> readMediaFromDatabase(String path) async {
+    final db = await openDatabase(path);
+    final List<Map<String, dynamic>> mediaMaps = await db.query('media');
+    MediaSerializer serializer = MediaSerializer();
+    return mediaMaps.map((map) => serializer.fromMap(map)).toList();
   }
 
   @override
@@ -65,10 +71,7 @@ class WebService extends WebServiceBase {
   @override
   Future<List<MediaItem>> getMedia() async {
     // read from downloaded songs.db
-    final db = await openDatabase(dbPath);
-    final List<Map<String, dynamic>> mediaMaps = await db.query('media');
-    MediaSerializer serializer = MediaSerializer();
-    return mediaMaps.map((map) => serializer.fromMap(map)).toList();
+    return await readMediaFromDatabase(dbPath);
   }
 
   @override
@@ -81,10 +84,15 @@ class WebService extends WebServiceBase {
     try {
       final response = await http.head(Uri.parse('$baseUrl/songs.db'));
       if (response.statusCode == 200) {
-        String? lastModified = response.headers['Last-Modified'];
+        String? lastModified = response.headers['last-modified'];
         if (lastModified != null) {
           return HttpDate.parse(lastModified);
+        } else {
+          logger.e(
+              'last-modified header not found in headers ${response.headers}');
         }
+      } else {
+        logger.e('Failed to fetch last modified date: ${response.statusCode}');
       }
     } catch (e) {
       logger.e('Error fetching last modified date: $e');

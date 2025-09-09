@@ -23,7 +23,7 @@ class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
   }
 
   _sort() {
-    // defaul is sort songs by song number
+    // default is sort songs by song number
     var songs = List<SongModel>.from(filteredResult.value);
     if (sortType.value == SortType.englishTitle) {
       songs.sort((a, b) => (a.titles['en'] != null && a.titles['en']!.isNotEmpty
@@ -41,7 +41,8 @@ class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
                   ? b.titles['mus']
                   : 'zzz'));
     } else {
-      songs.sort((a, b) => (a.songNumber).compareTo(b.songNumber));
+      songs.sort(
+          (a, b) => int.parse(a.songNumber).compareTo(int.parse(b.songNumber)));
     }
     sortedSongs.value = songs;
   }

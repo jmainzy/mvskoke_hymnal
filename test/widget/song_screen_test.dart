@@ -3,9 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
 import 'package:mvskoke_hymnal/models/language_config.dart';
-import 'package:mvskoke_hymnal/screens/song_screen.dart';
+import 'package:mvskoke_hymnal/ui/song/song_screen.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
-import 'package:mvskoke_hymnal/widgets/bottom_action_bar.dart';
+import 'package:mvskoke_hymnal/ui/song/bottom_action_bar.dart';
 import 'song_screen_mocks.dart';
 import 'song_screen_test_helpers.dart';
 
