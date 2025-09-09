@@ -12,6 +12,7 @@ class SongModel extends SongMetadataBase {
   final List<String> related;
   final String? audioUrl;
   final String? note;
+  final String? pages;
   final Map<String, String> lyricsMap;
 
   SongModel({
@@ -22,6 +23,7 @@ class SongModel extends SongMetadataBase {
     required this.related,
     required this.lyricsMap,
     this.audioUrl,
+    this.pages,
     this.note,
   });
 
@@ -157,15 +159,15 @@ class MetadataSerializer extends Serializer<SongModel> {
 
     try {
       return SongModel(
-        id: map['id'].toString(),
-        titles: titles,
-        tags: _parseList(map, 'tags'),
-        related: _parseList(map, 'related'),
-        lyricsMap: lyrics,
-        songNumber: map['number'].toString(),
-        audioUrl: map['audioUrl'],
-        note: map['note'],
-      );
+          id: map['id'].toString(),
+          titles: titles,
+          tags: _parseList(map, 'tags'),
+          related: _parseList(map, 'related'),
+          lyricsMap: lyrics,
+          songNumber: map['number'].toString(),
+          audioUrl: map['audioUrl'],
+          note: map['note'],
+          pages: map['pages']);
     } catch (e) {
       logger.e(
           'Error deserializing song id=${map['id']} title=${titles['mus']}: $e');

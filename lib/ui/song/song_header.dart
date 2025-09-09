@@ -117,7 +117,7 @@ class SongHeader extends StatelessWidget {
                     Text('Hymn ${currentSong?.songNumber}', style: labelStyle)),
           ]),
           const SizedBox(height: Dimens.marginShort),
-          currentSong.note,
+          currentSong?.pages != null ? Text(currentSong!.pages!) : Container(),
           const Divider(),
         ],
       ),
