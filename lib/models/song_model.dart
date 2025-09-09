@@ -1,6 +1,4 @@
 import 'package:logger/logger.dart';
-import 'package:mvskoke_hymnal/utilities/timestamp.dart';
-import 'package:mvskoke_hymnal/utilities/utils.dart';
 import 'package:song_manager/models/song_metadata.dart';
 import 'package:song_manager/models/serializer.dart';
 
@@ -14,6 +12,7 @@ class SongModel extends SongMetadataBase {
   final List<String> related;
   final String? audioUrl;
   final String? note;
+  final String? pages;
   final Map<String, String> lyricsMap;
 
   SongModel({
@@ -24,6 +23,7 @@ class SongModel extends SongMetadataBase {
     required this.related,
     required this.lyricsMap,
     this.audioUrl,
+    this.pages,
     this.note,
   });
 
@@ -35,6 +35,9 @@ class SongModel extends SongMetadataBase {
       ? lyricsMap['mus']
       : null;
   String? get lyricsEn => lyricsMap['en'];
+
+  bool get hasEnLyrics => lyricsEn != null && lyricsEn!.isNotEmpty;
+  bool get hasMusLyrics => lyrics != null && lyrics!.isNotEmpty;
 
   String get title {
     // returns the first non-null title
@@ -156,24 +159,34 @@ class MetadataSerializer extends Serializer<SongModel> {
 
     try {
       return SongModel(
-        id: map['id'].toString(),
-        titles: titles,
-        tags: map['tags'] != null && map['tags'].isNotEmpty
-            ? List<String>.from(map['tags'].toString().split(','))
-            : [],
-        related: map['related'] != null && map['related'].isNotEmpty
-            ? List<String>.from(map['related'].toString().split(','))
-            : [],
-        lyricsMap: lyrics,
-        songNumber: map['id'].toString().padLeft(3, '0'),
-        audioUrl: map['audioUrl'],
-        note: map['note'],
-      );
+          id: map['id'].toString(),
+          titles: titles,
+          tags: _parseList(map, 'tags'),
+          related: _parseList(map, 'related'),
+          lyricsMap: lyrics,
+          songNumber: map['number'].toString(),
+          audioUrl: map['audioUrl'],
+          note: map['note'],
+          pages: map['pages']);
     } catch (e) {
       logger.e(
           'Error deserializing song id=${map['id']} title=${titles['mus']}: $e');
       rethrow;
     }
+  }
+
+  _parseList(Map<String, dynamic> map, String key) {
+    if (map.containsKey(key) && map[key] != null && map[key].isNotEmpty) {
+      if (map[key] is String) {
+        // strip [] if present
+        String listString = map[key];
+        listString = listString.replaceAll('[', '').replaceAll(']', '');
+        return List<String>.from(listString.split(','));
+      } else if (map[key] is List) {
+        return List<String>.from(map[key]);
+      }
+    }
+    return <String>[];
   }
 
   @override
@@ -184,7 +197,7 @@ class MetadataSerializer extends Serializer<SongModel> {
       'tags': metadata.tags,
       'related': metadata.related,
       'lyrics': metadata.lyricsMap,
-      'song_number': metadata.songNumber,
+      'number': metadata.songNumber,
       'audioUrl': metadata.audioUrl,
       'note': metadata.note,
     };

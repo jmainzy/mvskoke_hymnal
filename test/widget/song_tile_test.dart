@@ -5,8 +5,8 @@ import 'package:mvskoke_hymnal/managers/song_manager.dart';
 import 'package:mvskoke_hymnal/models/language_config.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
-import 'package:mvskoke_hymnal/widgets/home/song_subtitle.dart';
-import 'package:mvskoke_hymnal/widgets/home/song_tile.dart';
+import 'package:mvskoke_hymnal/ui/home/song_subtitle.dart';
+import 'package:mvskoke_hymnal/ui/home/song_tile.dart';
 
 import 'song_screen_mocks.dart';
 

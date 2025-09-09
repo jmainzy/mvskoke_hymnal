@@ -11,16 +11,14 @@ import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/utilities/extensions.dart';
-import 'package:mvskoke_hymnal/widgets/audio_player_widget.dart';
+import 'package:mvskoke_hymnal/ui/song/audio_player_widget.dart';
 
 class BottomActionBar extends StatefulWidget {
   final Function(bool enabled) onToggleEnglish;
-  final Function() showSettings;
   final SongModel song;
 
   const BottomActionBar({
     required this.onToggleEnglish,
-    required this.showSettings,
     required this.song,
     super.key,
   });
@@ -33,6 +31,7 @@ class BottomActionBarState extends State<BottomActionBar> {
   Logger logger = Logger();
   bool _isPlayingAudio = false;
   bool showEnglish = true;
+  late bool hasTwoLanguages;
   List<MediaItem> mediaItems = [];
 
   @override
@@ -45,6 +44,7 @@ class BottomActionBarState extends State<BottomActionBar> {
         mediaItems = items;
       });
     });
+    hasTwoLanguages = widget.song.hasEnLyrics && widget.song.hasMusLyrics;
     super.initState();
   }
 
@@ -98,9 +98,6 @@ class BottomActionBarState extends State<BottomActionBar> {
         children: [
           SizedBox(
             width: 100,
-            child: IconButton(
-                onPressed: widget.showSettings,
-                icon: const Icon(Icons.format_size)),
           ),
           _isPlayingAudio
               ? PlayButton()
@@ -112,16 +109,18 @@ class BottomActionBarState extends State<BottomActionBar> {
                   )),
           SizedBox(
               width: 100,
-              child: TextButton(
-                  onPressed: () => {widget.onToggleEnglish(!showEnglish)},
-                  child: Text(
-                    showEnglish ? "Hide English" : "Show English",
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelMedium!
-                        .copyWith(color: Colors.black),
-                  ))),
+              child: hasTwoLanguages
+                  ? TextButton(
+                      onPressed: () => {widget.onToggleEnglish(!showEnglish)},
+                      child: Text(
+                        showEnglish ? "Hide English" : "Show English",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium!
+                            .copyWith(color: Colors.black),
+                      ))
+                  : Container()),
         ],
       ),
     );

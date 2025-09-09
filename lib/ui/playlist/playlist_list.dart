@@ -3,7 +3,7 @@ import 'package:mvskoke_hymnal/models/playlist.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/utilities/utils.dart';
-import 'package:mvskoke_hymnal/widgets/playlist/playlist_options_sheet.dart';
+import 'package:mvskoke_hymnal/ui/playlist/playlist_options_sheet.dart';
 
 class PlaylistsList extends StatelessWidget {
   final List<Playlist> playlists;

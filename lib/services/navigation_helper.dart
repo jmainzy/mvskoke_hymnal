@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
-import 'package:mvskoke_hymnal/screens/about_screen.dart';
-import 'package:mvskoke_hymnal/screens/glossary_screen.dart';
-import 'package:mvskoke_hymnal/screens/home_screen.dart';
-import 'package:mvskoke_hymnal/screens/more_screen.dart';
-import 'package:mvskoke_hymnal/screens/playlist_details.dart';
-import 'package:mvskoke_hymnal/screens/playlist_screen.dart';
-import 'package:mvskoke_hymnal/screens/song_screen.dart';
+import 'package:mvskoke_hymnal/ui/about_screen.dart';
+import 'package:mvskoke_hymnal/ui/glossary_screen.dart';
+import 'package:mvskoke_hymnal/ui/home/home_screen.dart';
+import 'package:mvskoke_hymnal/ui/more_screen.dart';
+import 'package:mvskoke_hymnal/ui/playlist/playlist_details.dart';
+import 'package:mvskoke_hymnal/ui/playlist/playlist_screen.dart';
+import 'package:mvskoke_hymnal/ui/song/song_screen.dart';
 
 Logger log = Logger();
 

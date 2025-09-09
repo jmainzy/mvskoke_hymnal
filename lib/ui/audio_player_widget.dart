@@ -12,7 +12,7 @@ import 'package:mvskoke_hymnal/notifiers/progress_notifier.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:marquee/marquee.dart';
-import 'package:mvskoke_hymnal/widgets/media_selector_widget.dart';
+import 'package:mvskoke_hymnal/ui/song/media_selector_widget.dart';
 import 'package:song_manager/models/enums.dart';
 
 class AudioPlayerWidget extends StatefulWidget {
