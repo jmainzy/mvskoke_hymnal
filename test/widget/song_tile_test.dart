@@ -16,7 +16,8 @@ void main() {
     if (!getIt.isRegistered<MusSongManager>()) {
       getIt.registerSingleton<MusSongManager>(
         MockSongManager(
-          songsService: MockSongsService(),
+          songsService: MockSongsService(
+              storeService: MockStoreService(), webService: null),
           languageConfig: LanguageConfig(),
         ),
       );

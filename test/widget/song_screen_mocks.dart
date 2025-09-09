@@ -5,12 +5,9 @@ import 'package:mvskoke_hymnal/models/song_details.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:song_manager/models/media_item.dart';
-import 'package:song_manager/models/serializer.dart';
 import 'package:song_manager/models/song_details.dart';
 import 'package:song_manager/models/song_metadata.dart';
 import 'package:song_manager/services/songs_service.dart';
-import 'package:song_manager/services/store_service.dart';
-import 'package:song_manager/services/web_service.dart';
 
 class MockSongManager extends MusSongManager {
   static const exampleEnLyrics = 'God dwells, He created all things,';
@@ -60,37 +57,20 @@ class MockSongManager extends MusSongManager {
   }
 }
 
-class MockSongsService implements SongsService {
+class MockSongsService extends SongServiceBase {
+  MockSongsService({required super.storeService, required super.webService})
+      : super(
+          metadataSerializer: MetadataSerializer(),
+          detailsSerializer: DetailsSerializer(),
+          mediaSerializer: MediaSerializer(),
+        );
+
   @override
   Future<List<MediaItemBase>> getMediaItems() async => [];
   Future<SongDetailsBase?> getSongDetails(String id) async => null;
   @override
   Future<List<SongMetadataBase>> getSongs() async => [];
   Future<void> init() async {}
-  @override
-  late Serializer<SongDetailsBase> detailsSerializer;
-  @override
-  late Serializer<MediaItemBase> mediaSerializer;
-  @override
-  late Serializer<SongMetadataBase> metadataSerializer;
-  @override
-  late StoreServiceBase storeService;
-  @override
-  WebServiceBase? webService;
-  @override
-  Future<void> deleteAll() {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<bool> fetch() {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<String?> findInAssets(MediaItemBase item) {
-    throw UnimplementedError();
-  }
 
   @override
   Future<Map<String, String>> getCacheStrings() {
@@ -110,6 +90,21 @@ class MockSongsService implements SongsService {
   @override
   Uri getAudioUrl(MediaItemBase item) {
     return Uri.parse('https://example.com/${item.filename}');
+  }
+
+  @override
+  Future<List<SongDetailsBase>> getDetailsFromAssets() async {
+    return List<SongDetailsBase>.empty(growable: true);
+  }
+
+  @override
+  Future<List<MediaItemBase>> getMediaFromAssets() async {
+    return List<MediaItemBase>.empty(growable: true);
+  }
+
+  @override
+  Future<List<SongMetadataBase>> getSongsFromAssets() async {
+    return List<SongMetadataBase>.empty(growable: true);
   }
 }
 
