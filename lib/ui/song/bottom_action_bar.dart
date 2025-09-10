@@ -164,6 +164,10 @@ class PlayButton extends StatelessWidget {
               child: const CircularProgressIndicator(),
             );
           case ButtonState.completed:
+            return IconButton(
+              icon: const Icon(Icons.replay),
+              onPressed: pageManager.replay,
+            );
           case ButtonState.paused:
             return IconButton(
               icon: const Icon(Icons.play_arrow),
