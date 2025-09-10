@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
-import 'package:mvskoke_hymnal/ui/about_screen.dart';
-import 'package:mvskoke_hymnal/ui/glossary_screen.dart';
+import 'package:mvskoke_hymnal/ui/more/about_screen.dart';
+import 'package:mvskoke_hymnal/ui/more/alphabet_screen.dart';
+import 'package:mvskoke_hymnal/ui/more/glossary_screen.dart';
 import 'package:mvskoke_hymnal/ui/home/home_screen.dart';
-import 'package:mvskoke_hymnal/ui/more_screen.dart';
+import 'package:mvskoke_hymnal/ui/more/more_screen.dart';
+import 'package:mvskoke_hymnal/ui/more/prayer_screen.dart';
 import 'package:mvskoke_hymnal/ui/playlist/playlist_details.dart';
 import 'package:mvskoke_hymnal/ui/playlist/playlist_screen.dart';
 import 'package:mvskoke_hymnal/ui/song/song_screen.dart';
@@ -42,6 +44,8 @@ class NavigationHelper {
   static const String aboutPath = 'about';
   static const String morePath = '/more';
   static const String glossaryPath = 'glossary';
+  static const String alphabetPath = 'appendix';
+  static const String prayerPath = 'prayer';
 
   static NavigationHelper get instance => _instance;
   factory NavigationHelper() {
@@ -193,6 +197,24 @@ class NavigationHelper {
                       pageBuilder: (context, state) {
                         return MaterialPage(
                           child: const GlossaryScreen(),
+                          key: state.pageKey,
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      path: alphabetPath,
+                      pageBuilder: (context, state) {
+                        return MaterialPage(
+                          child: AlphabetScreen(),
+                          key: state.pageKey,
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      path: prayerPath,
+                      pageBuilder: (context, state) {
+                        return MaterialPage(
+                          child: PrayerScreen(),
                           key: state.pageKey,
                         );
                       },

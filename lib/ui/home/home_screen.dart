@@ -4,7 +4,7 @@ import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
 import 'package:mvskoke_hymnal/models/enums.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
-import 'package:mvskoke_hymnal/ui/about_screen.dart';
+import 'package:mvskoke_hymnal/ui/more/about_screen.dart';
 import 'package:mvskoke_hymnal/services/config_service.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';

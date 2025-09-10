@@ -7,9 +7,9 @@ import 'package:mvskoke_hymnal/notifiers/progress_notifier.dart';
 import 'package:mvskoke_hymnal/services/audio_player_service.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:song_manager/models/enums.dart';
+
 /// Manager for handling audio playback and media items, e.g. playlists.
 class AudioManager {
-
   final _audioService = sl<AudioPlayerService>();
 
   // Listeners: Updates going to the UI
@@ -30,6 +30,11 @@ class AudioManager {
   }
 
   void play() => _audioService.play();
+  void replay() {
+    _audioService.seek(Duration.zero);
+    _audioService.play();
+  }
+
   void pause() => _audioService.pause();
   void stop() => _audioService.stop();
   void seek(Duration position) => _audioService.seek(position);
@@ -43,7 +48,6 @@ class AudioManager {
     // Seek forward 10 seconds
     _audioService.fastForward();
   }
-
 
   /// Loads audio items and sets the audio service with the media items.
   ///
@@ -129,5 +133,4 @@ class AudioManager {
       currentMedia.value = mediaItem;
     });
   }
-
 }

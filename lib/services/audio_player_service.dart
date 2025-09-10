@@ -213,6 +213,8 @@ class AudioPlayerService extends BaseAudioHandler {
     );
 
     switch (location) {
+      case AssetLocation.asset:
+        return AudioSource.asset(uri.toString(), tag: mediaItem); // asset path
       case AssetLocation.local:
         return AudioSource.uri(uri, tag: mediaItem); // local file URI
       case AssetLocation.remote:

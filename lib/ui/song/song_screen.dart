@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
-import 'package:mvskoke_hymnal/ui/lyrics_renderer.dart';
+import 'package:mvskoke_hymnal/ui/song/lyrics_renderer.dart';
 import 'package:mvskoke_hymnal/ui/playlist/add_to_playlist_sheet.dart';
 import 'package:mvskoke_hymnal/ui/song/settings_sheet.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';

@@ -3,7 +3,7 @@ import 'package:mvskoke_hymnal/managers/playlist_manager.dart';
 import 'package:mvskoke_hymnal/models/playlist.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
-import 'package:mvskoke_hymnal/ui/playlist/confirm_bottom_sheet.dart';
+import 'package:mvskoke_hymnal/ui/song/confirm_bottom_sheet.dart';
 
 class PlaylistOptionsBottomSheet extends StatefulWidget {
   final Playlist playlist;

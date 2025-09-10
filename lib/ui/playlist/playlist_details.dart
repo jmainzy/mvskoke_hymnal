@@ -7,7 +7,7 @@ import 'package:mvskoke_hymnal/models/playlist.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
-import 'package:mvskoke_hymnal/ui/playlist/confirm_bottom_sheet.dart';
+import 'package:mvskoke_hymnal/ui/song/confirm_bottom_sheet.dart';
 import 'package:mvskoke_hymnal/ui/playlist/playlist_options_sheet.dart';
 import 'package:watch_it/watch_it.dart' hide sl;
 
