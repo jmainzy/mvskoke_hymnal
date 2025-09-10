@@ -9,9 +9,9 @@ import 'package:mvskoke_hymnal/models/song_model.dart';
 import 'package:mvskoke_hymnal/notifiers/play_button_notifier.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/services/store_service.dart';
+import 'package:mvskoke_hymnal/ui/song/audio_player_widget.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:mvskoke_hymnal/utilities/extensions.dart';
-import 'package:mvskoke_hymnal/ui/song/audio_player_widget.dart';
 
 class BottomActionBar extends StatefulWidget {
   final Function(bool enabled) onToggleEnglish;

@@ -34,6 +34,24 @@ class MoreScreen extends StatelessWidget {
               );
             },
           ),
+          MoreItem(
+            title: 'Mvskoke Alphabet',
+            icon: Symbols.abc,
+            onTap: () {
+              NavigationHelper.router.go(
+                '${NavigationHelper.morePath}/${NavigationHelper.alphabetPath}',
+              );
+            },
+          ),
+          MoreItem(
+            title: 'Lord\'s Prayer',
+            icon: Symbols.folded_hands,
+            onTap: () {
+              NavigationHelper.router.go(
+                '${NavigationHelper.morePath}/${NavigationHelper.prayerPath}',
+              );
+            },
+          )
           // Add more options here
         ],
       ),

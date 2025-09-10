@@ -7,7 +7,6 @@ import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/managers/audio_manager.dart';
 import 'package:mvskoke_hymnal/managers/song_manager.dart';
 import 'package:mvskoke_hymnal/models/media_item.dart';
-import 'package:mvskoke_hymnal/notifiers/play_button_notifier.dart';
 import 'package:mvskoke_hymnal/notifiers/progress_notifier.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
