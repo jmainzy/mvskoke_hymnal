@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
@@ -36,8 +35,8 @@ class SongScreenState extends State<SongScreen> {
 
   SongModel? currentSong;
   List<MediaItem>? mediaItems;
+  double fontScale = sl<MusStoreService>().fontScale;
 
-  double fontSize = sl<MusStoreService>().fontSize;
   bool showChords = sl<MusStoreService>().get<bool>('show_chords') ?? true;
 
   late final ScrollController _scrollController;
@@ -181,6 +180,7 @@ class SongScreenState extends State<SongScreen> {
                     child: LyricsRenderer(
                       header: SongHeader(
                         currentSong: currentSong,
+                        fontScale: fontScale,
                         addToPlaylist: (songId) => showPlaylistSheet(songId),
                       ),
                       showEnglish: showEnglish,
@@ -196,6 +196,7 @@ class SongScreenState extends State<SongScreen> {
 
                         /// TODO: add page numbers
                       ),
+                      fontScale: fontScale,
                     ));
               }
             }),
@@ -220,9 +221,7 @@ class SongScreenState extends State<SongScreen> {
           ),
           child: SettingsSheet(
             onChangeFontSize: (value) => setState(() {
-              setState(() {
-                fontSize = value;
-              });
+              fontScale = sl<MusStoreService>().fontScale;
             }),
           ),
         );

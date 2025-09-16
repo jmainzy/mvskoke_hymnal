@@ -207,14 +207,17 @@ class _PlayerTitle extends StatelessWidget {
           AutoSizeText(
             title,
             maxLines: 1,
-            style: Theme.of(context).textTheme.titleSmall,
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall!
+                .copyWith(color: Colors.black87, fontWeight: FontWeight.w400),
             textAlign: TextAlign.start,
-            minFontSize: Theme.of(context).textTheme.titleSmall!.fontSize! - 2,
             overflowReplacement: SizedBox(
               height: 50,
               child: Marquee(
                 text: title,
-                style: Theme.of(context).textTheme.titleSmall,
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Colors.black87, fontWeight: FontWeight.w400),
                 scrollAxis: Axis.horizontal,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 blankSpace: Dimens.marginLarge * 2,

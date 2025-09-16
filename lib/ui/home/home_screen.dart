@@ -224,6 +224,7 @@ class HomeContentState extends State<HomeContent> {
                       child: SongTile(
                         song: song,
                         subtitle: "subtitle",
+                        sortType: songService.sortType.value,
                         onTap: (songId) {
                           log.i(
                               'Navigating to song ${NavigationHelper.songsPath}/$songId');

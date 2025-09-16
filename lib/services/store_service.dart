@@ -12,10 +12,15 @@ class MusStoreService extends StoreService {
   MusStoreService(this.box);
 
   @override
-  double get fontSize => box.get('font_size', defaultValue: 20.0);
+  double get fontSize => box.get('font_size', defaultValue: 18.0);
+
+  double get fontScale => fontSize / 18.0;
 
   @override
-  Future<void> setFontSize(double value) => box.put('font_size', value);
+  Future<void> setFontSize(double value) {
+    box.put('font_size', value);
+    return Future.value();
+  }
 
   @override
   E? get<E>(String key) {

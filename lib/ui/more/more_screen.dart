@@ -9,53 +9,54 @@ class MoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('More'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.onPrimary,
-      ),
-      body: Column(
-        children: [
-          MoreItem(
-            title: 'About',
-            icon: Icons.info,
-            onTap: () {
-              NavigationHelper.router.go(
-                '${NavigationHelper.morePath}/${NavigationHelper.aboutPath}',
-              );
-            },
+        appBar: AppBar(
+          title: const Text('More'),
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              MoreItem(
+                title: 'About',
+                icon: Icons.info,
+                onTap: () {
+                  NavigationHelper.router.go(
+                    '${NavigationHelper.morePath}/${NavigationHelper.aboutPath}',
+                  );
+                },
+              ),
+              MoreItem(
+                title: 'Glossary',
+                icon: Symbols.book_3,
+                onTap: () {
+                  NavigationHelper.router.go(
+                    '${NavigationHelper.morePath}/${NavigationHelper.glossaryPath}',
+                  );
+                },
+              ),
+              MoreItem(
+                title: 'Mvskoke Alphabet',
+                icon: Symbols.abc,
+                onTap: () {
+                  NavigationHelper.router.go(
+                    '${NavigationHelper.morePath}/${NavigationHelper.alphabetPath}',
+                  );
+                },
+              ),
+              MoreItem(
+                title: 'Lord\'s Prayer',
+                icon: Symbols.folded_hands,
+                onTap: () {
+                  NavigationHelper.router.go(
+                    '${NavigationHelper.morePath}/${NavigationHelper.prayerPath}',
+                  );
+                },
+              )
+              // Add more options here
+            ],
           ),
-          MoreItem(
-            title: 'Glossary',
-            icon: Symbols.book_3,
-            onTap: () {
-              NavigationHelper.router.go(
-                '${NavigationHelper.morePath}/${NavigationHelper.glossaryPath}',
-              );
-            },
-          ),
-          MoreItem(
-            title: 'Mvskoke Alphabet',
-            icon: Symbols.abc,
-            onTap: () {
-              NavigationHelper.router.go(
-                '${NavigationHelper.morePath}/${NavigationHelper.alphabetPath}',
-              );
-            },
-          ),
-          MoreItem(
-            title: 'Lord\'s Prayer',
-            icon: Symbols.folded_hands,
-            onTap: () {
-              NavigationHelper.router.go(
-                '${NavigationHelper.morePath}/${NavigationHelper.prayerPath}',
-              );
-            },
-          )
-          // Add more options here
-        ],
-      ),
-    );
+        ));
   }
 }
 

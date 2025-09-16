@@ -60,6 +60,7 @@ void main() {
         home: Material(
           child: SongTile(
             song: song,
+            sortType: GetIt.I<MusSongManager>().sortType.value,
             subtitle: 'Test Subtitle',
             onTap: (String id) {
               tappedId = id;

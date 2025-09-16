@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mvskoke_hymnal/models/enums.dart';
-import 'package:mvskoke_hymnal/services/service_locator.dart';
-import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 
 const headerRegex =
@@ -14,6 +12,7 @@ class LyricsRenderer extends StatelessWidget {
   final Widget? header;
   final Widget? footer;
   final ScrollController? scrollController;
+  final double fontScale;
 
   const LyricsRenderer({
     super.key,
@@ -23,46 +22,42 @@ class LyricsRenderer extends StatelessWidget {
     this.header,
     this.footer,
     this.scrollController,
+    required this.fontScale,
   });
 
   @override
   Widget build(BuildContext context) {
     final musStyle = Theme.of(context).textTheme.bodyMedium!.copyWith(
           fontWeight: FontWeight.w500,
-          fontSize: sl<MusStoreService>().fontSize * 0.75,
+          fontSize: 18.0 * fontScale,
         );
     final enStyle = Theme.of(context).textTheme.bodyMedium!.copyWith(
         fontWeight: FontWeight.normal,
         fontStyle: FontStyle.italic,
-        fontSize: sl<MusStoreService>().fontSize * 0.75,
+        fontSize: 18.0 * fontScale,
         color: Colors.black54);
     final headerStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontWeight: FontWeight.bold,
-          fontSize: sl<MusStoreService>().fontSize * 0.75,
           color: Theme.of(context).colorScheme.primary,
+          fontSize: 20.0 * fontScale,
         );
 
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints viewportConstraints) {
       return SingleChildScrollView(
           controller: scrollController,
-          child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: viewportConstraints.maxHeight,
-                minWidth: viewportConstraints.maxWidth,
-              ),
-              child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    header != null ? header! : Container(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: getLyrics(musStyle, enStyle, headerStyle),
-                    ),
-                    footer != null ? footer! : Container(),
-                  ])));
+          child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                header != null ? header! : Container(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: getLyrics(musStyle, enStyle, headerStyle),
+                ),
+                footer != null ? footer! : Container(),
+              ]));
     });
   }
 
@@ -89,7 +84,8 @@ class LyricsRenderer extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("${line.text}.", style: headerStyle),
+            Text("${line.text}.",
+                style: headerStyle.copyWith(fontSize: musStyle.fontSize)),
             SizedBox(
               width: leadingMargin - headerStyle.fontSize! + 2,
             ),

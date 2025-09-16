@@ -186,8 +186,8 @@ class TextSizeWidgetState extends State<TextSizeWidget> {
               });
               widget.onChangeFontSize?.call(value);
             },
-            min: 16,
-            max: 42,
+            min: 14,
+            max: 32,
             divisions: 10,
           ),
         ),

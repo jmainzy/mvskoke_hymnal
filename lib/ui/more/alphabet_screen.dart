@@ -6,8 +6,18 @@ import 'package:mvskoke_hymnal/utilities/dimens.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Displays a formatted block of text
-class AlphabetScreen extends StatelessWidget {
+class AlphabetScreen extends StatefulWidget {
   const AlphabetScreen({super.key});
+
+  @override
+  State<AlphabetScreen> createState() => _AlphabetScreenState();
+}
+
+class _AlphabetScreenState extends State<AlphabetScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +27,7 @@ class AlphabetScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
           child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(Dimens.marginLarge),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -52,7 +62,9 @@ class AlphabetScreen extends StatelessWidget {
                       SizedBox(
                         width: Dimens.marginShort,
                       ),
-                      Text('\nAlphabet reading by Linda Sulpher Bear:'),
+                      Expanded(
+                          child: Text(
+                              '\nAlphabet reading by Linda Sulpher Bear:')),
                     ]),
                     MiniAudioWidget(
                         mediaItem: MediaItem(

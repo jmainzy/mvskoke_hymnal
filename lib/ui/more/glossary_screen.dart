@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvskoke_hymnal/managers/glossary_manager.dart';
 import 'package:mvskoke_hymnal/services/service_locator.dart';
+import 'package:mvskoke_hymnal/utilities/dimens.dart';
 
 class GlossaryScreen extends StatelessWidget {
   const GlossaryScreen({super.key});
@@ -12,19 +13,17 @@ class GlossaryScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Glossary'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: terms.length,
-          itemBuilder: (context, index) {
-            String key = terms.keys.elementAt(index);
-            final definition = terms[key]!;
-            return GlossaryItem(
-              key,
-              definition,
-            );
-          },
-        ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(Dimens.marginLarge),
+        itemCount: terms.length,
+        itemBuilder: (context, index) {
+          String key = terms.keys.elementAt(index);
+          final definition = terms[key]!;
+          return GlossaryItem(
+            key,
+            definition,
+          );
+        },
       ),
     );
   }
@@ -48,14 +47,16 @@ class GlossaryItem extends StatelessWidget {
         Expanded(
           child: Text(
             term,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
           ),
         ),
         const SizedBox(width: 8),
         Expanded(
           child: Text(
             definition,
-            style: const TextStyle(fontSize: 16),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],

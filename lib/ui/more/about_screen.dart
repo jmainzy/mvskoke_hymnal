@@ -38,44 +38,46 @@ class AboutScreenState extends State<AboutScreen> {
         title: const Text('About'),
       ),
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: const Padding(
-        padding: EdgeInsets.all(Dimens.marginLarge),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HeaderText(
-                'Mvskoke Nak-cokv Esyvhiketv',
-              ),
-              BodyText(
-                'Paraphrase Translation',
-                lineHeight: 2,
-              ),
-              BodyText(
-                '''
+      body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.marginLarge),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: Dimens.marginLarge,
+                ),
+                HeaderText(
+                  'Mvskoke Nak-cokv Esyvhiketv',
+                ),
+                BodyText(
+                  'Paraphrase Translation',
+                  lineHeight: 2,
+                ),
+                BodyText(
+                  '''
 Published by
 Wiyo Publishing Company
 11520 N. Harrison, Shawnee Ok. 74804
 Copyright © 2012 Wiyo Publishing Company
 All rights reserved''',
-                lineHeight: 1.5,
-              ),
-              Image(
-                  image: AssetImage('assets/images/wiyo_publishing.jpg'),
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.cover),
-              HeaderText('Contact'),
-              BodyText("Developed by Nativeware Solutions"),
-              BodyText("For support or feedback, contact:"),
-              Link(
-                text: "nativeware.solutions@gmail.com",
-                url: "mailto:nativeware.solutions@gmail.com",
-              )
-            ],
-          ),
-        ),
-      ),
+                  lineHeight: 1.5,
+                ),
+                Image(
+                    image: AssetImage('assets/images/wiyo_publishing.jpg'),
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover),
+                HeaderText('Contact'),
+                BodyText("Developed by Nativeware Solutions"),
+                BodyText("For support or feedback, contact:"),
+                Link(
+                  text: "nativeware.solutions@gmail.com",
+                  url: "mailto:nativeware.solutions@gmail.com",
+                )
+              ],
+            ),
+          )),
     );
   }
 

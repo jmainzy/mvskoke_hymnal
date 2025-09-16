@@ -144,4 +144,8 @@ class MockStoreService implements MusStoreService {
   Future<void> setLastModified(DateTime dateTime) {
     return Future.value();
   }
+
+  @override
+  // TODO: implement fontScale
+  double get fontScale => 1.2;
 }

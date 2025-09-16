@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:mvskoke_hymnal/models/song_model.dart';
 import 'package:mvskoke_hymnal/services/navigation_helper.dart';
-import 'package:mvskoke_hymnal/services/service_locator.dart';
-import 'package:mvskoke_hymnal/services/store_service.dart';
 import 'package:mvskoke_hymnal/utilities/dimens.dart';
 
 Logger log = Logger();
@@ -11,11 +9,13 @@ Logger log = Logger();
 class SongHeader extends StatelessWidget {
   final SongModel? currentSong;
   final Function(String) addToPlaylist;
+  final double fontScale;
 
   const SongHeader({
     super.key,
     required this.currentSong,
     required this.addToPlaylist,
+    required this.fontScale,
   });
 
   String? getTags() {
@@ -35,11 +35,10 @@ class SongHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double fontScale = sl<MusStoreService>().fontSize / 18;
     TextStyle labelStyle = Theme.of(context).textTheme.displayMedium!.copyWith(
-        color: Colors.black54,
-        fontSize:
-            Theme.of(context).textTheme.labelMedium!.fontSize! * fontScale);
+          color: Colors.black54,
+          fontSize: 18.0 * fontScale,
+        );
     final tags = getTags();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: Dimens.marginLarge),
@@ -54,9 +53,7 @@ class SongHeader extends StatelessWidget {
                 child: Text(
                   currentSong!.title,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        fontSize:
-                            Theme.of(context).textTheme.titleLarge!.fontSize! *
-                                fontScale,
+                        fontSize: 22.0 * fontScale,
                       ),
                 ),
               ),
@@ -64,14 +61,10 @@ class SongHeader extends StatelessWidget {
             ],
           ),
           currentSong!.titleEn != null && currentSong!.titleMus != null
-              ? Text(
-                  currentSong!.titleEn!,
+              ? Text(currentSong!.titleEn!,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        fontSize:
-                            Theme.of(context).textTheme.titleSmall!.fontSize! *
-                                fontScale,
-                      ),
-                )
+                        fontSize: 18.0 * fontScale,
+                      ))
               : Container(),
           tags != null
               ? Padding(
