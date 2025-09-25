@@ -31,10 +31,7 @@ class PlaylistsList extends StatelessWidget {
               ),
               Text(
                 playlist.songs.length.toString(),
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ],
           ),

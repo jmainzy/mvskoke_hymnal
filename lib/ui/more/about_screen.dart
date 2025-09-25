@@ -23,7 +23,7 @@ class AboutScreenState extends State<AboutScreen> {
     super.initState();
   }
 
-  _getVersionInfo() async {
+  Future<void> _getVersionInfo() async {
     final info = await PackageInfo.fromPlatform();
     setState(() {
       packageInfo = info;

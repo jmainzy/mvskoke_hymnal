@@ -32,24 +32,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
       ),
       body: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                PlaylistsList(playlists: playlists),
-                const SizedBox(height: 20),
-                // const Text(
-                //   'Playlists shared with you',
-                //   style: TextStyle(
-                //     fontSize: 20,
-                //     color: Colors.green,
-                //   ),
-                // ),
-                // PlaylistsList(playlists: shareAcceptedPlaylists),
-                // SizedBox(height: 20),
-              ],
-            ),
-          ),
+          SingleChildScrollView(child: PlaylistsList(playlists: playlists)),
           if (_fetchingSharedPlaylist)
             Container(
               color: Colors.black54,

@@ -22,7 +22,7 @@ class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
     });
   }
 
-  _sort() {
+  void _sort() {
     // default is sort songs by song number
     var songs = List<SongModel>.from(filteredResult.value);
     if (sortType.value == SortType.englishTitle) {
@@ -47,7 +47,7 @@ class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
     sortedSongs.value = songs;
   }
 
-  setSortType(SortType type) {
+  void setSortType(SortType type) {
     sortType.value = type;
     _sort();
   }

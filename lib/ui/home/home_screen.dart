@@ -264,11 +264,11 @@ class FilterBar extends StatelessWidget {
     super.key,
   });
 
-  setSorting(SortType type) {
+  void setSorting(SortType type) {
     sl<MusSongManager>().setSortType(type);
   }
 
-  showBottomSheet(BuildContext context) {
+  void showBottomSheet(BuildContext context) {
     final currentSortType =
         sl<MusSongManager>().sortType.value; // Get the current sort type
     showModalBottomSheet(

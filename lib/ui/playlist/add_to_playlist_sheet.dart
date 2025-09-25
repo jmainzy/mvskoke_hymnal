@@ -34,7 +34,7 @@ class _AddToPlaylistBottomSheetState extends State<AddToPlaylistSheet> {
     selectedPlaylist.addAll(playlistManager.getSongPlaylists(widget.songId));
   }
 
-  fetch() async {
+  Future<void> fetch() async {
     // get playlists
     await playlistManager.fetchPlaylists();
     playlists = playlistManager.playlists.value;

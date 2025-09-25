@@ -175,7 +175,7 @@ class MetadataSerializer extends Serializer<SongModel> {
     }
   }
 
-  _parseList(Map<String, dynamic> map, String key) {
+  List<String> _parseList(Map<String, dynamic> map, String key) {
     if (map.containsKey(key) && map[key] != null && map[key].isNotEmpty) {
       if (map[key] is String) {
         // strip [] if present
