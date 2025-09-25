@@ -106,6 +106,7 @@ class BottomActionBarState extends State<BottomActionBar> {
                   disabledColor: Colors.grey,
                   icon: Icon(
                     Icons.play_arrow,
+                    size: Dimens.playButtonSize,
                   )),
           SizedBox(
               width: 100,
@@ -170,7 +171,7 @@ class PlayButton extends StatelessWidget {
             );
           case ButtonState.paused:
             return IconButton(
-              icon: const Icon(Icons.play_arrow),
+              icon: const Icon(Icons.play_arrow, size: Dimens.playButtonSize),
               onPressed: pageManager.play,
             );
           case ButtonState.playing:

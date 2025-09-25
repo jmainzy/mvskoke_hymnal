@@ -15,10 +15,16 @@ class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
   final sortedSongs = ValueNotifier<List<SongModel>>([]);
   final sortType = ValueNotifier<SortType>(SortType.songNumber);
 
+  // list of song IDs that have audio
+  final audioList = ValueNotifier<Set<String>>({});
+
   MusSongManager({required super.songsService, required super.languageConfig}) {
     filteredResult.addListener(() {
       sortedSongs.value = filteredResult.value;
       _sort();
+    });
+    mediaItemsNotifier.addListener(() {
+      audioList.value = mediaItemsNotifier.value.map((item) => item.songId).toList().toSet();
     });
   }
 
@@ -51,4 +57,5 @@ class MusSongManager extends SongManager<SongModel, SongDetails, MediaItem> {
     sortType.value = type;
     _sort();
   }
+
 }

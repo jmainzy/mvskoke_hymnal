@@ -125,7 +125,7 @@ class HomeContent extends WatchingStatefulWidget {
 class HomeContentState extends State<HomeContent> {
   HomeContentState();
 
-  final songService = sl<MusSongManager>();
+  final songManager = sl<MusSongManager>();
   final SearchController controller = SearchController();
   var isSearching = false;
 
@@ -139,7 +139,7 @@ class HomeContentState extends State<HomeContent> {
   }
 
   void search(String searchString) {
-    songService.filterSongs(searchString);
+    songManager.filterSongs(searchString);
     setState(() {
       isSearching = searchString.isNotEmpty;
     });
@@ -202,7 +202,7 @@ class HomeContentState extends State<HomeContent> {
             BuildContext context,
             SearchController controller,
           ) {
-            return songService.getSuggestions(controller.text).map((song) {
+            return this.songManager.getSuggestions(controller.text).map((song) {
               return ListTile(
                 title: Text(song.title),
                 onTap: () {
@@ -223,8 +223,9 @@ class HomeContentState extends State<HomeContent> {
                     return InkWell(
                       child: SongTile(
                         song: song,
+                        hasAudio: songManager.audioList.value.contains(song.id),
                         subtitle: "subtitle",
-                        sortType: songService.sortType.value,
+                        sortType: songManager.sortType.value,
                         onTap: (songId) {
                           log.i(
                               'Navigating to song ${NavigationHelper.songsPath}/$songId');

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
@@ -10,7 +11,10 @@ import 'services/service_locator.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   WidgetsFlutterBinding.ensureInitialized();
-  setWindowTitle("Nak-cokv Esyvhiketv");
+  // if platform is macOS
+  if (Platform.isMacOS) {
+    setWindowTitle("Nak-cokv Esyvhiketv");
+  }
 
   usePathUrlStrategy();
 

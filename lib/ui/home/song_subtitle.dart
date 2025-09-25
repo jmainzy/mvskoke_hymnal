@@ -38,25 +38,16 @@ class SongSubtitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         subtitle != null && subtitle.isNotEmpty && subtitle != title
-            ? Row(
-                children: [
-                  Text(
-                    subtitle,
-                    style: style,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  )
-                ],
+            ? Text(
+                subtitle,
+                style: style,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               )
             : song.firstLine != null
                 ? Text(
                     song.firstLine!,
-                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          fontStyle: FontStyle.italic,
-                          color: Colors.black54,
-                          fontSize:
-                              Theme.of(context).textTheme.bodySmall!.fontSize,
-                        ),
+                    style: style.copyWith(fontStyle: FontStyle.italic),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   )
