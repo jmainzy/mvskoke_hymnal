@@ -202,7 +202,7 @@ class HomeContentState extends State<HomeContent> {
             BuildContext context,
             SearchController controller,
           ) {
-            return this.songManager.getSuggestions(controller.text).map((song) {
+            return songManager.getSuggestions(controller.text).map((song) {
               return ListTile(
                 title: Text(song.title),
                 onTap: () {

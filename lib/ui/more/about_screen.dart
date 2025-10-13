@@ -58,7 +58,8 @@ class AboutScreenState extends State<AboutScreen> {
                   '''
 Published by
 Wiyo Publishing Company
-11520 N. Harrison, Shawnee Ok. 74804
+29465 S 186 Rd
+Henryetta, OK 74437
 Copyright © 2012 Wiyo Publishing Company
 All rights reserved''',
                   lineHeight: 1.5,

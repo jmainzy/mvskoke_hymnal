@@ -78,20 +78,22 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget> {
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              IconButton(
-                                onPressed: _openAudioSelector,
-                                icon: const Icon(Icons.expand_less_rounded),
-                              ),
-                              ConstrainedBox(
-                                constraints: BoxConstraints(
-                                  maxWidth:
-                                      MediaQuery.sizeOf(context).width / 1.6,
-                                ),
+                              widget.mediaItems.length > 1
+                                  ? IconButton(
+                                      onPressed: _openAudioSelector,
+                                      icon:
+                                          const Icon(Icons.expand_less_rounded),
+                                    )
+                                  : SizedBox(
+                                      width: 36,
+                                    ),
+                              Expanded(
                                 child: _PlayerTitle(
                                   title: currentMedia.title ?? '',
-                                  subtitle: currentMedia.performer,
+                                  performer: currentMedia.performer,
+                                  album: currentMedia.copyright,
                                 ),
                               ),
                               // if (filename != null)
@@ -194,54 +196,68 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget> {
 
 class _PlayerTitle extends StatelessWidget {
   final String title;
-  final String? subtitle;
-  const _PlayerTitle({required this.title, this.subtitle});
+  final String? performer;
+  final String? album;
+
+  const _PlayerTitle({required this.title, this.performer, this.album});
 
   @override
   Widget build(BuildContext context) {
+    TextStyle subtitleStyle = Theme.of(context).textTheme.bodyMedium!.copyWith(
+        color: Theme.of(context).colorScheme.onSurface.withAlpha(150),
+        fontWeight: FontWeight.w400);
     return Padding(
-      padding: const EdgeInsets.only(top: Dimens.marginShort),
+      padding: const EdgeInsets.symmetric(vertical: Dimens.marginShort),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          AutoSizeText(
-            title,
-            maxLines: 1,
+          _AutoMarquee(
+            text: title,
             style: Theme.of(context)
                 .textTheme
                 .titleSmall!
-                .copyWith(color: Colors.black87, fontWeight: FontWeight.w400),
-            textAlign: TextAlign.start,
-            overflowReplacement: SizedBox(
-              height: 50,
-              child: Marquee(
-                text: title,
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: Colors.black87, fontWeight: FontWeight.w400),
-                scrollAxis: Axis.horizontal,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                blankSpace: Dimens.marginLarge * 2,
-                pauseAfterRound: const Duration(seconds: 1),
-                startPadding: Dimens.marginShort,
-              ),
-            ),
+                .copyWith(fontWeight: FontWeight.w400),
           ),
-          subtitle != null
-              ? AutoSizeText(
-                  subtitle!,
-                  maxLines: 1,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        fontFamily: 'Noto',
-                        color: Theme.of(
-                          context,
-                        ).textTheme.bodySmall!.color!.withAlpha(120),
-                      ),
-                )
-              : Container(),
+          if (performer != null)
+            _AutoMarquee(
+              text: performer!,
+              style: subtitleStyle,
+            ),
+          if (album != null) _AutoMarquee(text: album!, style: subtitleStyle),
         ],
       ),
     );
+  }
+}
+
+class _AutoMarquee extends StatelessWidget {
+  final String text;
+  final TextStyle? style;
+
+  const _AutoMarquee({required this.text, this.style});
+
+  @override
+  Widget build(BuildContext context) {
+    return AutoSizeText(text,
+        maxLines: 1,
+        minFontSize: 13,
+        style: style,
+        overflowReplacement: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: style != null ? style!.fontSize! + 5 : 30,
+          ),
+          child: Center(
+            child: Marquee(
+              text: text,
+              style: style!,
+              scrollAxis: Axis.horizontal,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              blankSpace: Dimens.marginLarge * 2,
+              pauseAfterRound: const Duration(seconds: 2),
+              // startPadding: Dimens.marginShort,
+            ),
+          ),
+        ));
   }
 }
 

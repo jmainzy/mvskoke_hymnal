@@ -52,13 +52,15 @@ class _MediaSelectorWidgetState extends State<MediaSelectorWidget> {
                 widget.onSelect!(widget.mediaItems[index]),
             },
             minVerticalPadding: Dimens.marginShort * 2,
+            leading:
+                Text('${index + 1}', style: selected ? boldText : bodyStyle),
             title: Text(
               widget.mediaItems[index].title ?? '',
               style: selected ? boldText : bodyStyle,
             ),
             subtitle: _Subtitle(
               producer: widget.mediaItems[index].performer ?? '',
-              album: '',
+              album: widget.mediaItems[index].copyright,
               selected: selected,
             ),
           );
@@ -81,7 +83,7 @@ class _Subtitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final subtitleStyle = Theme.of(context).textTheme.bodySmall!.copyWith(
-          color: Theme.of(context).textTheme.titleSmall!.color!.withAlpha(200),
+          color: Theme.of(context).textTheme.titleSmall!.color!.withAlpha(180),
           fontFamily: 'Noto',
           fontSize: 16,
         );
@@ -91,17 +93,19 @@ class _Subtitle extends StatelessWidget {
       children: [
         AutoSizeText(
           producer,
-          maxLines: 1,
+          maxLines: 2,
           style: selected
               ? subtitleStyle.copyWith(fontWeight: FontWeight.bold)
               : subtitleStyle,
         ),
-        album != null
+        album != null && album!.isNotEmpty
             ? Text(
                 album!,
                 style: selected
-                    ? subtitleStyle.copyWith(fontWeight: FontWeight.bold)
-                    : subtitleStyle,
+                    ? subtitleStyle
+                        .copyWith(fontWeight: FontWeight.bold)
+                        .copyWith(fontStyle: FontStyle.italic)
+                    : subtitleStyle.copyWith(fontStyle: FontStyle.italic),
               )
             : Container(),
       ],
